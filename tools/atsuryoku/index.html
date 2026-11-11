@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>圧力の換算|hPa・気圧・psi | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/atsuryoku/">
+<meta name="description" content="圧力の換算ツール。Pa・hPa・kPa・MPa・気圧・mmHg・kgf/cm²・psi・barを相互に換算します。1気圧は1013.25hPa、タイヤの230kPaは約33.4psi・約2.35kgf/cm²です。">
+<link rel="stylesheet" href="../../assets/style.css">
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"圧力の換算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/atsuryoku/"}]}</script>
+</head><body>
+<header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 圧力の換算</nav></header>
+<main><h1>圧力の換算(hPa・気圧・psi)</h1><p>量と単位を入れると、ほかの圧力の単位に換算した値を表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
+<section class="card" aria-labelledby="settings"><h2 id="settings">量と単位を入力</h2>
+<div class="row"><label for="amount">量</label><input id="amount" class="amt" type="text" inputmode="decimal" value="1"></div>
+<div class="row"><label for="unit">入力する単位</label><select id="unit" style="min-width:0;width:100%"><option value="pa">Pa</option><option value="hpa">hPa</option><option value="kpa">kPa</option><option value="mpa">MPa</option><option value="atm" selected>気圧(atm)</option><option value="mmhg">mmHg</option><option value="kgf">kgf/cm²</option><option value="psi">psi</option><option value="bar">bar</option></select></div><div class="row"><label for="digits">表示の小数桁</label><select id="digits"><option value="0">小数0桁</option><option value="1">小数1桁</option><option value="2" selected>小数2桁</option><option value="3">小数3桁</option><option value="4">小数4桁</option><option value="5">小数5桁</option><option value="6">小数6桁</option></select></div>
+<p class="note">量は0〜10億、小数3桁まで。全角数字・3桁区切りのカンマに対応します。表示時に四捨五入し、末尾の0は省きます。</p>
+<div id="result" class="result" aria-live="polite" aria-atomic="true" style="overflow-wrap:anywhere"></div>
+<p>式: 換算後の量 = 入力した量 × 入力単位のPa換算係数 ÷ 出力単位のPa換算係数。1atm = 101325Pa、1mmHg = 101325/760 Pa、1kgf/cm² = 98066.5Pa、1psi = 6894.757293168Pa、1bar = 100000Paです。</p>
+<p class="note">車の指定空気圧は車の表示に従ってください。単位の換算ではゲージ圧と絶対圧の基準の違いは変わりません。</p></section>
+<p>くわしい説明: <a href="../../guides/atsuryoku.html">hPa・mmHg・タイヤの空気圧の読み方</a></p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../inch/">インチ・フィート・ポンドの換算</a> — インチ・フィート・マイル・ポンド・オンスとcm・kgを換算。テレビの型の大きさも</li>
+<li><a href="../ondo/">温度の換算(摂氏・華氏)</a> — ℃と℉とケルビンを換算。体温・料理・天気の例も</li>
+<li><a href="../youseki/">容量の換算(L・ガロン・オンス)</a> — L・mL・立方m・米ガロン・英ガロン・液量オンスを相互に換算</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
+<script type="module">
+import { convertPressure, LABELS } from './atsuryoku.js';
+const $ = id => document.getElementById(id);
+function update() {
+ try {
+  const unit = $('unit').value;
+  const values = convertPressure($('amount').value, unit, Number($('digits').value));
+  $('result').textContent = '結果: ' + Object.entries(values).filter(([key]) => key !== unit).map(([key, value]) => value + LABELS[key]).join(' / ');
+  $('result').classList.remove('err');
+ } catch (error) { $('result').textContent = error.message; $('result').classList.add('err'); }
+}
+$('amount').addEventListener('input', update);
+document.querySelectorAll('select').forEach(e => e.addEventListener('change', update));
+update();
+</script></body></html>
