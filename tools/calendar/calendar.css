@@ -1,0 +1,34 @@
+#calendars { display: grid; gap: 16px; }
+.month-card { min-width: 0; }
+.month-card h2 { font-size: 1.1rem; }
+.month-card table { table-layout: fixed; }
+.month-card th, .month-card td { padding: 4px; text-align: center; overflow-wrap: anywhere; }
+.month-card td { height: 72px; vertical-align: top; }
+.month-card small { display: block; font-size: .65em; line-height: 1.3; }
+.sun { color: #c52c39; }
+.sat { color: #2367ba; }
+@media (prefers-color-scheme: dark) { .sun { color: #ff8c96; } .sat { color: #8dbbff; } }
+@media (min-width: 900px) {
+  body.annual main { max-width: 1200px; }
+  .annual #calendars { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@page { size: A4 portrait; margin: 10mm; }
+@page annual { size: A4 landscape; margin: 8mm; }
+@media print {
+  body { background: white; color: black; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  header, footer, main > h1, .intro, .controls, .related, .note, .guide, #result, #holidays { display: none !important; }
+  main, body.annual main { max-width: none; padding: 0; margin: 0; }
+  .month-card { break-inside: avoid; }
+  .month-card h2 { margin: 0 0 3mm; color: black; border: 0; padding: 0; }
+  .month-card td { height: 32mm; }
+  .month-card th { background: #eee; }
+  .month-card th, .month-card td { border-color: #aaa; }
+  .sun { color: #c52c39; } .sat { color: #2367ba; }
+  .annual { page: annual; }
+  .annual #calendars { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 3mm; }
+  .annual .month-card h2 { font-size: 9pt; margin-bottom: 1mm; }
+  .annual .month-card table { font-size: 8pt; line-height: 1.2; }
+  .annual .month-card td { height: 6.5mm; }
+  .annual .month-card th, .annual .month-card td { padding: .4mm; }
+  .annual .month-card small { font-size: 5pt; }
+}

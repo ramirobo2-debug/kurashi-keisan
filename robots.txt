@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ramirobo2-debug.github.io/kurashi-keisan/sitemap.xml

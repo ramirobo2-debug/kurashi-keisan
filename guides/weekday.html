@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>曜日・その年の何日目かの調べ方 | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/guides/weekday.html">
+<meta name="description" content="西暦・和暦で曜日を調べる方法と、うるう年の日数、改元の境目、祝日判定の対応範囲、同じカレンダーになる年などのよくある質問をまとめました。">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"◯年◯月◯日は何曜日","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/weekday/"},{"@type":"ListItem","position":3,"name":"解説","item":"https://ramirobo2-debug.github.io/kurashi-keisan/guides/weekday.html"}]}</script>
+</head>
+<body>
+<header>
+  <a class="site" href="../">くらしの計算室</a>
+  <nav class="crumb"><a href="../">トップ</a> › <a href="../tools/weekday/">◯年◯月◯日は何曜日</a> › 解説</nav>
+</header>
+<main>
+<h1>曜日・その年の何日目かの調べ方</h1>
+<p><a href="../tools/weekday/">曜日を調べるツール</a>に、西暦または和暦で年月日を入れてください。入力に合わせて、曜日、その年の何日目か、祝日名を表示します。</p>
+<h2>和暦で入力するとき</h2>
+<p>令和・平成・昭和・大正・明治から元号を選び、元年は「1」と入れます。改元の日付も判定します。平成31年4月30日は火曜日、令和元年5月1日は水曜日です。「平成31年5月1日」のように、その元号に存在しない日付は計算しません。</p>
+<h2>その年の何日目か</h2>
+<p>1月1日を1日目として数えます。通常の年の12月31日は365日目、うるう年なら366日目です。2024年2月29日は60日目、3月1日は61日目になります。</p>
+<p>うるう年は西暦が4で割り切れる年です。ただし100で割り切れる年は除き、400で割り切れる年はうるう年になります。2000年はうるう年ですが、1900年と2100年は違います。曜日と日数は日付だけで計算するため、端末の時計の設定(タイムゾーンや夏時間)によってずれることはありません。</p>
+<h2>祝日名の表示</h2>
+<p><a href="../tools/days/">日数・営業日の計算</a>と同じ祝日のデータを使い、2000〜2099年の日本の祝日・振替休日・国民の休日を表示します。2019〜2021年の特例にも対応しています。この範囲内で該当する祝日がない場合は「祝日ではありません」、範囲外では「祝日判定の対象外」と表示します。</p>
+<p>春分・秋分の日は計算式による予測です。正式な日付は前年の2月に官報で公表されます。今後の祝日法の改正などは反映されない場合があります。</p>
+<h2>日付の対応範囲</h2>
+<p>1873年(明治6年)1月1日から9999年12月31日までのグレゴリオ暦に対応しています。日本で旧暦が使われていた1872年以前の日付は対象外です。</p>
+<h2>よくある質問</h2>
+<h3>来年の1月1日は何曜日ですか</h3>
+<p>2026年1月1日は木曜日、2027年1月1日は金曜日、2028年1月1日は土曜日です。通常の年は翌年の同じ日付で曜日が1つ、うるう年の2月29日をはさむと2つ進みます。</p>
+<h3>同じカレンダーが使える年はありますか</h3>
+<p>1月1日の曜日と、うるう年かどうかが同じ年は、日付と曜日の並びが同じになります(祝日は除きます)。たとえば2026年は2015年・2037年と、2027年は2021年・2038年と同じ並びです。</p>
+<h3>13日の金曜日はいつですか</h3>
+<p>2026年は2月・3月・11月、2027年は8月、2028年は10月です。ほかの年も、ツールに13日の日付を入れると曜日を確かめられます。</p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../tools/days/">日数・営業日の計算</a> — ◯日後・期間の日数・土日祝を除く営業日</li>
+<li><a href="../tools/wareki/">和暦・西暦の変換と年齢の計算</a> — 令和・平成・昭和などと西暦を変換し、満年齢も表示</li>
+<li><a href="../tools/school/">入学・卒業年の早見表</a> — 生年月日から小学校〜大学の入学年・卒業年</li>
+</ul>
+</section>
+<!-- related:end -->
+</main>
+<footer><p><a href="../">トップ</a> ・ <a href="../privacy.html">プライバシーポリシー</a></p></footer>
+</body>
+</html>

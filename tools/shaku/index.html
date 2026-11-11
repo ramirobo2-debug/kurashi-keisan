@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>尺貫法の換算|尺・寸・間とcm・m | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/shaku/">
+<meta name="description" content="尺・寸・分・間・丈・鯨尺とmm・cm・mを相互に換算する無料ツール。1尺は約30.3cm、1寸は約3.03cm、1間は約181.82cm。曲尺と鯨尺の両方に対応し、表示の桁を選べます。">
+<link rel="stylesheet" href="../../assets/style.css">
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"尺貫法の換算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/shaku/"}]}</script>
+</head>
+<body>
+<header>
+<a class="site" href="../../">くらしの計算室</a>
+<nav class="crumb"><a href="../../">トップ</a> › 尺貫法の換算</nav>
+</header>
+<main>
+<h1>尺貫法の換算</h1>
+<p>尺・寸・間などとcm・mを相互に換算します。入力した内容は、お使いの端末の中だけで計算し、どこにも送信しません。</p>
+<section class="card" aria-labelledby="settings">
+<h2 id="settings">長さと単位を入力</h2>
+<div class="row"><label for="amount">長さ</label><input id="amount" class="amt" type="text" inputmode="decimal" value="100" autocomplete="off"></div>
+<div class="row"><label for="unit">入力する単位</label><select id="unit"><option value="cm">cm</option><option value="m">m</option><option value="mm">mm</option><option value="shaku">尺(曲尺)</option><option value="sun">寸</option><option value="bu">分</option><option value="ken">間</option><option value="jo">丈</option><option value="kujira">鯨尺の尺</option></select></div><div class="row"><label for="digits">結果の表示</label><select id="digits"><option value="0">整数</option><option value="1">小数第1位まで</option><option value="2" selected>小数第2位まで</option><option value="3">小数第3位まで</option><option value="4">小数第4位まで</option><option value="5">小数第5位まで</option><option value="6">小数第6位まで</option><option value="7">小数第7位まで</option><option value="8">小数第8位まで</option><option value="9">小数第9位まで</option><option value="10">小数第10位まで</option><option value="11">小数第11位まで</option><option value="12">小数第12位まで</option></select></div>
+<p class="note">長さは0〜1兆、小数点以下12桁まで入力できます。カンマや指数表記は使えません。結果は選んだ桁で四捨五入し、末尾の不要な0は省きます。尺・寸・分・間・丈は曲尺の単位です。畳や建具の寸法は地域や製品によって異なります。実際の寸法も確認してください。</p>
+<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
+</section>
+<p>くわしい説明: <a href="../../guides/shaku.html">尺貫法の換算方法|1尺・1寸・1間は何cm</a></p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../keiryo/">大さじ・小さじ・カップ・合の換算</a> — 料理の計量と、合・升・mL・ccを相互に換算</li>
+<li><a href="../area/">坪・平米・畳の換算</a> — ㎡・坪・畳を、畳の種類を選んで換算</li>
+<li><a href="../percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
+</ul>
+</section>
+<!-- related:end -->
+</main>
+<footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
+<script type="module">
+import { calculateShaku } from "./shaku.js";
+const $ = (id) => document.getElementById(id);
+function update() {
+  try {
+    const r = calculateShaku($("amount").value, $("unit").value, Number($("digits").value));
+    $("result").textContent = `結果: ${r.mm}mm / ${r.cm}cm / ${r.m}m / ${r.bu}分 / ${r.sun}寸 / ${r.shaku}尺 / ${r.ken}間 / ${r.jo}丈 / ${r.kujira}鯨尺(尺)`;
+    $("result").classList.remove("err");
+  } catch (error) {
+    $("result").textContent = error.message;
+    $("result").classList.add("err");
+  }
+}
+document.querySelectorAll("input").forEach((element) => element.addEventListener("input", update));
+document.querySelectorAll("select").forEach((element) => element.addEventListener("change", update));
+update();
+</script>
+</body>
+</html>

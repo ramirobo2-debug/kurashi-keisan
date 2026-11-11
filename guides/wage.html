@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>時給・月給・年収の換算方法と式|賞与を含む年収 | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/guides/wage.html">
+<meta name="description" content="時給から月給・年収、年収から時給を求める式を、例つきで説明します。賞与の月数の入れ方、月の勤務日数の目安(週5日で約21.7日)、端数の扱いも確認できます。">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"時給・日給・月給・年収の換算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/wage/"},{"@type":"ListItem","position":3,"name":"解説","item":"https://ramirobo2-debug.github.io/kurashi-keisan/guides/wage.html"}]}</script>
+</head>
+<body>
+<header>
+  <a class="site" href="../">くらしの計算室</a>
+  <nav class="crumb"><a href="../">トップ</a> › <a href="../tools/wage/">時給・日給・月給・年収の換算</a> › 解説</nav>
+</header>
+<main>
+<h1>時給・月給・年収の換算方法と式|賞与を含む年収</h1>
+<p>すぐに計算したいときは、<a href="../tools/wage/">時給・日給・月給・年収の換算ツール</a>をお使いください。どれか1つの金額と、1日の勤務時間・月の勤務日数・賞与の月数を入れると、ほかの3つを式つきで表示します。</p>
+<h2>基本の式</h2>
+<ul>
+<li>日給 = 時給 × 1日の勤務時間</li>
+<li>月給 = 日給 × 月の勤務日数</li>
+<li>年収 = 月給 × (12 + 賞与の月数)</li>
+</ul>
+<p>逆向きは割り算です。年収 ÷ (12 + 賞与の月数) で月給、月給 ÷ 月の勤務日数 で日給、日給 ÷ 1日の勤務時間 で時給になります。ツールの式は、時給を1としたときの倍率で「金額 × 求める単位の倍率 ÷ 入力した単位の倍率」と表示します。例: 8時間・20日なら、月給の倍率は8 × 20 = 160です。</p>
+<h2>例</h2>
+<p>時給1,000円・1日8時間・月20日・賞与なしなら、日給8,000円、月給160,000円、年収1,920,000円です。賞与が年2か月なら、年収は160,000 × 14 = 2,240,000円です。</p>
+<p>時給1,200円・1日7.5時間・月20日なら、日給9,000円、月給180,000円、年収2,160,000円です。勤務時間と賞与の月数は、小数第2位まで入れられます。</p>
+<h2>端数の扱い</h2>
+<p>途中では丸めず、それぞれの結果の最後で円未満を切り捨てます。たとえば年収1,999円(8時間・20日・賞与なし)は、月給166円、日給8円、時給1円です。</p>
+<h2>よくある質問</h2>
+<h3>月の勤務日数は何日にすればよいですか</h3>
+<p>週5日勤務なら、1年365日 × 5 ÷ 7 ÷ 12 で月平均およそ21.7日です。祝日や会社の休日を除くと、月20日前後になることが多いので、勤務先のカレンダーで年間の勤務日数を確かめ、12で割った値を目安にしてください。ツールの日数は整数で入れます。</p>
+<h3>月給25万円・賞与4か月の年収と時給はいくらですか</h3>
+<p>年収は250,000 × (12 + 4) = 4,000,000円です。1日8時間・月20日で働く場合、時給は250,000 ÷ 160 = 1,562.5円で、円未満を切り捨てて1,562円です。</p>
+<h3>年収400万円は時給いくらですか</h3>
+<p>賞与の月数と勤務日数で変わります。賞与なし・1日8時間・月20日なら、4,000,000 ÷ (8 × 20 × 12) = 2,083円(円未満切り捨て)です。賞与4か月なら月給250,000円、時給1,562円になります。</p>
+<h3>手取りの金額も分かりますか</h3>
+<p>分かりません。このツールの結果は、税金や社会保険料を差し引く前の額面です。残業代・通勤手当などの手当も含みません。</p>
+<p class="note">計算結果は額面の目安です。</p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../tools/jikan/">時間の計算(勤務時間)</a> — 開始・終了の時刻と休憩から勤務時間を出し、1週間・1か月の合計も</li>
+<li><a href="../tools/tax/">消費税の計算</a> — 税込・税抜・消費税額。8%と10%の混在にも対応</li>
+<li><a href="../tools/percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
+<li><a href="../tools/days/">日数・営業日の計算</a> — ◯日後・期間の日数・土日祝を除く営業日</li>
+</ul>
+</section>
+<!-- related:end -->
+</main>
+<footer><p><a href="../">トップ</a> ・ <a href="../privacy.html">プライバシーポリシー</a></p></footer>
+</body>
+</html>

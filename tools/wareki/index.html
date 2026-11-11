@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>和暦・西暦の変換と年齢の計算(令和・平成・昭和・大正・明治)| くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/wareki/">
+<meta name="description" content="西暦と和暦(令和・平成・昭和・大正・明治)を日付まで変換し、満年齢・数え年・干支を計算する無料ツール。改元の年(平成31年と令和元年など)も正しく判定します。">
+<link rel="stylesheet" href="../../assets/style.css">
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"和暦・西暦の変換と年齢","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/wareki/"}]}</script>
+</head>
+<body>
+<header>
+  <a class="site" href="../../">くらしの計算室</a>
+  <nav class="crumb"><a href="../../">トップ</a> › 和暦・西暦の変換と年齢</nav>
+</header>
+<main>
+<h1>和暦・西暦の変換と年齢の計算</h1>
+<p>書類の生年月日欄などで使う、西暦と和暦の変換ツールです。日付まで入れると、改元の境目(平成31年4月30日 → 令和元年5月1日など)も正しく判定します。入力した内容は、お使いの端末の中だけで計算し、どこにも送信しません。</p>
+
+<section class="card" aria-labelledby="s1">
+  <h2 id="s1">西暦 → 和暦</h2>
+  <div class="row">
+    <span class="f"><input id="sy" class="y" type="number" inputmode="numeric" min="1873" max="2100" value="1990" aria-label="西暦の年"><label for="sy">年</label></span>
+    <span class="f"><input id="sm" type="number" inputmode="numeric" min="1" max="12" value="6" aria-label="月"><label for="sm">月</label></span>
+    <span class="f"><input id="sd" type="number" inputmode="numeric" min="1" max="31" value="15" aria-label="日"><label for="sd">日</label></span>
+  </div>
+  <div id="r1" class="result" aria-live="polite"></div>
+</section>
+
+<section class="card" aria-labelledby="s2">
+  <h2 id="s2">和暦 → 西暦</h2>
+  <div class="row">
+    <select id="we" aria-label="元号"><option>令和</option><option>平成</option><option selected>昭和</option><option>大正</option><option>明治</option></select>
+    <span class="f"><input id="wy" class="y" type="number" inputmode="numeric" min="1" value="50" aria-label="和暦の年"><label for="wy">年(元年は1)</label></span>
+    <span class="f"><input id="wm" type="number" inputmode="numeric" min="1" max="12" value="3" aria-label="月"><label for="wm">月</label></span>
+    <span class="f"><input id="wd" type="number" inputmode="numeric" min="1" max="31" value="15" aria-label="日"><label for="wd">日</label></span>
+  </div>
+  <div id="r2" class="result" aria-live="polite"></div>
+</section>
+
+<section class="card" aria-labelledby="s3">
+  <h2 id="s3">年齢の計算(満年齢・数え年・干支)</h2>
+  <div class="row"><label>生年月日(西暦)</label>
+    <span class="f"><input id="by" class="y" type="number" inputmode="numeric" value="1990" aria-label="生まれた年"><label for="by">年</label></span>
+    <span class="f"><input id="bm" type="number" inputmode="numeric" min="1" max="12" value="6" aria-label="生まれた月"><label for="bm">月</label></span>
+    <span class="f"><input id="bd" type="number" inputmode="numeric" min="1" max="31" value="15" aria-label="生まれた日"><label for="bd">日</label></span>
+  </div>
+  <div class="row"><label>基準日</label>
+    <span class="f"><input id="ry" class="y" type="number" inputmode="numeric" aria-label="基準日の年"><label for="ry">年</label></span>
+    <span class="f"><input id="rm" type="number" inputmode="numeric" min="1" max="12" aria-label="基準日の月"><label for="rm">月</label></span>
+    <span class="f"><input id="rd" type="number" inputmode="numeric" min="1" max="31" aria-label="基準日の日"><label for="rd">日</label></span>
+    <button id="today" type="button">今日にする</button>
+  </div>
+  <div id="r3" class="result" aria-live="polite"></div>
+</section>
+
+<section class="card" aria-labelledby="s4">
+  <h2 id="s4">早見表(西暦・和暦・干支)</h2>
+  <div class="table-wrap"><table id="hayami"><thead><tr><th>西暦</th><th>和暦</th><th>干支</th><th>満年齢</th></tr></thead><tbody></tbody></table></div>
+  <p class="note">満年齢は、今年の誕生日を過ぎたときの年齢です。誕生日の前なら1つ引いてください。</p>
+</section>
+
+<p>くわしい説明: <a href="../../guides/wareki.html">和暦と西暦の変換のしかた|改元の年・満年齢と数え年の違い</a></p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../birth-days/">生まれてから何日</a> — 生年月日から生まれて何日目・次の誕生日まで・1万日の記念日</li>
+<li><a href="../age-table/">年齢早見表</a> — 生まれ年ごとの和暦・干支・満年齢の一覧</li>
+<li><a href="../school/">入学・卒業年の早見表</a> — 生年月日から小学校〜大学の入学年・卒業年</li>
+<li><a href="../weekday/">◯年◯月◯日は何曜日</a> — 曜日・その年の何日目か・祝日名を表示</li>
+</ul>
+</section>
+<!-- related:end -->
+</main>
+<footer>
+  <p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p>
+  <p>計算結果は目安です。公的な手続きでは、提出先の案内も確認してください。</p>
+</footer>
+<script type="module">
+import { toWareki, toSeireki, yearToWareki, age, kazoe, eto } from "./wareki.js";
+const $ = (id) => document.getElementById(id);
+const n = (id) => { const v = $(id).value.trim(); return v === "" ? NaN : Number(v); };
+const show = (el, text, ok) => { el.textContent = text; el.classList.toggle("err", !ok); };
+
+function r1() {
+  const w = toWareki(n("sy"), n("sm"), n("sd"));
+  show($("r1"), w ? w.label : "1873年(明治6年)1月1日以降の、正しい日付を入れてください", !!w);
+}
+function r2() {
+  const s = toSeireki($("we").value, n("wy"), n("wm"), n("wd"));
+  show($("r2"), s ? `西暦${s[0]}年${s[1]}月${s[2]}日` : "その元号に、その日付はありません(改元の前後を確かめてください)", !!s);
+}
+function r3() {
+  const b = [n("by"), n("bm"), n("bd")], r = [n("ry"), n("rm"), n("rd")];
+  const a = age(b, r);
+  if (a === null) return show($("r3"), "生年月日(1873年以降)と基準日を、正しい日付で入れてください(基準日は生年月日より後)", false);
+  const w = toWareki(...b), e = eto(b[0]);
+  show($("r3"), `満${a}歳(数え年${kazoe(b[0], r[0])}歳)/ ${w ? w.label + "生まれ" : ""} / 干支: ${e.kanji}(${e.yomi})`, true);
+}
+function setToday() {
+  const t = new Date();
+  $("ry").value = t.getFullYear(); $("rm").value = t.getMonth() + 1; $("rd").value = t.getDate();
+  r3();
+}
+function hayami() {
+  const y0 = new Date().getFullYear(), tb = $("hayami").tBodies[0];
+  for (let y = y0; y >= 1926; y--) {
+    const tr = tb.insertRow(), e = eto(y);
+    [String(y), yearToWareki(y).join("\n"), `${e.kanji}(${e.yomi})`, `${y0 - y}歳`].forEach((v) => (tr.insertCell().textContent = v));
+  }
+}
+["sy", "sm", "sd"].forEach((id) => $(id).addEventListener("input", r1));
+["we", "wy", "wm", "wd"].forEach((id) => $(id).addEventListener("input", r2));
+["by", "bm", "bd", "ry", "rm", "rd"].forEach((id) => $(id).addEventListener("input", r3));
+$("today").addEventListener("click", setToday);
+r1(); r2(); setToday(); hayami();
+</script>
+</body>
+</html>

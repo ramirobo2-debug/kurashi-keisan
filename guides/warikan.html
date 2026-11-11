@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>割り勘の計算方法|端数の切り上げ・切り捨てと幹事の負担 | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/guides/warikan.html">
+<meta name="description" content="割り勘の端数を切り上げて余りを幹事が受け取る方法と、切り捨てて不足を幹事が払う方法を例で説明。多めに払う人がいるときの式も紹介します。">
+<link rel="stylesheet" href="../assets/style.css"><script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"割り勘の計算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/warikan/"},{"@type":"ListItem","position":3,"name":"解説","item":"https://ramirobo2-debug.github.io/kurashi-keisan/guides/warikan.html"}]}</script>
+</head><body>
+<header><a class="site" href="../">くらしの計算室</a><nav class="crumb"><a href="../">トップ</a> › <a href="../tools/warikan/">割り勘の計算</a> › 解説</nav></header>
+<main><h1>割り勘の計算方法と端数の扱い</h1>
+<p><a href="../tools/warikan/">割り勘の計算ツール</a>で、端数の単位と扱いを選んで1人あたりの額を出せます。このページでは端数の2つの扱い方と、多めに払う人がいるときの式を説明します。</p>
+<h2>切り上げ: 余りを幹事が受け取る</h2><p>合計金額 ÷ 人数を指定単位で切り上げます。10,000円を3人、100円単位なら1人3,400円。10,200円が集まり、余り200円を幹事が受け取ります。幹事も3,400円を出すため実質負担は3,200円です。7,000円を3人、1,000円単位なら3,000円ずつ、余り2,000円です。</p>
+<h2>切り捨て: 不足を幹事が補う</h2><p>合計金額 ÷ 人数を指定単位で切り捨て、不足分を幹事の通常額に加えます。10,000円を3人、100円単位なら通常3,300円。補填前は9,900円、不足100円です。2人が3,300円、幹事が3,400円を払い、明細の合計は10,000円です。10,000円を4人、1円単位なら2,500円ずつ、余りも不足もありません。</p>
+<h2>多めに払う人がいるとき</h2><p>通常の額 = (合計金額 − 追加額 × 多めに払う人数) ÷ 全員の人数を、指定単位で丸めます。多めの人の額 = 通常の額 + 追加額です。25,000円を5人、1人が2,000円多め、100円単位で切り上げると通常は(25,000 − 2,000) ÷ 5 = 4,600円、多めの人は6,600円。4,600 × 4 + 6,600 = 25,000円です。幹事は通常額の参加者とし、多めの人は幹事以外から選びます。追加額は丸めた通常額に足します。切り捨てでは幹事が不足を補うので、幹事の額が多めの人より大きくなることがあります。10,000円を3人、1,000円単位で切り捨て、1人が100円多めなら、通常3,000円・多めの人3,100円・幹事3,900円です。</p>
+<h2>入力できる値</h2><p>合計は1〜1億円の整数、人数は2〜100人。端数は1円・10円・100円(既定)・500円・1,000円です。金額は全角数字、3桁区切りのカンマ、末尾の「円」に対応します。任意欄は空欄なら0、追加額は0〜1億円、その合計が会計額を超えるとエラーです。</p>
+<h2>よくある質問</h2>
+<h3>幹事も人数に含めますか</h3><p>含めます。明細では通常の参加者と幹事を分けて表示します。</p>
+<h3>余りと不足は何との差ですか</h3><p>不足補填前の徴収額と会計額の差です。切り捨てでは幹事が不足を補った明細の合計も表示します。</p>
+<h3>余りが幹事の支払額を超えたらどうなりますか</h3><p>実質負担がマイナスなら、その額を受け取る計算です。端数の単位を小さくして調整できます。</p>
+<h3>消費税や割引はいつ計算しますか</h3><p>先に<a href="../tools/tax/">消費税の計算</a>や<a href="../tools/discount/">割引の計算</a>で支払総額を出して、その金額を入力してください。</p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../tools/tax/">消費税の計算</a> — 税込・税抜・消費税額。8%と10%の混在にも対応</li>
+<li><a href="../tools/discount/">割引・値引き後の税込価格</a> — 割引率や値引き額から支払額を計算</li>
+<li><a href="../tools/percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../">トップ</a> ・ <a href="../privacy.html">プライバシーポリシー</a></p></footer></body></html>
