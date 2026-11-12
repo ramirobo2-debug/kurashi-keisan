@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>カロリーとジュールの換算|kcal・kJ・Wh・kWh | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/energy/">
+<meta name="description" content="カロリーとジュールの換算ツール。kcal・cal・kJ・J・Wh・kWhを相互に換算します。1kcalは4.184kJ、2000kcalは8368kJ、1kWhは約860.4kcalです。">
+<link rel="stylesheet" href="../../assets/style.css">
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"カロリーとジュールの換算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/energy/"}]}</script>
+</head><body>
+<header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › カロリーとジュールの換算</nav></header>
+<main><h1>カロリーとジュールの換算</h1><p>量と単位を入れると、ほかのエネルギーの単位に換算した値を表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
+<section class="card" aria-labelledby="settings"><h2 id="settings">量と単位を入力</h2>
+<div class="row"><label for="amount">量</label><input id="amount" class="amt" type="text" inputmode="decimal" value="2000"></div>
+<div class="row"><label for="unit">入力する単位</label><select id="unit" style="min-width:0;width:100%"><option value="kcal">キロカロリー(kcal)</option><option value="cal">カロリー(cal)</option><option value="kj">キロジュール(kJ)</option><option value="j">ジュール(J)</option><option value="wh">ワット時(Wh)</option><option value="kwh">キロワット時(kWh)</option></select></div><div class="row"><label for="digits">表示の小数桁</label><select id="digits"><option value="0">小数0桁</option><option value="1">小数1桁</option><option value="2" selected>小数2桁</option><option value="3">小数3桁</option><option value="4">小数4桁</option><option value="5">小数5桁</option><option value="6">小数6桁</option></select></div>
+<p class="note">量は0〜10億、小数3桁まで。全角数字・3桁区切りのカンマに対応します。表示時に四捨五入し、末尾の0は省きます。</p>
+<div id="result" class="result" aria-live="polite" aria-atomic="true" style="overflow-wrap:anywhere"></div>
+<p>式: 換算後の量 = 入力した量 × 入力単位のJ換算係数 ÷ 出力単位のJ換算係数。1cal = 4.184J、1kcal = 1000cal、1kJ = 1000J、1Wh = 3600J、1kWh = 1000Whです。</p>
+<p class="note">カロリーの使用は、人・動物が摂取する物の熱量、または代謝により消費する熱量の計量に限られます(出典: 計量単位令 別表第六)。</p></section>
+<p>くわしい説明: <a href="../../guides/energy.html">kcal・kJと電気のkWhの関係</a></p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../mets/">消費カロリーの計算(METs)</a> — 体重・運動の強さ・時間から消費カロリーの目安</li>
+<li><a href="../denki/">電気代の計算</a> — 消費電力と使う時間から、1時間・1日・1か月・1年の電気代</li>
+<li><a href="../ondo/">温度の換算(摂氏・華氏)</a> — ℃と℉とケルビンを換算。体温・料理・天気の例も</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
+<script type="module">
+import { convertEnergy, LABELS } from './energy.js';
+const $ = id => document.getElementById(id);
+function update() {
+ try {
+  const unit = $('unit').value;
+  const values = convertEnergy($('amount').value, unit, Number($('digits').value));
+  $('result').textContent = '結果: ' + Object.entries(values).filter(([key]) => key !== unit).map(([key, value]) => value + LABELS[key]).join(' / ');
+  $('result').classList.remove('err');
+ } catch (error) { $('result').textContent = error.message; $('result').classList.add('err'); }
+}
+$('amount').addEventListener('input', update);
+document.querySelectorAll('select').forEach(e => e.addEventListener('change', update));
+update();
+</script></body></html>
