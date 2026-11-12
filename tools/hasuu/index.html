@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>四捨五入・切り上げ・切り捨て|小数の桁指定と偶数丸め | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/hasuu/">
+<meta name="description" content="1234.5678を小数第2位までそろえると1234.57。百の位から小数第6位まで選び、四捨五入・切り上げ・切り捨て・偶数丸めを並べて計算します。負の数や全角数字、3けた区切りにも対応し、入力は送信しません。">
+<link rel="stylesheet" href="../../assets/style.css">
+<style>input,select{max-width:100%;min-width:0}#result{overflow-wrap:anywhere}</style>
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"四捨五入・切り上げ・切り捨て","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/hasuu/"}]}</script>
+</head><body><header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 四捨五入・切り上げ・切り捨て</nav></header>
+<main><h1>四捨五入・切り上げ・切り捨て</h1><p>数とそろえる位を入れると、四捨五入・切り上げ・切り捨て・偶数丸めの結果を表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
+<section class="card" aria-labelledby="settings"><h2 id="settings">数と位を入力</h2>
+<div class="row"><label for="amount">数</label><input id="amount" type="text" inputmode="decimal" value="1234.5678"></div>
+<div class="row"><label for="place">そろえる位</label><select id="place"><option value="-2">百の位</option><option value="-1">十の位</option><option value="0">一の位</option><option value="1">小数第1位まで</option><option value="2" selected>小数第2位まで</option><option value="3">小数第3位まで</option><option value="4">小数第4位まで</option><option value="5">小数第5位まで</option><option value="6">小数第6位まで</option></select></div>
+<p class="note">整数部・小数部はそれぞれ30けたまで。全角数字と3けた区切りのカンマも使えます。「小数第2位まで」は第3位を処理します。負の数の切り上げは0から遠ざかり、切り捨ては0に近づきます。Excel の CEILING・FLOOR や数学の天井関数とは負の数で結果が違います。偶数丸めは JIS Z 8401 の規則A(銀行丸め)です。</p>
+<div id="result" class="result" aria-live="polite" aria-atomic="true"></div></section>
+<p>くわしい説明: <a href="../../guides/hasuu.html">そろえる位と4つの丸め方</a></p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../tax/">消費税の計算</a> — 税込・税抜・消費税額。8%と10%の混在にも対応</li>
+<li><a href="../percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
+<li><a href="../bunsu/">分数の計算・約分</a> — 分数と帯分数の四則演算、約分と通分の途中式</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
+<script type="module">
+import {round} from './hasuu.js';
+const $=id=>document.getElementById(id);
+function update(){
+ const result=$('result');result.replaceChildren();
+ try{
+  const r=round($('amount').value,Number($('place').value));
+  for(const [key,label] of [['halfUp','四捨五入'],['up','切り上げ'],['down','切り捨て'],['even','偶数丸め']]){const p=document.createElement('p');p.textContent=label+': '+r[key];result.append(p);}
+  result.classList.remove('err');
+ }catch(error){result.textContent=error.message;result.classList.add('err');}
+}
+document.querySelector('main').addEventListener('input',update);document.querySelector('main').addEventListener('change',update);update();
+</script></body></html>
