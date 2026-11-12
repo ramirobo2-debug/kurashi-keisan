@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>データ容量の換算の解説|1TB・GBとGiB・Mbpsの違い | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/guides/data-size.html">
+<meta name="description" content="1TBのHDDが約931GBと表示される理由を1000倍と1024倍の違いから説明。Mbpsを8で割ってMB/sに直す方法も解説します。">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"データ容量の換算ツール","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/data-size/"},{"@type":"ListItem","position":3,"name":"解説","item":"https://ramirobo2-debug.github.io/kurashi-keisan/guides/data-size.html"}]}</script>
+</head><body><header><a class="site" href="../">くらしの計算室</a><nav class="crumb"><a href="../">トップ</a> › <a href="../tools/data-size/">データ容量の換算ツール</a> › 解説</nav></header>
+<main><h1>GB・GiBの違いと転送時間の求め方</h1><p>このページではデータ容量の単位と、通信速度から転送時間を求める方法を説明します。<a href="../tools/data-size/">データ容量の換算ツール</a>で計算できます。</p>
+<section class="card"><h2>1000倍と1024倍の違い</h2><p>KB・MB・GB・TBは1000倍ずつ、KiB・MiB・GiB・TiBは1024倍ずつです。1GB = 1,000,000,000B、1GiB = 1,073,741,824Bなので、1GBは約0.9313225746GiB、小数第2位までなら0.93GiBです。500GBは465.66GiBです。</p><p class="note">内部ではBigIntと10のべき乗の分数で保持し、表示時だけ四捨五入します。表示は既定2桁、0〜6桁から選べます。小さな値が0になる場合は桁数を増やすか小さい単位を確認してください。</p></section>
+<h2>1TBのHDDが931GBと表示される理由</h2><p>メーカーが使う1TBは1,000,000,000,000Bです。1024の3乗で割ると約931.32GiBになります。Windowsは1024倍で計算した値をGBと表示するため、「1TBなのに約931GB」と見えます。基準の違いによるもので、その分の容量が消えたわけではありません。フォーマットやシステム領域でも使用可能な容量は変わります。</p>
+<h2>MbpsとMB/s、転送時間</h2><p>小文字のbはビット、大文字のBはバイトです。1バイト = 8ビットなのでMbpsを8で割るとMB/sになります。100Mbpsは12.5MB/s、1Gbpsは125MB/sです。転送秒数 = 容量(B) × 8 ÷ 通信速度(bit/s)で、1GBを100Mbpsで送ると80秒(0時間1分20秒)、1Gbpsなら8秒です。</p>
+<section class="card"><h2>転送時間の見方</h2><p class="note">実際は通信環境・混雑・機器の処理などで速度が落ちます。計算結果は入力した速度が続く場合の目安です。1秒単位、1秒未満は小数第1位に四捨五入するため、ごく短い時間は0秒と表示されます。</p></section>
+<p>液体などの容量は<a href="../tools/youseki/">容量の換算(L・ガロン・オンス)</a>、圧力は<a href="../tools/atsuryoku/">圧力の換算</a>を使ってください。</p>
+<h2>よくある質問</h2><h3>GBとGiBは同じですか?</h3><p>違います。1GBは10億B、1GiBは1,073,741,824Bです。</p>
+<h3>1TBが約931GBになるのはなぜですか?</h3><p>メーカーは1000倍、Windowsは1024倍で計算してGBと表示するためです。2進接頭辞では約931.32GiBです。</p>
+<h3>100Mbpsは100MB/sですか?</h3><p>8で割って12.5MB/sです。ビットとバイトに違いがあります。</p>
+<h3>入力は送信されますか?</h3><p>入力は端末の中だけで計算し、どこにも送信しません。全角数字や1,000のような3桁区切りも使えます。</p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../tools/youseki/">容量の換算(L・ガロン・オンス)</a> — L・mL・立方m・米ガロン・英ガロン・液量オンスを相互に換算</li>
+<li><a href="../tools/atsuryoku/">圧力の換算(hPa・気圧・psi)</a> — hPa・kPa・気圧・mmHg・kgf/cm²・psi・barを相互に換算</li>
+<li><a href="../tools/inch/">インチ・フィート・ポンドの換算</a> — インチ・フィート・マイル・ポンド・オンスとcm・kgを換算。テレビの型の大きさも</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../">トップ</a> ・ <a href="../privacy.html">プライバシーポリシー</a></p></footer></body></html>

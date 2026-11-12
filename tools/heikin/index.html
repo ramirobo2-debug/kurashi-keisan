@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>平均・中央値の計算|平均点・最頻値・標準偏差 | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/heikin/">
+<meta name="description" content="数を並べて入れるだけで、合計・平均・中央値・最頻値・範囲と標準偏差(母集団・標本)を計算。テストの点72、85、90、64、85なら平均79.2点・中央値85点です。最大1,000個まで。">
+<link rel="stylesheet" href="../../assets/style.css">
+<style>textarea{box-sizing:border-box;width:100%;max-width:100%;min-width:0}#result{overflow-wrap:anywhere}#result dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:0}#result dt,#result dd{margin:0}</style>
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"平均・中央値の計算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/heikin/"}]}</script>
+</head><body>
+<header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 平均・中央値の計算</nav></header>
+<main><h1>平均・中央値の計算</h1><p>数を並べて入れると、合計・平均・中央値・最頻値・標準偏差を表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
+<section class="card" aria-labelledby="settings"><h2 id="settings">数を入力</h2>
+<label for="numbers">計算する数(最大1,000個)</label><textarea id="numbers" rows="6" spellcheck="false">72, 85, 90, 64, 85</textarea>
+<p class="note">改行・カンマ・空白・読点で区切ってください。全角数字と負の数にも対応し、各数は小数第3位までです。カンマは区切りとして扱うため、「1,000」は1と0の2個になります。桁区切りのカンマは入れないでください。平均と標準偏差は小数第2位まで四捨五入し、末尾の0は省きます。標本の標準偏差は2個以上で計算できます。</p>
+<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
+<p>式: 平均 = 合計 ÷ 個数。中央値は小さい順の中央の値(偶数個なら中央2個の平均)。範囲 = 最大 − 最小。母集団の標準偏差 = √(平均との差の2乗の合計 ÷ 個数)、標本では個数 − 1で割ります。</p></section>
+<p>くわしい説明: <a href="../../guides/heikin.html">平均・中央値・標準偏差の違いと計算方法</a></p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
+<li><a href="../hi/">比の計算</a> — 比を簡単にする・a:b=c:xのxを求める・比で分ける</li>
+<li><a href="../bmi/">BMIと標準体重</a> — 身長と体重からBMI・判定・標準体重を計算</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
+<script type="module">
+import {calculateStatistics} from './heikin.js';
+const numbers=document.getElementById('numbers'),result=document.getElementById('result');
+function update(){try{
+const s=calculateStatistics(numbers.value),dl=document.createElement('dl');
+for(const [label,value] of [['個数',s.count],['合計',s.sum],['平均',s.mean],['中央値',s.median],['最頻値',s.modes.length?s.modes.join('、'):'なし'],['最大',s.max],['最小',s.min],['範囲',s.range],['標準偏差(母集団)',s.populationStdDev],['標準偏差(標本)',s.sampleStdDev??'計算できません(2個以上必要)']]){
+const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.textContent=value;dl.append(dt,dd);}
+result.replaceChildren(dl);result.classList.remove('err');
+}catch(error){result.textContent=error.message;result.classList.add('err');}}
+numbers.addEventListener('input',update);update();
+</script></body></html>
