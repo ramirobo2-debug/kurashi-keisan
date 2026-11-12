@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>角度の換算の使い方|弧度法・度分秒の計算 | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/guides/kakudo.html">
+<meta name="description" content="弧度法と度分秒の意味を、半径1の円や地図の緯度経度を例に説明します。180度=πラジアン、1度=60分=3600秒の関係と換算式、三角定規の30度・45度・60度、負の角度や周回の考え方を確認できます。">
+<link rel="stylesheet" href="../assets/style.css"><script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"角度の換算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/kakudo/"},{"@type":"ListItem","position":3,"name":"解説","item":"https://ramirobo2-debug.github.io/kurashi-keisan/guides/kakudo.html"}]}</script>
+</head><body>
+<header><a class="site" href="../">くらしの計算室</a><nav class="crumb"><a href="../">トップ</a> › <a href="../tools/kakudo/">角度の換算</a> › 解説</nav></header>
+<main><h1>度・ラジアン・度分秒の関係</h1><p>このページでは弧度法の考え方、度分秒の換算、三角定規の角度を説明します。<a href="../tools/kakudo/">角度の換算ツール</a>で計算できます。</p>
+<section class="card"><h2>弧度法と換算式</h2><p>ラジアンは弧の長さを半径で割った角度です。半径1の円では弧の長さがそのままラジアンの値になります。円1周の弧は2πなので、360度=2πラジアン、180度=πラジアンです。</p><p>度×π÷180でラジアンに、ラジアン×180÷πで度に換算します。1ラジアンは約57.2957795130度です。</p><p class="note">ツールは小数第10位まで、秒は小数第2位まで切り捨てます。度やπの係数が有理数なら、約分したπの分数(π/6など)も表示します。35.6812度のように分数が長くなるときは小数だけにします。数だけのラジアン入力では度は近似値です。</p></section>
+<h2>度分秒と地図</h2><p>1度=60分=3600秒です。地図の緯度経度でも使われ、35度40分52.32秒は35+40÷60+52.32÷3600=35.6812度です。小数部分を60倍すると分、分の小数部分を60倍すると秒になります。</p>
+<h2>三角定規の角度</h2><p>30度=π/6、45度=π/4、60度=π/3、90度=π/2です。三角定規には30度・60度・90度の組と45度・45度・90度の組があります。</p><p>地球は約24時間で360度回るため、経度15度で1時間が目安です。実際の標準時や夏時間は<a href="../tools/jisa/">時差の計算</a>で確認してください。</p>
+<h2>よくある質問</h2><h3>πを含む入力はどう書きますか?</h3><p>ラジアンを選び、π/6や2π/3と入力します。分母は0にできません。負の分母は分子側の符号にそろえて表示します。</p>
+<h3>負の角度も換算できますか?</h3><p>できます。-35度40分52.32秒は角度全体が負で、-35.6812度です。-0度30分0秒は-0.5度です。</p>
+<h3>360度を超えたらどうなりますか?</h3><p>元の角度に加え、周回を除いた値も表示します。450度なら90度、720度なら0度です。負の場合も0以上360度未満にそろえ、-450度なら270度になります。</p>
+<h3>分や秒に60を入力できますか?</h3><p>分と秒は0以上60未満にしてください。60分は1度、60秒は1分へ繰り上げて入力します。全角数字と3けた区切りのカンマも使えます。</p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../tools/sanheiho/">三平方の定理(直角三角形の辺)</a> — 2辺から残りの辺。3:4:5・1:1:√2・1:2:√3 の形も表示</li>
+<li><a href="../tools/zukei/">図形の面積・円周の計算</a> — 円・三角形・台形・ひし形・おうぎ形の面積と円周、球の体積</li>
+<li><a href="../tools/jisa/">時差の計算</a> — 日本時間と海外の都市の時刻を、夏時間も入れて換算</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../">トップ</a> ・ <a href="../privacy.html">プライバシーポリシー</a></p></footer></body></html>
