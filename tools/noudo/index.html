@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>食塩水の濃度の計算|混ぜる・水の追加・蒸発 | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/noudo/">
+<meta name="description" content="食塩と水の重さから濃度を計算し、200gの5%食塩水に含まれる食塩と水の量も求めます。2つの食塩水を混ぜた濃度や、目標の濃度にするために足す水・蒸発させる水の重さを、式とともに小数第2位まで表示します。">
+<link rel="stylesheet" href="../../assets/style.css">
+<style>input,select{max-width:100%;min-width:0}#result{overflow-wrap:anywhere}</style>
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"食塩水の濃度の計算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/noudo/"}]}</script>
+</head><body><header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 食塩水の濃度の計算</nav></header>
+<main><h1>食塩水の濃度の計算</h1><p>食塩と水の重さや濃度を入れると、濃度・食塩の量・混ぜた結果・足す水や蒸発させる水の量を表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
+<section class="card" aria-labelledby="settings"><h2 id="settings">重さと濃度を入力</h2>
+<div class="row"><label for="mode">モード</label><select id="mode"><option value="concentration">濃度を求める</option><option value="salt">食塩の量を求める</option><option value="mix">2つを混ぜる</option><option value="adjust">水を足す・蒸発させる</option></select></div>
+<div id="concentration-inputs"><div class="row"><label for="salt">食塩 (g)</label><input id="salt" type="text" inputmode="decimal" value="20"></div><div class="row"><label for="water">水 (g)</label><input id="water" type="text" inputmode="decimal" value="180"></div></div>
+<div id="salt-inputs" hidden><div class="row"><label for="mass">食塩水 (g)</label><input id="mass" type="text" inputmode="decimal" value="200"></div><div class="row"><label for="concentration">濃度 (%)</label><input id="concentration" type="text" inputmode="decimal" value="5"></div></div>
+<div id="mix-inputs" hidden><div class="row"><label for="mass1">1つ目の食塩水 (g)</label><input id="mass1" type="text" inputmode="decimal" value="300"></div><div class="row"><label for="concentration1">1つ目の濃度 (%)</label><input id="concentration1" type="text" inputmode="decimal" value="8"></div><div class="row"><label for="mass2">2つ目の食塩水 (g)</label><input id="mass2" type="text" inputmode="decimal" value="200"></div><div class="row"><label for="concentration2">2つ目の濃度 (%)</label><input id="concentration2" type="text" inputmode="decimal" value="3"></div></div>
+<div id="adjust-inputs" hidden><div class="row"><label for="adjust-mass">食塩水 (g)</label><input id="adjust-mass" type="text" inputmode="decimal" value="200"></div><div class="row"><label for="current">今の濃度 (%)</label><input id="current" type="text" inputmode="decimal" value="10"></div><div class="row"><label for="target">目標の濃度 (%)</label><input id="target" type="text" inputmode="decimal" value="4"></div></div>
+<p class="note">重さはg、濃度は%で入力。全角数字と3けた区切りのカンマに対応し、小数第3位を四捨五入します。目標は0%より大きく100%未満です。負の数・食塩水0g・食塩水より多い食塩は扱えません。今の濃度が0%の場合、水の追加・蒸発で濃くすることはできません。</p>
+<div id="result" class="result" aria-live="polite" aria-atomic="true"></div></section>
+<p>くわしい説明: <a href="../../guides/noudo.html">食塩水の濃度の求め方</a></p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
+<li><a href="../hi/">比の計算</a> — 比を簡単にする・a:b=c:xのxを求める・比で分ける</li>
+<li><a href="../bunsu/">分数の計算・約分</a> — 分数と帯分数の四則演算、約分と通分の途中式</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
+<script type="module">
+import {calculate} from './noudo.js';
+const $=id=>document.getElementById(id);
+function update(){
+ const mode=$('mode').value,result=$('result');
+ for(const name of ['concentration','salt','mix','adjust'])$(name+'-inputs').hidden=name!==mode;
+ result.replaceChildren();
+ try{
+  const data={mode};for(const id of ['salt','water','mass','concentration','mass1','concentration1','mass2','concentration2','current','target'])data[id]=$(id).value;
+  if(mode==='adjust')data.mass=$('adjust-mass').value;
+  const r=calculate(data),lines=[`濃度: ${r.concentration}% / 食塩水: ${r.mass}g`,`食塩: ${r.salt}g / 水: ${r.water}g`];
+  if(r.action)lines.unshift(r.action==='そのまま'?'0g(そのまま)':`水を${r.amount}g${r.action}`);
+  lines.push(r.formula);for(const line of lines){const p=document.createElement('p');p.textContent=line;result.append(p);}result.classList.remove('err');
+ }catch(error){result.textContent=error.message;result.classList.add('err');}
+}
+document.querySelector('main').addEventListener('input',update);document.querySelector('main').addEventListener('change',update);update();
+</script></body></html>

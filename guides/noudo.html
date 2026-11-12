@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>食塩水の濃度の求め方|混ぜる計算と水の追加・蒸発 | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/guides/noudo.html">
+<meta name="description" content="食塩水の濃度を求める式と、20gの食塩と180gの水で10%になる理由を説明します。8%と3%の食塩水を混ぜる計算、水を足して薄める計算、蒸発させて濃くする計算を、食塩の量が変わらない性質から確認できます。">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"食塩水の濃度の計算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/noudo/"},{"@type":"ListItem","position":3,"name":"解説","item":"https://ramirobo2-debug.github.io/kurashi-keisan/guides/noudo.html"}]}</script>
+</head><body><header><a class="site" href="../">くらしの計算室</a><nav class="crumb"><a href="../">トップ</a> › <a href="../tools/noudo/">食塩水の濃度の計算</a> › 解説</nav></header>
+<main><h1>食塩水の濃度の求め方</h1><p>このページでは食塩水の濃度、混ぜたときの計算、水を足す・蒸発させる量の求め方を説明します。<a href="../tools/noudo/">食塩水の濃度の計算ツール</a>で確認できます。</p>
+<section class="card"><h2>濃度は食塩水で割る</h2><p>濃度 = 食塩 ÷ 食塩水 × 100。食塩20gと水180gなら、食塩水は200gなので20÷200×100=10%です。水で割る20÷180の約11.1%は誤りです。食塩25gと水75gなら25%です。</p></section>
+<h2>食塩の量を求める</h2><p>食塩 = 食塩水 × 濃度 ÷ 100。200gの5%は食塩10g、水は200−10=190gです。</p>
+<h2>2つを混ぜる</h2><p>食塩の量と食塩水の重さをそれぞれ足します。8%の300gには24g、3%の200gには6gの食塩があるので、(24+6)÷(300+200)×100=6%です。重さが異なるため、濃度の平均5.5%にはなりません。</p>
+<h2>水を足す・蒸発させる</h2><p>食塩の量は変わりません。変更後の食塩水 = 今の食塩水 × 今の濃度 ÷ 目標の濃度。10%の200gを4%にするには500gにするため水を300g足します。5%の400gを8%にするには250gにするため水を150g蒸発させます。目標が同じなら0g(そのまま)です。溶ける量の限界は考慮しない算数のモデルです。</p>
+<h2>関連する計算</h2><p><a href="../tools/percent/">パーセント計算</a>と<a href="../tools/hi/">比の計算</a>も利用できます。</p>
+<h2>よくある質問</h2>
+<h3>なぜ水の重さで割らないのですか?</h3><p>濃度は食塩水全体に対する食塩の割合だからです。</p>
+<h3>水を足すと食塩は減りますか?</h3><p>食塩の量は変わらず、全体の重さが増えるので濃度が下がります。</p>
+<h3>0%や100%を目標にできますか?</h3><p>目標は0%より大きく100%未満です。負の数、食塩水0g、食塩水より食塩が多くなる入力もエラーになります。</p>
+<h3>端数と入力はどう扱いますか?</h3><p>内部は分数で計算し、%とgは小数第3位を四捨五入して第2位まで表示します。入力は端末内だけで処理します。</p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../tools/percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
+<li><a href="../tools/hi/">比の計算</a> — 比を簡単にする・a:b=c:xのxを求める・比で分ける</li>
+<li><a href="../tools/bunsu/">分数の計算・約分</a> — 分数と帯分数の四則演算、約分と通分の途中式</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../">トップ</a> ・ <a href="../privacy.html">プライバシーポリシー</a></p></footer></body></html>

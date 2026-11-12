@@ -16,6 +16,7 @@
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/due-date.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/energy.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/hasuu.html</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/hayasa.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/heikin.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/hi.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/houyou.html</loc><lastmod>2026-11-12</lastmod></url>
@@ -29,7 +30,9 @@
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/monme.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/nenkan-kyujitsu.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/nenpi.html</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/noudo.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/nth-weekday.html</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/omosa.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/ondo.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/pace.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/percent.html</loc><lastmod>2026-11-12</lastmod></url>
@@ -68,6 +71,7 @@
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/due-date/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/energy/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/hasuu/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/hayasa/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/heikin/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/hi/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/houyou/</loc><lastmod>2026-11-12</lastmod></url>
@@ -81,7 +85,9 @@
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/monme/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/nenkan-kyujitsu/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/nenpi/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/noudo/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/nth-weekday/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/omosa/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/ondo/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/pace/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/percent/</loc><lastmod>2026-11-12</lastmod></url>
