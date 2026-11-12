@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ローマ数字の変換|数字・年号を相互変換 | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/roman/">
+<meta name="description" content="1〜3999の整数とローマ数字を相互に変換します。2026はMMXXVI、1994はMCMXCIV。小文字・全角やⅫなどの記号も読め、時計のIIIIは4として標準形のIVも表示します。">
+<link rel="stylesheet" href="../../assets/style.css">
+<style>select,input{width:100%;min-width:0;max-width:100%}#result{overflow-wrap:anywhere}</style>
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"ローマ数字の変換","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/roman/"}]}</script>
+</head><body><header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › ローマ数字の変換</nav></header>
+<main><h1>ローマ数字の変換</h1><p>数字またはローマ数字を入れると、変換結果を表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
+<section class="card" aria-labelledby="settings"><h2 id="settings">変換する値を入力</h2>
+<div class="row"><label for="mode">モード</label><select id="mode"><option value="number">数字→ローマ数字</option><option value="roman">ローマ数字→数字</option></select></div>
+<div class="row"><label for="amount" id="amount-label">数字</label><input id="amount" type="text" inputmode="numeric" value="2026"></div>
+<p class="note">数字は1〜3999の整数。全角数字・3桁区切りのカンマに対応します。ローマ数字は大文字・小文字・全角英字とⅠ〜Ⅻの記号を受け付けます。IIII・VIIIIなど、同じ記号4つの加算表記には標準形を示します。それ以外の非標準形はエラーになります。</p>
+<div id="result" class="result" aria-live="polite" aria-atomic="true"></div></section>
+<p>くわしい説明: <a href="../../guides/roman.html">ローマ数字の読み方と減算の決まり</a></p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../wareki/">和暦・西暦の変換と年齢の計算</a> — 令和・平成・昭和などと西暦を変換し、満年齢も表示</li>
+<li><a href="../shinsu/">2進数・16進数の変換</a> — 2進・8進・10進・16進を相互変換、2進数の4けた区切りも表示</li>
+<li><a href="../zenkaku/">全角・半角の変換</a> — 英数字・記号・カタカナの全角と半角を、種類を選んで変換</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer><script type="module">
+import {toRoman,fromRoman} from './roman.js';
+const $=id=>document.getElementById(id);
+function update(){
+ const roman=$('mode').value==='roman';
+ $('amount-label').textContent=roman?'ローマ数字':'数字';$('amount').inputMode=roman?'text':'numeric';
+ try{
+  if(roman){const r=fromRoman($('amount').value);$('result').textContent='数字: '+r.number+(r.nonstandard?' / 標準の書き方では '+r.standard+' です':' / ローマ数字: '+r.standard);}
+  else $('result').textContent='ローマ数字: '+toRoman($('amount').value);
+  $('result').classList.remove('err');
+ }catch(error){$('result').textContent=error.message;$('result').classList.add('err');}
+}
+document.querySelector('main').addEventListener('input',update);document.querySelector('main').addEventListener('change',update);update();
+</script></body></html>
