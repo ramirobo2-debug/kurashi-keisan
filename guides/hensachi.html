@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>偏差値の求め方|標準偏差と上位割合の意味 | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/guides/hensachi.html">
+<meta name="description" content="偏差値の式と標準偏差の意味、目標点数の逆算を例で説明します。偏差値60は正規分布なら上位約15.9%が目安です。母集団の違う模試や学校の成績を直接比べられない理由と、点数一覧から計算する方法も確認できます。">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"偏差値の計算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/hensachi/"},{"@type":"ListItem","position":3,"name":"解説","item":"https://ramirobo2-debug.github.io/kurashi-keisan/guides/hensachi.html"}]}</script>
+</head><body><header><a class="site" href="../">くらしの計算室</a><nav class="crumb"><a href="../">トップ</a> › <a href="../tools/hensachi/">偏差値の計算</a> › 解説</nav></header>
+<main><h1>偏差値の式と標準偏差・上位割合の読み方</h1><p>このページでは偏差値の求め方と標準偏差、上位割合の意味を説明します。<a href="../tools/hensachi/">偏差値の計算ツール</a>で点数や一覧から計算できます。</p>
+<section class="card"><h2>偏差値の式</h2><p>偏差値 = 50 + 10 × (点数 − 平均点) ÷ 標準偏差です。平均と同じ点なら50、平均より標準偏差1個分高い点なら60になります。80点・平均60点・標準偏差10なら、50 + 10 × (80 − 60) ÷ 10 = 70です。</p><p>目標点数は「平均点 + (目標偏差値 − 50) × 標準偏差 ÷ 10」で逆算します。目標65・平均55点・標準偏差8なら67点です。満点や点数の刻みは考慮していないため、実際の試験で取れる点数か確認してください。</p></section>
+<h2>標準偏差は点数のばらつき</h2><p>標準偏差は点数が平均からどの程度離れているかを示します。一覧では各点と平均の差を2乗して平均し、その平方根を取る母集団標準偏差を使います。人数をnとすると分母はnです。n−1で割る標本標準偏差とは区別してください。</p><p>72・85・90・64・85点の平均は79.2点、標準偏差は約9.66、90点の偏差値は61.2です。途中の平均・標準偏差を丸めずに計算します。全員同点だと標準偏差が0になり、割り算ができないため偏差値は計算できません。平均や中央値も知りたいときは<a href="../tools/heikin/">平均・中央値の計算</a>を使えます。</p>
+<h2>違う集団の成績は直接比べられない</h2><p>偏差値は、その試験を受けた集団の中での位置を示します。同じ80点でも平均やばらつきが変わると偏差値が変わります。受験者や問題の異なる模試と学校の試験では基準が違うため、点数だけを使って同じ学力や順位だと判断できません。</p>
+<h2>上位割合は正規分布を仮定した目安</h2><p>正規分布という左右対称の分布を仮定すると、偏差値60は上位約15.9%、70は約2.3%、50は約50%に対応します。ツールはこの分布の上側確率を近似計算します。実際の点数分布には偏りや同点があるため、受験者の実順位を表す値ではありません。</p>
+<h2>よくある質問</h2><h3>平均点と同じなら必ず50ですか?</h3><p>標準偏差が0より大きければ50です。全員同点の場合は偏差値を計算できません。</p>
+<h3>偏差値は0〜100に収まりますか?</h3><p>必ず収まるとは限りません。平均からの距離によっては0未満や100超になることもあります。</p>
+<h3>一覧のカンマで点数を区切れますか?</h3><p>1行に1個ずつ入力してください。カンマは1,000のような3けた区切りとして扱います。全角数字も使えます。</p>
+<h3>標準偏差が分からない場合は?</h3><p>点数の一覧があれば一覧モードで計算できます。自分の点数と平均点だけでは標準偏差や偏差値は求められません。</p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../tools/heikin/">平均・中央値の計算</a> — 数を並べて入れると合計・平均・中央値・最頻値・標準偏差</li>
+<li><a href="../tools/percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
+<li><a href="../tools/hasuu/">四捨五入・切り上げ・切り捨て</a> — 桁を選んで四捨五入・切り上げ・切り捨て・偶数丸め</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../">トップ</a> ・ <a href="../privacy.html">プライバシーポリシー</a></p></footer></body></html>

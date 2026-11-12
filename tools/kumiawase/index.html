@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>順列・組み合わせの計算|nPr・nCr・階乗 | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/kumiawase/">
+<meta name="description" content="nとrを入れると順列nPr・組み合わせnCr・階乗n!・重複順列・重複組み合わせを正確に計算。5C2は10、52C5は2598960です。0〜1000の整数に対応し、大きな結果はけた数も表示。入力は端末内だけで処理し、送信しません。">
+<link rel="stylesheet" href="../../assets/style.css">
+<style>input{max-width:100%;min-width:0}#result,#formula{overflow-wrap:anywhere}</style>
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"順列・組み合わせ","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/kumiawase/"}]}</script>
+</head><body><header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 順列・組み合わせ</nav></header>
+<main><h1>順列・組み合わせの計算</h1><p>n と r を入れると、順列・組み合わせ・階乗などを表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
+<section class="card" aria-labelledby="settings"><h2 id="settings">個数を入力</h2>
+<div class="row"><label for="n">全体の個数 n</label><input id="n" type="text" inputmode="numeric" value="5"></div>
+<div class="row"><label for="r">選ぶ個数 r</label><input id="r" type="text" inputmode="numeric" value="2"></div>
+<p class="note">0〜1000の整数。順列・組み合わせは r ≤ n のとき計算し、重複順列・重複組み合わせは r > n でも計算します。全角数字と3けた区切りのカンマに対応。重複組み合わせは n ≥ 1 が必要です。100けたを超える結果は先頭30けた・末尾30けたとけた数を表示し、途中式は r ≤ 10 の場合に表示します。</p>
+<div id="result" class="result" aria-live="polite" aria-atomic="true"></div><p id="formula"></p></section>
+<p>くわしい説明: <a href="../../guides/kumiawase.html">順列と組み合わせの違い・計算方法</a></p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../soinsu/">素因数分解・最大公約数・最小公倍数</a> — 素因数分解と約数の一覧、最大公約数・最小公倍数</li>
+<li><a href="../bunsu/">分数の計算・約分</a> — 分数と帯分数の四則演算、約分と通分の途中式</li>
+<li><a href="../root/">平方根・累乗の計算</a> — √の値と簡単にした形(√12=2√3)、累乗・立方根</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
+<script type="module">
+import {calculate,formatResult} from './kumiawase.js';
+const $=id=>document.getElementById(id);
+function update(){
+ const result=$('result');result.replaceChildren();$('formula').textContent='';
+ try{
+  const v=calculate($('n').value,$('r').value);
+  for(const [label,value] of [[`${v.n}P${v.r} (順列)`,v.permutation],[`${v.n}C${v.r} (組み合わせ)`,v.combination],[`${v.n}! (階乗)`,v.factorial],[`${v.n}^${v.r} (重複順列)`,v.power],[`${v.n}H${v.r} (重複組み合わせ)`,v.repetition]]){
+   const p=document.createElement('p');p.textContent=label+': '+(value===null?(v.r>v.n?'0通り (r > n)':'対象外 (n は1以上)'):formatResult(value));result.append(p);
+  }
+  if(v.note){const p=document.createElement('p');p.textContent=v.note;result.append(p);}
+  $('formula').textContent=v.formula;result.classList.remove('err');
+ }catch(error){result.textContent=error.message;result.classList.add('err');}
+}
+for(const id of ['n','r'])for(const event of ['input','change'])$(id).addEventListener(event,update);update();
+</script></body></html>

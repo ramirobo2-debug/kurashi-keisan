@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>順列と組み合わせの違い|nPr・nCr・重複組み合わせ | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/guides/kumiawase.html">
+<meta name="description" content="順列は並べる順序を区別し、組み合わせは選ぶものだけを区別します。5P2=20と5C2=10の違い、nCrの対称性、階乗と0!、重複組み合わせの考え方を解説。43個から6個を選ぶロト6の6096454通りと当せん確率も例で確認できます。">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"順列・組み合わせ","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/kumiawase/"},{"@type":"ListItem","position":3,"name":"解説","item":"https://ramirobo2-debug.github.io/kurashi-keisan/guides/kumiawase.html"}]}</script>
+</head><body><header><a class="site" href="../">くらしの計算室</a><nav class="crumb"><a href="../">トップ</a> › <a href="../tools/kumiawase/">順列・組み合わせ</a> › 解説</nav></header>
+<main><h1>順列と組み合わせの違い・計算方法</h1><p>このページでは順列・組み合わせ・階乗と重複を許す場合の数え方を説明します。<a href="../tools/kumiawase/">順列・組み合わせツール</a>では0〜1000の整数を計算できます。</p>
+<section class="card"><h2>順列は並べる、組み合わせは選ぶ</h2><p>5人から2人を選んで1位と2位に並べると、5P2 = 5×4 = 20通りです。順番を区別せず2人を選ぶなら、同じ2人の並べ方2×1で割り、5C2 = 5×4 ÷ (2×1) = 10通りです。</p><p>nPr = n! ÷ (n−r)!、nCr = nPr ÷ r!。階乗n!はnから1までの積で、20! = 2432902008176640000です。0!は1と定義します。</p></section>
+<h2>選ぶ数と残す数</h2><p>nCr = nC(n−r)です。10個から3個を選ぶことは、残す7個を選ぶことと対応し、10C3 = 10C7 = 120通りです。何も選ばない方法も1通りなのでnC0 = 1です。</p>
+<h2>ロト6の組み合わせと確率</h2><p>43個の数字から異なる6個を選ぶ組み合わせは43C6 = 6096454通りです。すべての組み合わせが同じ確率で出るとすると、1口の6個が本数字の6個にすべて一致する確率は1/6096454です。確率の分数計算は<a href="../tools/bunsu/">分数の計算</a>で確認できます。</p>
+<h2>重複を許す場合</h2><p>n種類から繰り返し選んでr個を並べる重複順列はn^rです。順序を区別せず選ぶ重複組み合わせはnHr = (n+r−1)Cr。r個の印とn−1個の仕切りを並べ、仕切りの間の印の数を各種類の個数と考えます。7種類から3個を選ぶなら7H3 = 9C3 = 84通りです。</p>
+<h2>よくある質問</h2><h3>同じ2人でも順序で数は変わりますか?</h3><p>はい。A→BとB→Aを別に数えるのが順列、同じ選び方と数えるのが組み合わせです。</p>
+<h3>0を入力できますか?</h3><p>nもrも0を使えますがr ≤ nが必要です。0!とnC0は1で、0^0は1とする決まりで表示します。重複組み合わせはnが1以上の場合だけ計算します。</p>
+<h3>大きな答えや途中式はどう表示されますか?</h3><p>BigIntで整数を正確に計算します。100けたを超えた答えは先頭と末尾の各30けたと全体のけた数を表示します。途中式はrが10以下の場合に表示します。</p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../tools/soinsu/">素因数分解・最大公約数・最小公倍数</a> — 素因数分解と約数の一覧、最大公約数・最小公倍数</li>
+<li><a href="../tools/bunsu/">分数の計算・約分</a> — 分数と帯分数の四則演算、約分と通分の途中式</li>
+<li><a href="../tools/root/">平方根・累乗の計算</a> — √の値と簡単にした形(√12=2√3)、累乗・立方根</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../">トップ</a> ・ <a href="../privacy.html">プライバシーポリシー</a></p></footer></body></html>
