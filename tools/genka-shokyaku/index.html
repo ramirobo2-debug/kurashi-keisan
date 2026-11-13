@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>減価償却(定額法)の計算｜100万円・5年なら年20万円 | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/genka-shokyaku/">
+<meta name="description" content="取得価額・耐用年数・使い始めた月から定額法の減価償却を計算。100万円・5年なら償却率0.200、年20万円です。初年度の月割り、1円未満の切り捨て、備忘価額1円までの年ごとの償却額・帳簿価額・合計を表示します。">
+<link rel="stylesheet" href="../../assets/style.css"><style>input{max-width:100%;min-width:0}#result{overflow-wrap:anywhere}.table-wrap{overflow-x:auto}table{width:100%}</style>
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"減価償却(定額法)","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/genka-shokyaku/"}]}</script>
+</head><body><header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 減価償却(定額法)</nav></header>
+<main><h1>減価償却(定額法)の計算</h1><p>取得価額を年ごとに費用へ配分する定額法の償却額を求めます。入力は端末の中だけで計算し、どこにも送信しません。</p>
+<section class="card"><h2>取得価額と使用開始月を入力</h2>
+<div class="row"><label for="cost">取得価額(円)</label><input id="cost" type="text" inputmode="numeric" value="1000000"></div>
+<div class="row"><label for="years">耐用年数(年)</label><input id="years" type="text" inputmode="numeric" value="5"></div>
+<div class="row"><label for="month">使い始めた月(月)</label><input id="month" type="text" inputmode="numeric" value="1"></div>
+<p class="note">取得価額は1円以上の整数、耐用年数は2〜50年の整数、月は1〜12。全角数字と3けた区切りのカンマに対応します。</p>
+<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
+<p class="note">1月〜12月を1年として(事業年度が1月始まりでない法人は、使い始めた月が事業年度の何か月目かを入れてください)、使用開始月を含めて月割りします。償却額は1円未満を切り捨て、有形の資産として帳簿価額1円を残します(ソフトウェアなど無形固定資産は全額まで償却します)。年額が0円になる少額の入力では償却が進まない旨を表示します。取得時期や資産により適用方法が異なります。</p></section>
+<p>くわしい説明: <a href="../../guides/genka-shokyaku.html">定額法の式・月割り・備忘価額1円</a></p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../genkaritsu/">原価率と利益率</a> — 原価700円・売価1,000円なら原価率70%・利益率30%。売価や原価も逆算</li>
+<li><a href="../hasuu/">四捨五入・切り上げ・切り捨て</a> — 桁を選んで四捨五入・切り上げ・切り捨て・偶数丸め</li>
+<li><a href="../tax/">消費税の計算</a> — 税込・税抜・消費税額。8%と10%の混在にも対応</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
+<script type="module">
+import {calculateGenkaShokyaku} from './genka-shokyaku.js';
+const $=id=>document.getElementById(id), yen=n=>n.toLocaleString('ja-JP')+'円';
+function update(){
+ const el=$('result');
+ try{
+  const r=calculateGenkaShokyaku({cost:$('cost').value,years:$('years').value,month:$('month').value});
+  el.classList.remove('err');
+  el.innerHTML=`<p>償却率: ${r.rate}</p><div class="table-wrap"><table><caption>年ごとの減価償却</caption><thead><tr><th scope="col">年目</th><th scope="col">償却額</th><th scope="col">期末の帳簿価額</th></tr></thead><tbody>${r.rows.map(row=>`<tr><th scope="row">${row.year}年目</th><td>${yen(row.amount)}</td><td>${yen(row.book)}</td></tr>`).join('')}</tbody></table></div><p>償却額の合計: ${yen(r.total)}<br>帳簿価額: ${yen(r.book)}</p>${r.complete?'':'<p>年間の償却額が0円のため、帳簿価額1円まで償却できません。</p>'}`;
+ }catch(e){el.textContent=e.message;el.classList.add('err');}
+}
+document.querySelector('main').addEventListener('input',update);document.querySelector('main').addEventListener('change',update);update();
+</script></body></html>

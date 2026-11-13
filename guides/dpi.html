@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dpiとppiの違い｜1インチ25.4mmと塗り足し3mm | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/guides/dpi.html">
+<meta name="description" content="印刷寸法とピクセル数の関係、dpiとppiの違いを解説。A4・300dpiは2480×3508px。周囲3mmの塗り足しを加える方法と300〜350dpiの目安も紹介します。">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"dpiとピクセル","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/dpi/"},{"@type":"ListItem","position":3,"name":"解説","item":"https://ramirobo2-debug.github.io/kurashi-keisan/guides/dpi.html"}]}</script>
+</head><body><header><a class="site" href="../">くらしの計算室</a><nav class="crumb"><a href="../">トップ</a> › <a href="../tools/dpi/">dpiとピクセル</a> › 解説</nav></header>
+<main><h1>dpi・ppiと印刷する大きさの関係</h1><p><a href="../tools/dpi/">dpiとピクセルの計算ツール</a>で、用紙に必要な画像サイズや画像から印刷できる寸法を求められます。</p>
+<section class="card"><h2>1インチは25.4mm</h2><p>ピクセル数＝mm÷25.4×解像度です。A4の210×297mmなら300dpiで2480×3508px、350dpiで2894×4093pxになります。必要なピクセル数は四捨五入しています。逆に3000pxを350dpiで印刷する長さは3000÷350×25.4＝約217.71mmです。</p><p>はがき100×148mmは350dpiで1378×2039px、名刺91×55mmは300dpiで1075×650pxです。用紙の寸法や拡大率は<a href="../tools/youshi/">用紙サイズと拡大縮小率</a>、長さの換算は<a href="../tools/inch/">インチの換算</a>も使えます。</p></section>
+<section class="card"><h2>dpiとppiの違い</h2><p>dpiは1インチあたりに印刷する点(dot)の数、ppiは画像の1インチあたりの画素(pixel)数です。画像の入稿案内では画像解像度もdpiと呼ぶ場合があるため、このツールでは指定された画像解像度をdpi欄に入力します。プリンターの出力性能のdpiと画像のppiは必ずしも一致しません。</p><p class="note">写真・チラシの印刷では300〜350dpiが目安とされますが、印刷所の入稿案内によります。用途・印刷方法・見る距離によって必要な解像度は変わります。画像を拡大してピクセル数だけ増やしても元の細部は復元できません。</p></section>
+<section class="card"><h2>塗り足し3mmを付ける場合</h2><p>端まで色や写真を印刷するときは、断裁のずれに備えて仕上がりの外側に絵柄を延ばします。周囲に3mmずつ塗り足す指定なら、幅と高さにそれぞれ6mmを加えます。A4なら216×303mm、名刺なら97×61mmを入力してください。</p><p class="note">必要な塗り足しや文字を置ける範囲は印刷所の入稿案内で確認してください。ツールの用紙選択は仕上がり寸法です。</p></section>
+<section class="card"><h2>よくある質問</h2><h3>解像度を上げれば鮮明になりますか?</h3><p>同じ印刷寸法では多くの画素が必要になりますが、元画像にない細部が増えるわけではありません。元のピクセル数も確認してください。</p><h3>3000pxの画像を350dpiで印刷すると何mmですか?</h3><p>その辺の長さは約217.71mmです。もう一辺も同じ式で計算します。</p><h3>縦と横を入れ替えても使えますか?</h3><p>はい。幅と高さを入れ替えれば結果も入れ替わります。用紙を選んだあと寸法を指定に戻して編集できます。</p><h3>塗り足し3mmは幅に3mm足しますか?</h3><p>左右それぞれ3mmなら合計6mmを足します。高さも上下の合計6mmを足します。</p></section>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../tools/youshi/">用紙サイズと拡大縮小率</a> — A0〜A6・JIS B0〜B6・はがきの寸法とコピー倍率</li>
+<li><a href="../tools/inch/">インチ・フィート・ポンドの換算</a> — インチ・フィート・マイル・ポンド・オンスとcm・kgを換算。テレビの型の大きさも</li>
+<li><a href="../tools/data-size/">データ容量の換算(GB・GiB)</a> — B・KB・MB・GB・TBとKiB・MiB・GiB・TiBの換算と、通信速度から転送時間</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../tools/dpi/">dpiの計算へ戻る</a> ・ <a href="../privacy.html">プライバシーポリシー</a></p></footer></body></html>
