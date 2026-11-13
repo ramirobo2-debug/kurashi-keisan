@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/age-table.html</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/anbun.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/area.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/atsuryoku.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/baby-events.html</loc><lastmod>2026-11-12</lastmod></url>
@@ -20,17 +21,19 @@
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/hayasa.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/heikin.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/hensachi.html</loc><lastmod>2026-11-13</lastmod></url>
-  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/hi.html</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/hi.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/houteishiki.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/houyou.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/inch.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/inshi.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/jikan-tashizan.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/jikan.html</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/jikoku.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/jisa.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/kakudo.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/kansuji.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/keiryo.html</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/kingaku-tani.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/kumiawase.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/loan.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/mets.html</loc><lastmod>2026-11-12</lastmod></url>
@@ -68,6 +71,7 @@
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/privacy.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/age-table/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/anbun/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/area/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/atsuryoku/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/baby-events/</loc><lastmod>2026-11-12</lastmod></url>
@@ -87,17 +91,19 @@
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/hayasa/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/heikin/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/hensachi/</loc><lastmod>2026-11-13</lastmod></url>
-  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/hi/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/hi/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/houteishiki/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/houyou/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/inch/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/inshi/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/jikan/</loc><lastmod>2026-11-12</lastmod></url>
-  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/jikan-tashizan/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/jikan-tashizan/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/jikoku/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/jisa/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/kakudo/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/kansuji/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/keiryo/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/kingaku-tani/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/kumiawase/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/loan/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/mets/</loc><lastmod>2026-11-12</lastmod></url>
