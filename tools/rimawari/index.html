@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>不動産の利回り(表面・実質)の計算｜2,000万円・月10万円で6% | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/rimawari/">
+<meta name="description" content="物件価格と月額・年額の家賃から、不動産の表面利回りと実質利回りを計算。2,000万円・月10万円なら表面6%です。年間経費・購入時の諸費用・空室率を反映し、目標の表面利回りから物件価格も逆算できます。">
+<link rel="stylesheet" href="../../assets/style.css"><style>input,select{max-width:100%;min-width:0}#result{overflow-wrap:anywhere;white-space:pre-line}</style>
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"不動産の利回り(表面・実質)","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/rimawari/"}]}</script>
+</head><body><header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 不動産の利回り(表面・実質)</nav></header>
+<main><h1>不動産の利回り(表面・実質)の計算</h1><p>家賃と物件価格から収益の割合を求めます。入力は端末の中だけで計算し、どこにも送信しません。</p>
+<section class="card"><h2>家賃と価格を入力</h2>
+<div class="row"><label for="mode">計算するもの</label><select id="mode"><option value="yield">価格から利回り</option><option value="price">目標の表面利回りから価格</option></select></div>
+<div class="row" id="price-row"><label for="price">物件価格(円)</label><input id="price" type="text" inputmode="decimal" value="20000000"></div>
+<div class="row"><label for="period">家賃の期間</label><select id="period"><option value="month">月額</option><option value="year">年額</option></select></div>
+<div class="row"><label for="rent">家賃(円)</label><input id="rent" type="text" inputmode="decimal" value="100000"></div>
+<div class="row" id="target-row" hidden><label for="target">目標の表面利回り(%)</label><input id="target" type="text" inputmode="decimal" value="6"></div>
+<div id="details">
+<div class="row"><label for="expenses">年間経費(円・任意)</label><input id="expenses" type="text" inputmode="decimal"></div>
+<div class="row"><label for="fees">購入時の諸費用(円・任意)</label><input id="fees" type="text" inputmode="decimal"></div>
+<div class="row"><label for="vacancy">空室率(%・任意)</label><input id="vacancy" type="text" inputmode="decimal"></div></div>
+<p class="note">任意欄は空欄なら0。価格・家賃・目標利回りは0より大きい数、経費・諸費用は0以上、空室率は0以上100未満です。全角数字と3けた区切りのカンマに対応し、小数第2位まで四捨五入します。</p>
+<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
+<p class="note">年間経費には管理費・修繕積立金・固定資産税などを含めます。ローン返済は含めません。将来の家賃や売却益を保証するものではありません。</p></section>
+<p>くわしい説明: <a href="../../guides/rimawari.html">表面と実質の違い・空室と経費の考え方</a></p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../loan/">ローンの返済額の計算</a> — 元利均等・元金均等の毎月の返済額と総返済額</li>
+<li><a href="../percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
+<li><a href="../tsumitate/">積立と複利の計算</a> — 毎月の積立額と利回りから、将来の金額</li>
+<li><a href="../tsubo-tanka/">坪単価の計算</a> — 価格と面積から坪単価・㎡単価を計算。100㎡は30.25坪</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
+<script type="module">
+import {calculateRimawari,fixed} from './rimawari.js';
+const $=id=>document.getElementById(id),yen=v=>fixed(v).replace(/\d+(?=\.)/,s=>s.replace(/\B(?=(\d{3})+(?!\d))/g,','))+'円';
+function update(){
+ const reverse=$('mode').value==='price';
+ $('price-row').hidden=reverse;$('details').hidden=reverse;$('target-row').hidden=!reverse;
+ const el=$('result');
+ try{
+  const r=calculateRimawari(Object.fromEntries(['mode','price','period','rent','target','expenses','fees','vacancy'].map(id=>[id,$(id).value])));
+  el.classList.remove('err');
+  el.textContent=`年間家賃: ${yen(r.annual)}\n`+(reverse?`物件価格: ${yen(r.price)}\n計算式: 年間家賃 ÷ 目標の表面利回り × 100`:`表面利回り: ${fixed(r.gross)}%\n${r.hasVacancy?'空室を見込んだ表面利回り: '+fixed(r.adjusted)+'%\n':''}実質利回り: ${fixed(r.net)}%\n計算式: 表面＝年間家賃 ÷ 物件価格 × 100\n空室を見込んだ表面＝年間家賃 × (1−空室率÷100) ÷ 物件価格 × 100\n実質＝(年間家賃 × (1−空室率÷100) − 年間経費) ÷ (物件価格＋諸費用) × 100`);
+ }catch(e){el.textContent=e.message;el.classList.add('err');}
+}
+document.querySelector('main').addEventListener('input',update);document.querySelector('main').addEventListener('change',update);update();
+</script></body></html>
