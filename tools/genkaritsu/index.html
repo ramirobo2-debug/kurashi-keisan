@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>原価率と利益率の計算｜700円と1,000円の粗利 | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/genkaritsu/">
+<meta name="description" content="原価700円・売価1,000円の原価率70%・利益率30%を計算。値入率・掛け率・利益額、売価と原価の逆算、1円未満の処理に対応。">
+<link rel="stylesheet" href="../../assets/style.css"><style>input,select{max-width:100%;min-width:0}#result{overflow-wrap:anywhere;white-space:pre-line}</style>
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"原価率と利益率","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/genkaritsu/"}]}</script>
+</head><body><header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 原価率と利益率</nav></header>
+<main><h1>原価率と利益率・掛け率の計算</h1><p>金額と率を相互に計算します。入力は端末の中だけで計算し、どこにも送信しません。</p>
+<section class="card"><h2>金額と率を入力</h2>
+<div class="row"><label for="mode">計算するもの</label><select id="mode"><option value="rates">原価と売価から率</option><option value="price">原価と利益率から売価</option><option value="cost">売価と原価率から原価</option></select></div>
+<div class="row" id="cost-row"><label for="cost">原価(円)</label><input id="cost" type="text" inputmode="decimal" value="700"></div>
+<div class="row" id="price-row"><label for="price">売価(円)</label><input id="price" type="text" inputmode="decimal" value="1000"></div>
+<div class="row" id="rate-row" hidden><label for="rate" id="rate-label">利益率(%)</label><input id="rate" type="text" inputmode="decimal" value="30"></div>
+<div class="row" id="rounding-row" hidden><label for="rounding">売価の1円未満の処理</label><select id="rounding"><option value="ceil">切り上げ</option><option value="round">四捨五入</option><option value="floor">切り捨て</option></select></div>
+<p class="note">原価・売価は0より大きい数、利益率は100%未満。全角数字・3けた区切りのカンマに対応。税込と税抜をそろえてください。粗利は他の経費を差し引く前の利益です。</p>
+<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
+<p class="note">率と利益額は円単位に丸める前の金額が基準です。小数第2位まで四捨五入します。売価を丸めると実際の率は変わります。7掛けは原価率70%です。</p></section>
+<p>くわしい説明: <a href="../../guides/genkaritsu.html">利益率と値入率の違い・売価の決め方</a></p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../tax/">消費税の計算</a> — 税込・税抜・消費税額。8%と10%の混在にも対応</li>
+<li><a href="../discount/">割引・値引き後の税込価格</a> — 割引率や値引き額から支払額を計算</li>
+<li><a href="../percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
+<script type="module">
+import {calculateGenkaritsu} from './genkaritsu.js';
+const $=id=>document.getElementById(id);
+function update(){
+ const mode=$('mode').value;
+ $('cost-row').hidden=mode==='cost';$('price-row').hidden=mode==='price';$('rate-row').hidden=mode==='rates';$('rounding-row').hidden=mode!=='price';$('rate-label').textContent=mode==='cost'?'原価率(%)':'利益率(%)';
+ const el=$('result');
+ try{
+  const r=calculateGenkaritsu({mode,cost:$('cost').value,price:$('price').value,rate:$('rate').value,rounding:$('rounding').value});
+  el.classList.remove('err');
+  el.textContent=`原価: ${r.cost}円 / 売価: ${r.approxPrice?'約':''}${r.price}円`+(mode==='price'?`\n円単位の売価: ${r.roundedPrice}円`:'')+`\n原価率: ${r.costRate}% / 利益率(粗利率): ${r.profitRate}%\n原価値入率(マークアップ率・原価基準): ${r.markupRate}% / 掛け率: ${r.kake}掛け(${r.costRate}%)\n利益額: ${r.profit}円`;
+ }catch(e){el.textContent=e.message;el.classList.add('err');}
+}
+document.querySelector('main').addEventListener('input',update);document.querySelector('main').addEventListener('change',update);update();
+</script></body></html>

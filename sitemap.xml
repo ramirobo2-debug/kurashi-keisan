@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/72-housoku.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/age-table.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/anbun.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/area.html</loc><lastmod>2026-11-13</lastmod></url>
@@ -17,6 +18,7 @@
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/discount.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/due-date.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/energy.html</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/genkaritsu.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/hasuu.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/hayasa.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/heikin.html</loc><lastmod>2026-11-13</lastmod></url>
@@ -59,6 +61,7 @@
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/suuretsu.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/tanka.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/tax.html</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/tsubo-tanka.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/tsumitate.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/wage.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/wareki.html</loc><lastmod>2026-11-12</lastmod></url>
@@ -70,6 +73,7 @@
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/guides/zukei.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/privacy.html</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/72-housoku/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/age-table/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/anbun/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/area/</loc><lastmod>2026-11-13</lastmod></url>
@@ -87,6 +91,7 @@
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/discount/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/due-date/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/energy/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/genkaritsu/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/hasuu/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/hayasa/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/heikin/</loc><lastmod>2026-11-13</lastmod></url>
@@ -129,6 +134,7 @@
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/suuretsu/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/tanka/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/tax/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/tsubo-tanka/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/tsumitate/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/wage/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://ramirobo2-debug.github.io/kurashi-keisan/tools/wareki/</loc><lastmod>2026-11-12</lastmod></url>
