@@ -1,43 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>2進数・16進数の変換|10進・8進と相互に計算 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/shinsu/">
-<meta name="description" content="2進・8進・10進・16進を相互変換。10進の255は16進でFF・2進で11111111、2026は7EAです。2の64乗−1までの整数に対応し、2進数は4けた区切りでも表示します。">
-<link rel="stylesheet" href="../../assets/style.css">
-<style>input,select{min-width:0;max-width:100%}#result{overflow-wrap:anywhere}#result table{width:100%;table-layout:fixed}#result th,#result td{text-align:left;padding:4px}</style>
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"2進数・16進数の変換","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/shinsu/"}]}</script>
-</head><body><header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 2進数・16進数の変換</nav></header>
-<main><h1>2進数・16進数の変換</h1><p>数と進数を入れると、2進・8進・10進・16進をすべて表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card" aria-labelledby="settings"><h2 id="settings">数を入力</h2>
-<div class="row"><label for="amount">数</label><input id="amount" class="amt" type="text" value="255" spellcheck="false" autocapitalize="off"><label for="base">入力の進数</label><select id="base"><option value="2">2進数</option><option value="8">8進数</option><option value="10" selected>10進数</option><option value="16">16進数</option></select></div>
-<p class="note">0〜18446744073709551615(2の64乗−1)の整数に対応。16進数のA〜Fは大文字・小文字のどちらも使えます。全角数字と、10進数の3けた区切りのカンマも使えます。先頭の0x(16進数)・0b(2進数)・0o(8進数)は、その進数を選んだときに取り除いて読みます。負の数・小数は使えません。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div><p>位ごとに、数字 × 進数のべき乗を足して換算します。例: 2進数の1011 = 8 + 2 + 1 = 10進数の11。</p></section>
-<p>くわしい説明: <a href="../../guides/shinsu.html">位取りと2進数・16進数の考え方</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../roman/">ローマ数字の変換</a> — 1〜3999の数字とローマ数字を相互変換</li>
-<li><a href="../data-size/">データ容量の換算(GB・GiB)</a> — B・KB・MB・GB・TBとKiB・MiB・GiB・TiBの換算と、通信速度から転送時間</li>
-<li><a href="../charcount/">文字数カウント</a> — 文字数・改行数・行数・原稿用紙の枚数・UTF-8バイト数を数える</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import {convertBase} from './shinsu.js';
-const $=id=>document.getElementById(id);
-function update(){
- const result=$('result');result.replaceChildren();
- try{
-  const r=convertBase($('amount').value,Number($('base').value));
-  const table=document.createElement('table'),caption=document.createElement('caption'),body=document.createElement('tbody');
-  caption.textContent='進数の変換結果';table.append(caption);
-  for(const [label,value] of [['2進数',r.binary],['2進数(4けた区切り)',r.groupedBinary],['8進数',r.octal],['10進数',r.decimal],['16進数',r.hexadecimal]]){
-   const row=document.createElement('tr'),th=document.createElement('th'),td=document.createElement('td');th.scope='row';th.textContent=label;td.textContent=value;row.append(th,td);body.append(row);
-  }
-  table.append(body);result.append(table);result.classList.remove('err');
- }catch(error){result.textContent=error.message;result.classList.add('err');}
-}
-document.querySelector('main').addEventListener('input',update);document.querySelector('main').addEventListener('change',update);update();
-</script></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/shinsu/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/shinsu/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/shinsu/">https://keisan.masumedo.com/tools/shinsu/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

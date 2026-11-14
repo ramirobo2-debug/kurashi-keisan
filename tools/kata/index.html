@@ -1,46 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ケーキの型のサイズと分量｜15cmから18cmは1.44倍 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/kata/">
-<meta name="description" content="丸型の直径・4〜8号・角型から、型を変えるときの材料の倍率を計算。15cm(5号)から18cm(6号)は1.44倍で卵3個は4.32個、18cmから12cmは約0.44倍、15cm丸型から角型は約1.27倍です。">
-<link rel="stylesheet" href="../../assets/style.css"><style>input,select{max-width:100%;min-width:0}#result{overflow-wrap:anywhere;white-space:pre-line}</style>
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"ケーキの型のサイズと分量","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/kata/"}]}</script>
-</head><body><header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › ケーキの型のサイズと分量</nav></header>
-<main><h1>ケーキの型のサイズと分量の計算</h1><p>高さが同じ型に変えるときの材料の倍率を求めます。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card"><h2>元の型と使いたい型を入力</h2>
-<div class="row"><label for="from-shape">元の型の形・単位</label><select id="from-shape"><option value="round">丸型・直径(cm)</option><option value="go">丸型・号(4〜8号)</option><option value="square">角型・1辺(cm)</option></select></div>
-<div class="row"><label id="from-label" for="from-size">元の型の直径(cm)</label><input id="from-size" type="text" inputmode="decimal" value="15"></div>
-<div class="row"><label for="to-shape">使いたい型の形・単位</label><select id="to-shape"><option value="round">丸型・直径(cm)</option><option value="go">丸型・号(4〜8号)</option><option value="square">角型・1辺(cm)</option></select></div>
-<div class="row"><label id="to-label" for="to-size">使いたい型の直径(cm)</label><input id="to-size" type="text" inputmode="decimal" value="18"></div>
-<p class="note">寸法は0より大きい数を入力してください。1号=3cmで、4号12cm・5号15cm・6号18cm・7号21cm・8号24cmです。全角数字と3けた区切りのカンマに対応します。形・単位を切り替えたら数値も確認してください。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
-<p class="note">高さが同じ場合の底面積の比です。表示は小数第2位まで、参考倍率は第3位まで。円周率は近似値です。卵は溶いて重さで分けると調整しやすくなります。焼き時間は分量に比例しません。焼き色や中心の火の通りを確認してください。</p></section>
-<p>くわしい説明: <a href="../../guides/kata.html">号とcmの関係・型を変えるときの材料と焼き時間</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../hi/">比の計算</a> — 比を簡単にする・a:b=c:xのxを求める・比で分ける</li>
-<li><a href="../zukei/">図形の面積・円周の計算</a> — 円・三角形・台形・ひし形・おうぎ形の面積と円周、球の体積</li>
-<li><a href="../keiryo/">大さじ・小さじ・カップ・合の換算</a> — 料理の計量と、合・升・mL・ccを相互に換算</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import {calculateKata,fixed} from './kata.js';
-const $=id=>document.getElementById(id);
-function update(){
- for(const [p,label] of [['from','元の型'],['to','使いたい型']]){
-  const shape=$(p+'-shape').value;
-  $(p+'-label').textContent=label+(shape==='go'?'の号(4〜8)':shape==='square'?'の1辺(cm)':'の直径(cm)');
- }
- const el=$('result');
- try{
-  const r=calculateKata({fromShape:$('from-shape').value,fromSize:$('from-size').value,toShape:$('to-shape').value,toSize:$('to-size').value});
-  el.classList.remove('err');
-  el.textContent=`分量の倍率: 約${fixed(r.ratio)}倍(参考: ${fixed(r.ratio,3)}倍)\n卵3個の場合: 3 × 倍率 = 約${fixed(r.eggs)}個\n計算式: 使いたい型の底面積 ÷ 元の型の底面積\n丸型: π × (直径 ÷ 2)²、角型: 1辺²`;
- }catch(e){el.textContent=e.message;el.classList.add('err');}
-}
-document.querySelector('main').addEventListener('input',update);document.querySelector('main').addEventListener('change',update);update();
-</script></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/kata/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/kata/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/kata/">https://keisan.masumedo.com/tools/kata/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

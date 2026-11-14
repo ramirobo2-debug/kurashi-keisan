@@ -1,36 +1,13 @@
 <!doctype html>
-<html lang="ja"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>積立と複利の計算方法|目標額からの逆算と72の法則 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/guides/tsumitate.html">
-<meta name="description" content="単利と複利の違い、毎月の積立の計算式、目標額から毎月の積立額を逆算する方法を、月3万円・年3%・20年などの例で説明します。72の法則と、税金・手数料を含まない前提も確認できます。">
-<link rel="stylesheet" href="../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"積立と複利の計算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/tsumitate/"},{"@type":"ListItem","position":3,"name":"解説","item":"https://ramirobo2-debug.github.io/kurashi-keisan/guides/tsumitate.html"}]}</script>
-</head><body>
-<header><a class="site" href="../">くらしの計算室</a><nav class="crumb"><a href="../">トップ</a> › <a href="../tools/tsumitate/">積立と複利の計算</a> › 解説</nav></header>
-<main><h1>積立と複利の計算方法・目標額からの逆算</h1>
-<p><a href="../tools/tsumitate/">積立と複利の計算</a>で、最終額や目標に必要な毎月の積立額を確認できます。</p>
-<h2>単利と複利の違い</h2><p>単利は元本だけに利息がつき、複利はそれまでの利息を含む金額に利息がつきます。100万円を年6%で年1回計算すると、2年後は単利112万円、複利112万3,600円です。利回りが一定という仮定での比較です。</p>
-<h2>毎月末の積立と計算式</h2><p>このツールでは月利r = 年利(%) ÷ 100 ÷ 12として、毎月「前月の金額 × (1 + r) + 積立額」を計算します。年利を12で割るのは、年利を各月に均等に割り当てる方式だからです。年1回の複利や、月利を(1 + 年利)の12乗根から1を引いて求める方式もあり、結果は異なります。</p>
-<p>月数n、はじめの金額P、毎月の積立額Aなら、最終額は P × (1 + r)ⁿ + A × ((1 + r)ⁿ − 1) ÷ r。年利0%では P + A × nです。毎月の計算途中では端数を切り捨てず、表示時に1円未満を切り捨てます。元本は P + A × n、運用益は表示した最終額から元本を引いた金額です。</p>
-<p>月3万円・年3%・20年なら、最終9,849,059円、元本7,200,000円、運用益2,649,059円です。月5万円・はじめ100万円・年5%・10年なら、最終9,411,123円、元本7,000,000円です。</p>
-<h2>目標額から逆算するには</h2><p>目標額からはじめの金額の複利分を引き、積立の係数 ((1 + r)ⁿ − 1) ÷ rで割ります。必要な毎月の積立額は1円未満を切り上げます。年利0%なら(目標額 − はじめの金額) ÷ 月数です。はじめの金額の運用だけで目標に届く場合は0円と表示します。目標額は1円〜1兆円で、逆算結果は1,000万円を超える場合も表示します。</p>
-<h2>72の法則</h2><p>72を年利(%)で割ると、複利で金額が2倍になるまでの年数の目安になります。年6%なら約12年です。追加の積立や税金・手数料を含まない近似で、将来の成果を示すものではありません。</p>
-<h2>計算の前提</h2><p>利回りは一定と仮定した目安です。実際の運用の結果は、金融機関や商品、相場の動きで変わり、損失が出る場合もあります。投資の助言ではありません。NISAなどの非課税や課税口座の税金(20.315%)、手数料は考慮していません。借入の支払いを確認するときは<a href="../tools/loan/">ローンの返済額</a>をお使いください。</p>
-<h2>よくある質問</h2>
-<h3>月3万円を利回り0%で20年積み立てるといくらですか</h3><p>はじめの金額0円なら7,200,000円です。運用益は0円です。</p>
-<h3>2,000万円を年4%・30年で目指す場合、毎月いくらですか</h3><p>はじめの金額0円なら毎月28,817円です。計算値28,816.39…円を切り上げます。一定の利回りを仮定した試算です。</p>
-<h3>積み立てず、はじめの金額だけでも計算できますか</h3><p>できます。毎月の積立額を0円にしてください。毎月もはじめの金額も0円の場合は「金額を入れてください」と表示します。</p>
-<h3>税引き後の金額ですか</h3><p>税金と手数料を引く前の試算です。非課税制度の適用条件や口座による違いも計算には含めていません。</p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../tools/loan/">ローンの返済額の計算</a> — 元利均等・元金均等の毎月の返済額と総返済額</li>
-<li><a href="../tools/risoku/">預金の利息の計算(税引き後)</a> — 元金・年利・期間から利息と税金を引いた手取り。100万円を年0.3%で1年なら2,391円</li>
-<li><a href="../tools/72-housoku/">72の法則</a> — 年3%なら約24年(複利の式では23.45年)。お金が2倍になる年数と、必要な年利を計算</li>
-<li><a href="../tools/percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../">トップ</a> ・ <a href="../privacy.html">プライバシーポリシー</a></p></footer></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/guides/tsumitate">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/guides/tsumitate">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/guides/tsumitate">https://keisan.masumedo.com/guides/tsumitate</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

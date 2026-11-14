@@ -3,61 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>坪・平米(㎡)・畳の換算|1坪は何㎡、6畳は何㎡ | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/area/">
-<meta name="description" content="㎡・坪・畳を相互に換算する無料ツール。1坪は約3.31㎡、6畳は不動産広告の基準(1畳1.62㎡)で9.72㎡。畳は江戸間・中京間・京間・団地間の寸法からも選べます。">
-<link rel="stylesheet" href="../../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"坪・平米・畳の換算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/area/"}]}</script>
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/area/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/area/">
 </head>
 <body>
-<header>
-<a class="site" href="../../">くらしの計算室</a>
-<nav class="crumb"><a href="../../">トップ</a> › 坪・平米・畳の換算</nav>
-</header>
-<main>
-<h1>坪・平米・畳の換算</h1>
-<p>㎡(平米)・坪・畳を相互に換算します。入力した内容は、お使いの端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card" aria-labelledby="settings">
-<h2 id="settings">面積と単位を入力</h2>
-<div class="row"><label for="amount">面積</label><input id="amount" class="amt" type="text" inputmode="decimal" value="1" autocomplete="off"></div>
-<div class="row"><label for="unit">入力する単位</label><select id="unit"><option value="sqm">㎡(平米)</option><option value="tsubo" selected>坪</option><option value="tatami">畳</option></select></div>
-<div class="row"><label for="kind">畳の種類</label><select id="kind"><option value="edo">江戸間</option><option value="chukyo">中京間</option><option value="kyo">京間</option><option value="danchi">団地間</option><option value="ad">不動産広告の基準(1畳1.62㎡)</option></select></div>
-<div class="row"><label for="digits">結果の表示</label><select id="digits"><option value="0">整数</option><option value="1">小数第1位まで</option><option value="2">小数第2位まで</option><option value="3">小数第3位まで</option><option value="4" selected>小数第4位まで</option><option value="12">小数第12位まで</option></select></div>
-<p class="note">面積は0〜1兆、小数点以下12桁まで入力できます。カンマや指数表記は使えません。結果は「結果の表示」で選んだ桁で四捨五入します。畳の広さは寸法から計算した目安です。不動産広告の畳数は、1畳を1.62㎡以上として表示する決まりです。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
-<p class="note">計算結果は目安です。売買や賃貸の契約では、登記簿や重要事項説明書の面積を確認してください。</p>
-</section>
-<p>くわしい説明: <a href="../../guides/area.html">坪・平米・畳の換算方法と寸法</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../tsubo-tanka/">坪単価の計算</a> — 価格と面積から坪単価・㎡単価を計算。100㎡は30.25坪</li>
-<li><a href="../shaku/">尺貫法の換算</a> — 尺・寸・間・丈・鯨尺とcm・m・mmを相互に換算</li>
-<li><a href="../zukei/">図形の面積・円周の計算</a> — 円・三角形・台形・ひし形・おうぎ形の面積と円周、球の体積</li>
-<li><a href="../inch/">インチ・フィート・ポンドの換算</a> — インチ・フィート・マイル・ポンド・オンスとcm・kgを換算。テレビの型の大きさも</li>
-</ul>
-</section>
-<!-- related:end -->
-</main>
-<footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import { calculateArea, TATAMI } from "./area.js";
-const $ = (id) => document.getElementById(id);
-function update() {
-  try {
-    const kind = $("kind").value;
-    const r = calculateArea($("amount").value, $("unit").value, kind, Number($("digits").value));
-    $("result").textContent = `結果: ${r.sqm}㎡ / ${r.tsubo}坪 / ${r.tatami}畳(${TATAMI[kind].name})`;
-    $("result").classList.remove("err");
-  } catch (error) {
-    $("result").textContent = error.message;
-    $("result").classList.add("err");
-  }
-}
-document.querySelectorAll("input").forEach((element) => element.addEventListener("input", update));
-document.querySelectorAll("select").forEach((element) => element.addEventListener("change", update));
-update();
-</script>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/area/">https://keisan.masumedo.com/tools/area/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
 </body>
 </html>

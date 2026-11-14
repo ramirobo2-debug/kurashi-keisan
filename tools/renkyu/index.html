@@ -1,55 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>連休の一覧|2026年・2027年の3連休と有休での連休 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/renkyu/">
-
-<meta name="description" content="2026年・2027年など2000〜2099年の3連休・4連休・5連休を、土日・祝日・振替休日から一覧に。ゴールデンウィークやシルバーウィーク、年末年始を休みに含めた場合、有休を1日取ると何連休になるかも表示します。">
-<link rel="stylesheet" href="../../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"連休の一覧","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/renkyu/"}]}</script>
-</head><body><header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 連休の一覧</nav></header>
-<main><h1>連休の一覧</h1><p>年を入れると、その年の3連休以上の連休を期間・日数・祝日名つきで一覧にし、有休を1日取るとつながる連休も表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card" aria-labelledby="settings"><h2 id="settings">年と休みの設定</h2>
-<div class="row"><label for="year">年(2000〜2099)</label><input id="year" type="text" inputmode="decimal" autocomplete="off"></div>
-<div class="row"><label for="minimum">最低の日数</label><select id="minimum"><option value="3">3日</option><option value="4">4日</option><option value="5">5日</option></select></div>
-<p><label><input id="year-end" type="checkbox">年末年始(12月29日〜1月3日)を休みに含める</label></p>
-<p><label><input id="paid-leave" type="checkbox">1日だけ休めば(有休)つながる連休も出す</label></p>
-<p class="note">祝日は内閣府の発表に基づく計算で、春分・秋分の日は予測を含みます。年末年始の休みは会社によって違います。年をまたぐ連休は始まりの年に入れます。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div></section>
-<p>くわしい説明: <a href="../../guides/renkyu.html">連休の仕組みと年末年始の扱い</a></p><!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../calendar/">祝日入りカレンダー(印刷用)</a> — 月・年のカレンダーを祝日・和暦つきで表示・印刷</li>
-<li><a href="../days/">日数・営業日の計算</a> — ◯日後・期間の日数・土日祝を除く営業日</li>
-<li><a href="../weekday/">◯年◯月◯日は何曜日</a> — 曜日・その年の何日目か・祝日名を表示</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer><script type="module">
-import { calculateRenkyu } from "./renkyu.js";
-import { formatDate } from "../days/days.js";
-const $ = id => document.getElementById(id);
-$("year").value = new Date().getFullYear();
-function update() {
-  const box = $("result"); box.replaceChildren();
-  try {
-    const r = calculateRenkyu($("year").value.trim(), Number($("minimum").value), $("year-end").checked, $("paid-leave").checked);
-    const table = document.createElement("table");
-    const header = table.createTHead().insertRow();
-    for (const text of ["期間(西暦・曜日)", "日数", "含まれる祝日名"]) { const th = document.createElement("th"); th.scope = "col"; th.textContent = text; header.append(th); }
-    const body = table.createTBody();
-    for (const p of r.periods) { const row = body.insertRow(); for (const text of [`${formatDate(p.start)}〜${formatDate(p.end)}`, `${p.days}日`, p.holidays.join("・") || "なし"]) row.insertCell().textContent = text; }
-    const wrap = document.createElement("div"); wrap.className = "table-wrap"; wrap.append(table); box.append(wrap);
-    const summary = document.createElement("p"); summary.textContent = `${$("minimum").value}連休以上: ${r.periods.length}回`; box.append(summary);
-    if ($("paid-leave").checked) {
-      const title = document.createElement("h3"); title.textContent = "1日の有休でつながる連休"; box.append(title);
-      const list = document.createElement("ul");
-      for (const p of r.bridges) { const li = document.createElement("li"); li.textContent = `${formatDate(p.leave)}を休むと${p.days}連休 (${formatDate(p.start)}〜${formatDate(p.end)})`; list.append(li); }
-      box.append(list); if (!r.bridges.length) list.textContent = "該当なし";
-    }
-    box.classList.remove("err");
-  } catch (e) { box.textContent = e.message; box.classList.add("err"); }
-}
-$("year").addEventListener("input", update);
-document.querySelectorAll("select, input[type=checkbox]").forEach(e => e.addEventListener("change", update));
-update();
-</script></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/renkyu/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/renkyu/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/renkyu/">https://keisan.masumedo.com/tools/renkyu/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

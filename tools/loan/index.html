@@ -1,60 +1,13 @@
 <!doctype html>
-<html lang="ja"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ローンの返済額の計算|住宅ローンの毎月の返済額と利息 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/loan/">
-<meta name="description" content="借入額・年利・返済期間からローンの毎月の返済額・総返済額・利息を計算。3,000万円を年1%・35年の元利均等で借りると毎月84,685円。元金均等との比較、年ごと・毎月の返済表も確認できます。">
-<link rel="stylesheet" href="../../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"ローンの返済額","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/loan/"}]}</script>
-</head><body>
-<header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › ローンの返済額</nav></header>
-<main><h1>ローンの返済額の計算</h1>
-<p>借入額・年利・期間を入れると返済額と利息を表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card" aria-labelledby="settings"><h2 id="settings">ローンの条件を入力</h2>
-<div class="row"><label for="amount">借入額(円)</label><input id="amount" class="amt" type="text" inputmode="numeric" value="30000000" autocomplete="off"></div>
-<div class="row"><label for="rate">年利(%)</label><input id="rate" class="amt" type="text" inputmode="decimal" value="1" autocomplete="off"></div>
-<div class="row"><label for="years">返済期間(年)</label><input id="years" class="amt" type="text" inputmode="numeric" value="35" autocomplete="off"></div>
-<div class="row"><label for="months">追加の月数(0〜11か月)</label><input id="months" class="amt" type="text" inputmode="numeric" value="0" autocomplete="off"></div>
-<div class="row"><label for="method">返済方法</label><select id="method"><option value="annuity">元利均等</option><option value="principal">元金均等</option></select></div>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
-<p class="note">借入額1円〜10億円(全角数字・3桁区切りのカンマ・「円」も入力可)、年利0〜20%(小数第3位まで)、期間1〜50年に0〜11か月を追加できます。利息は毎月1円未満を切り捨て、最終回に残高を精算します。</p>
-<p class="note">固定金利として計算した目安です。実際の返済額は、金融機関やローンの商品・契約の内容で変わります(端数の処理・ボーナス払い・手数料・保証料など)。これらの費用と繰り上げ返済は計算に含めません。借入や投資の助言ではありません。</p>
-<h2>年ごとの返済表</h2><div id="yearly" class="table-wrap"></div>
-<details id="monthly-details"><summary>毎月の表を見る</summary><div id="monthly" class="table-wrap"></div></details>
-</section><p>くわしい説明: <a href="../../guides/loan.html">ローンの返済額の計算方法と返済方法の違い</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../tsumitate/">積立と複利の計算</a> — 毎月の積立額と利回りから、将来の金額</li>
-<li><a href="../percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
-<li><a href="../wage/">時給・日給・月給・年収の換算</a> — 働く時間と日数から、給与を相互に換算</li>
-</ul>
-</section>
-<!-- related:end -->
-</main>
-<footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import { calculateLoan } from "./loan.js";
-const $ = id => document.getElementById(id);
-const yen = n => n.toLocaleString("ja-JP") + "円";
-function table(rows, monthly) {
-  return `<table><thead><tr>${(monthly ? ["回", "返済額", "うち元金", "うち利息", "残高"] : ["年", "返済額", "うち利息", "年末の残高"]).map(s => `<th scope="col">${s}</th>`).join("")}</tr></thead><tbody>${rows.map(row => `<tr><th scope="row">${monthly ? row.month + "回" : row.year + "年目"}</th><td>${yen(row.payment)}</td>${monthly ? `<td>${yen(row.principal)}</td>` : ""}<td>${yen(row.interest)}</td><td>${yen(row.balance)}</td></tr>`).join("")}</tbody></table>`;
-}
-function update() {
-  try {
-    const r = calculateLoan($("amount").value, $("rate").value, $("years").value, $("months").value, $("method").value);
-    $("result").textContent = `${$("method").value === "annuity" ? "毎月: " + yen(r.monthlyPayment) : "初回: " + yen(r.firstPayment)} / 最終回: ${yen(r.lastPayment)} / 総返済額: ${yen(r.total)} / 利息の合計: ${yen(r.totalInterest)}`;
-    $("result").classList.remove("err");
-    $("yearly").innerHTML = table(r.yearly, false);
-    $("monthly").innerHTML = table(r.schedule, true);
-  } catch (error) {
-    $("result").textContent = error.message;
-    $("result").classList.add("err");
-    $("yearly").replaceChildren(); $("monthly").replaceChildren();
-  }
-}
-document.querySelectorAll("input, select").forEach(el => el.addEventListener("input", update));
-update();
-</script>
-</body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/loan/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/loan/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/loan/">https://keisan.masumedo.com/tools/loan/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

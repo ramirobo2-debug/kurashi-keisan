@@ -3,91 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>法要の日程|四十九日・一周忌・三十三回忌 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/houyou/">
-<meta name="description" content="命日から初七日・四十九日・百か日・一周忌・三回忌〜三十三回忌の日程を、西暦・和暦・曜日・祝日名つきで一覧にする無料ツール。命日の前日から数える地域にも対応し、和暦の命日からも調べられます。">
-<link rel="stylesheet" href="../../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"法要の日程","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/houyou/"}]}</script>
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/houyou/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/houyou/">
 </head>
 <body>
-<header>
-  <a class="site" href="../../">くらしの計算室</a>
-  <nav class="crumb"><a href="../../">トップ</a> › 法要の日程</nav>
-</header>
-<main>
-<h1>法要の日程</h1>
-<p>命日を西暦または和暦で入れると、初七日から三十三回忌までの日程を、曜日と祝日名つきで表示します。入力した内容は、お使いの端末の中だけで計算し、どこにも送信しません。</p>
-<div class="row"><label for="count">日数の数え方</label><select id="count"><option value="death">命日を1日目として数える</option><option value="previous">命日の前日を1日目として数える(関西の一部)</option></select></div>
-<section class="card" aria-labelledby="s1">
-  <h2 id="s1">西暦で調べる</h2>
-  <div class="row">
-    <span class="f"><input id="sy" class="y" type="number" inputmode="numeric" min="1873" max="9967" value="2026" aria-label="西暦の年"><label for="sy">年</label></span>
-    <span class="f"><input id="sm" type="number" inputmode="numeric" min="1" max="12" value="1" aria-label="西暦入力の月"><label for="sm">月</label></span>
-    <span class="f"><input id="sd" type="number" inputmode="numeric" min="1" max="31" value="1" aria-label="西暦入力の日"><label for="sd">日</label></span>
-  </div>
-  <div id="r1" class="result" aria-live="polite"></div>
-  <div id="table1" class="table-wrap"></div>
-</section>
-<section class="card" aria-labelledby="s2">
-  <h2 id="s2">和暦で調べる</h2>
-  <div class="row">
-    <select id="we" aria-label="元号"><option selected>令和</option><option>平成</option><option>昭和</option><option>大正</option><option>明治</option></select>
-    <span class="f"><input id="wy" class="y" type="number" inputmode="numeric" min="1" value="8" aria-label="和暦の年"><label for="wy">年(元年は1)</label></span>
-    <span class="f"><input id="wm" type="number" inputmode="numeric" min="1" max="12" value="1" aria-label="和暦入力の月"><label for="wm">月</label></span>
-    <span class="f"><input id="wd" type="number" inputmode="numeric" min="1" max="31" value="1" aria-label="和暦入力の日"><label for="wd">日</label></span>
-  </div>
-  <div id="r2" class="result" aria-live="polite"></div>
-  <div id="table2" class="table-wrap"></div>
-</section>
-<p class="note">命日は1873年1月1日〜9967年12月31日に対応。法要は直前の土日に行うことも多く、地域や宗派によって異なります。結果は目安です。お寺やご家族と相談してください。年忌は数え方を変えても同じ日です。</p>
-<p class="note">祝日判定は2000〜2099年に対応し、範囲外は「判定対象外」と表示します。春分・秋分の日は予測を含みます。将来の和暦は令和が続くものとして表示します。</p>
-<p>くわしい説明: <a href="../../guides/houyou.html">法要の日程の数え方|四十九日・一周忌・三回忌の計算</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../days/">日数・営業日の計算</a> — ◯日後・期間の日数・土日祝を除く営業日</li>
-<li><a href="../weekday/">◯年◯月◯日は何曜日</a> — 曜日・その年の何日目か・祝日名を表示</li>
-<li><a href="../wareki/">和暦・西暦の変換と年齢の計算</a> — 令和・平成・昭和などと西暦を変換し、満年齢も表示</li>
-</ul>
-</section>
-<!-- related:end -->
-</main>
-<footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import { houyouDates, warekiHouyouDates } from "./houyou.js";
-const $ = id => document.getElementById(id);
-const n = id => $(id).value.trim() === "" ? NaN : Number($(id).value);
-function show(id, tableId, rows) {
-  const result = $(id), wrap = $(tableId);
-  wrap.replaceChildren();
-  result.classList.toggle("err", !rows);
-  result.textContent = rows ? "法要の日程(目安)" : "1873〜9967年の正しい命日を入れてください。和暦は元年を1とし、改元の前後も確認してください。";
-  if (!rows) return;
-  const table = document.createElement("table");
-  table.createCaption().textContent = "初七日から三十三回忌まで";
-  const head = table.createTHead().insertRow();
-  ["法要", "西暦", "和暦", "曜日", "祝日名", "注記"].forEach(label => {
-    const th = document.createElement("th"); th.scope = "col"; th.textContent = label; head.append(th);
-  });
-  const body = table.createTBody();
-  for (const row of rows) {
-    const tr = body.insertRow(), th = document.createElement("th");
-    th.scope = "row"; th.textContent = row.name; tr.append(th);
-    const [y, m, d] = row.date;
-    for (const value of [`${y}年${m}月${d}日`, row.wareki, `${row.weekday}曜日`, row.holiday === undefined ? "判定対象外" : row.holiday ?? "—", row.note]) {
-      tr.insertCell().textContent = value;
-    }
-  }
-  wrap.append(table);
-}
-function render() {
-  const previous = $("count").value === "previous";
-  show("r1", "table1", houyouDates(n("sy"), n("sm"), n("sd"), previous));
-  show("r2", "table2", warekiHouyouDates($("we").value, n("wy"), n("wm"), n("wd"), previous));
-}
-["sy", "sm", "sd", "we", "wy", "wm", "wd", "count"].forEach(id => $(id).addEventListener("input", render));
-render();
-</script>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/houyou/">https://keisan.masumedo.com/tools/houyou/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
 </body>
 </html>

@@ -3,104 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>祝日入りカレンダー|2026年・2027年を印刷できる | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/calendar/">
-<meta name="description" content="祝日・振替休日・国民の休日と和暦つきのカレンダーを、1か月または1年分で表示し、A4に印刷できる無料ツール。日曜始まり・月曜始まりを選べ、2000〜2099年に対応します。">
-<link rel="stylesheet" href="../../assets/style.css">
-<link rel="stylesheet" href="./calendar.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"祝日入りカレンダー","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/calendar/"}]}</script>
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/calendar/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/calendar/">
 </head>
 <body>
-<header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 祝日入りカレンダー</nav></header>
-<main>
-<h1>祝日入りカレンダー(印刷用)</h1>
-<p class="intro">年と月を選ぶと、祝日・休日と和暦つきのカレンダーを表示します。「1年分」では12か月とその年の祝日の一覧を表示します。入力した内容は、お使いの端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card controls" aria-label="カレンダーの設定">
-<div class="row">
-<span class="f"><input id="year" class="y" type="number" min="2000" max="2099" inputmode="numeric"><label for="year">年</label></span>
-<label for="month">月</label><select id="month"><option value="all">1年分</option></select>
-<label for="start">週の始まり</label><select id="start"><option value="sun">日曜</option><option value="mon">月曜</option></select>
-</div>
-<div class="row"><button id="prev" type="button">前の月</button><button id="next" type="button">次の月</button><button id="print" type="button">印刷する</button></div>
-<p class="note">2000〜2099年に対応。春分の日・秋分の日は予測で、前年2月の官報で確定します。六曜は表示しません。</p>
-</section>
-<div id="result" class="result" aria-live="polite"></div>
-<div id="calendars"></div>
-<section id="holidays" aria-label="その年の祝日・休日の一覧"></section>
-<p class="guide">くわしい説明: <a href="../../guides/calendar.html">祝日入りカレンダーの見方と印刷|振替休日・国民の休日</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../nth-weekday/">第◯◯曜日の日付一覧</a> — 毎月の第2火曜日などを1年分、祝日つきで表示</li>
-<li><a href="../days/">日数・営業日の計算</a> — ◯日後・期間の日数・土日祝を除く営業日</li>
-<li><a href="../weekday/">◯年◯月◯日は何曜日</a> — 曜日・その年の何日目か・祝日名を表示</li>
-<li><a href="../wareki/">和暦・西暦の変換と年齢の計算</a> — 令和・平成・昭和などと西暦を変換し、満年齢も表示</li>
-</ul>
-</section>
-<!-- related:end -->
-</main>
-<footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import { monthGrid, calendarHeading } from "./calendar.js";
-import { holidaysOfYear, formatDate } from "../days/days.js";
-const $ = id => document.getElementById(id);
-const now = new Date();
-for (let m = 1; m <= 12; m++) $("month").add(new Option(`${m}月`, m));
-$("year").value = now.getFullYear();
-$("month").value = now.getMonth() + 1;
-function render() {
-  const y = Number($("year").value), all = $("month").value === "all", m = all ? 1 : Number($("month").value);
-  const valid = monthGrid(y, m) !== null;
-  $("result").textContent = valid ? "" : "2000〜2099年に対応しています";
-  $("result").classList.toggle("err", !valid);
-  $("result").hidden = valid;
-  $("calendars").replaceChildren(); $("holidays").replaceChildren();
-  document.body.classList.toggle("annual", all);
-  $("prev").disabled = !valid || (y === 2000 && m === 1);
-  $("next").disabled = !valid || (y === 2099 && m === 12);
-  $("print").disabled = !valid;
-  if (!valid) return;
-  const monday = $("start").value === "mon";
-  for (const month of all ? Array.from({length: 12}, (_, i) => i + 1) : [m]) {
-    const section = document.createElement("section"); section.className = "month-card";
-    const h = document.createElement("h2"); h.textContent = calendarHeading(y, month); section.append(h);
-    const table = document.createElement("table"); table.setAttribute("aria-label", h.textContent);
-    const head = table.createTHead().insertRow();
-    for (let i = 0; i < 7; i++) {
-      const w = (i + (monday ? 1 : 0)) % 7, th = document.createElement("th");
-      th.scope = "col"; th.textContent = "日月火水木金土"[w]; th.className = w === 0 ? "sun" : w === 6 ? "sat" : ""; head.append(th);
-    }
-    const body = table.createTBody();
-    for (const week of monthGrid(y, month, monday)) {
-      const row = body.insertRow();
-      for (const day of week) {
-        const td = row.insertCell();
-        if (!day) continue;
-        td.className = day.holiday || day.w === 0 ? "sun" : day.w === 6 ? "sat" : "";
-        td.textContent = day.d;
-        if (day.holiday) { const small = document.createElement("small"); small.textContent = day.holiday; td.append(small); }
-      }
-    }
-    section.append(table); $("calendars").append(section);
-  }
-  if (all) {
-    const h = document.createElement("h2"); h.textContent = `${y}年の祝日・休日`; $("holidays").append(h);
-    const ul = document.createElement("ul");
-    for (const [date, name] of holidaysOfYear(y)) { const li = document.createElement("li"); li.textContent = `${formatDate(date.split("-").map(Number))} ${name}`; ul.append(li); }
-    $("holidays").append(ul);
-  }
-}
-for (const id of ["year", "month", "start"]) $(id).addEventListener("input", render);
-function move(delta) {
-  let y = Number($("year").value), m = $("month").value === "all" ? 1 : Number($("month").value);
-  m += delta; if (m === 0) { y--; m = 12; } if (m === 13) { y++; m = 1; }
-  $("year").value = y; $("month").value = m; render();
-}
-$("prev").addEventListener("click", () => move(-1));
-$("next").addEventListener("click", () => move(1));
-$("print").addEventListener("click", () => window.print());
-render();
-</script>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/calendar/">https://keisan.masumedo.com/tools/calendar/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
 </body>
 </html>

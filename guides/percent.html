@@ -3,50 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>パーセントの計算方法と式 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/guides/percent.html">
-<meta name="description" content="割合・何%・増減率・%増しと%減らしの計算方法を、式と例で説明します(2,000円の15%は300円、80人から100人は25%増)。%とポイントの違い、結果の丸め方も確認できます。">
-<link rel="stylesheet" href="../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"パーセント計算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/percent/"},{"@type":"ListItem","position":3,"name":"解説","item":"https://ramirobo2-debug.github.io/kurashi-keisan/guides/percent.html"}]}</script>
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/guides/percent">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/guides/percent">
 </head>
 <body>
-<header><a class="site" href="../">くらしの計算室</a><nav class="crumb"><a href="../">トップ</a> › <a href="../tools/percent/">パーセント計算</a> › 解説</nav></header>
-<main>
-<h1>パーセントの計算方法と式</h1>
-<p><a href="../tools/percent/">パーセント計算ツール</a>では、4つの計算から選び、数値を入れると結果と式を確認できます。1%は100分の1です。</p>
-<h2>◯の◯%はいくつ</h2>
-<p>「元の値 × 割合 ÷ 100」で求めます。例: 200の10%は、200 × 10 ÷ 100 = 20です。</p>
-<h2>AはBの何%</h2>
-<p>「A ÷ B × 100」で求めます。例: 30は200の何%かは、30 ÷ 200 × 100 = 15%です。基準の値Bが0の場合は計算できません。</p>
-<h2>増減率(AからBへ何%増減)</h2>
-<p>「(B − A) ÷ A × 100」で求めます。例: 200から250への増減率は、(250 − 200) ÷ 200 × 100 = 25%で、25%増加です。200から150なら-25%で、25%減少です。結果が0%なら増減なしです。</p>
-<p>増減前の値Aは0より大きい値にしてください。Aが0の場合は割り算ができず、負の値の場合は増減の読み方が分かりにくくなるため、対象外としています。</p>
-<h2>◯%増し・◯%減らし</h2>
-<p>増しは「元の値 × (1 + 割合 ÷ 100)」、減らしは「元の値 × (1 − 割合 ÷ 100)」です。例: 200の10%増しは220、10%減らしは180です。割合は0以上、減らす場合は100%以下にしてください。</p>
-<h2>小数の入力と結果の表示</h2>
-<p>数値は-1兆〜1兆、小数点以下12桁まで入力できます。カンマ・単位・指数表記は使えません。空欄は0として扱いません。</p>
-<p>小数は整数の比として計算するため、0.1の200%は0.2、0.1の200%増しは0.3と表示されます。結果は「結果の表示」で選んだ桁(整数〜小数第12位、最初は小数第2位)で四捨五入し、末尾の不要な0は表示しません。ちょうど半分の場合は絶対値が大きくなる方向に丸めます。割り切れない場合や小さい値では、丸めた結果が表示されます(例: 1は3の33.33%。小数第12位までにすると33.333333333333%)。式の中の負の数は、かっこで囲んで表示します。</p>
-<h2>よくある質問</h2>
-<h3>10%増やしてから10%減らすと元に戻りますか</h3>
-<p>戻りません。200の10%増しは220ですが、220の10%減らしは198です。減らすときの基準が、増えたあとの220になるためです。</p>
-<h3>税込価格から10%を引くと税抜価格になりますか</h3>
-<p>なりません。税込1,100円の10%減らしは990円ですが、税抜価格は1,100 ÷ 1.1 = 1,000円です。税抜価格を求めるときは<a href="../tools/tax/">消費税の計算</a>を使ってください。</p>
-<h3>「%」と「ポイント」はどう違いますか</h3>
-<p>割合どうしの差は「ポイント」で表します。10%から15%に上がったときは「5ポイント増」です。同じ変化を増減率で表すと、(15 − 10) ÷ 10 × 100 = 50%の増加になります。</p>
-<h3>1割・1分・1厘は何%ですか</h3>
-<p>1割は10%、1分は1%、1厘は0.1%です。たとえば「2割5分」は25%です。</p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../tools/discount/">割引・値引き後の税込価格</a> — 割引率や値引き額から支払額を計算</li>
-<li><a href="../tools/tax/">消費税の計算</a> — 税込・税抜・消費税額。8%と10%の混在にも対応</li>
-<li><a href="../tools/wage/">時給・日給・月給・年収の換算</a> — 働く時間と日数から、給与を相互に換算</li>
-<li><a href="../tools/loan/">ローンの返済額の計算</a> — 元利均等・元金均等の毎月の返済額と総返済額</li>
-</ul>
-</section>
-<!-- related:end -->
-</main>
-<footer><p><a href="../">トップ</a> ・ <a href="../privacy.html">プライバシーポリシー</a></p></footer>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/guides/percent">https://keisan.masumedo.com/guides/percent</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
 </body>
 </html>

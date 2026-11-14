@@ -1,36 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>坪単価の計算｜100㎡から坪・㎡単価を比較 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/tsubo-tanka/">
-<meta name="description" content="価格(円)と面積(㎡・坪)から坪単価と㎡単価を計算。5,000万円・100㎡なら30.25坪、坪単価は約1,652,893円。反対に30坪は約99.17㎡と、面積も小数第2位まで換算します。">
-<link rel="stylesheet" href="../../assets/style.css"><style>input,select{max-width:100%;min-width:0}#result{overflow-wrap:anywhere}</style>
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"坪単価","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/tsubo-tanka/"}]}</script>
-</head><body>
-<header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 坪単価</nav></header>
-<main><h1>坪単価の計算</h1><p>価格と面積から、1坪あたり・1㎡あたりの価格と面積の換算を表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card"><h2>価格と面積を入力</h2>
-<div class="row"><label for="price">価格(円)</label><input id="price" type="text" inputmode="decimal" value="50000000"></div>
-<div class="row"><label for="area">面積</label><input id="area" type="text" inputmode="decimal" value="100"></div>
-<div class="row"><label for="unit">面積の単位</label><select id="unit"><option value="m2">㎡(平方メートル)</option><option value="tsubo">坪</option></select></div>
-<p class="note">価格・面積は0より大きい数を100文字以内で入力してください。全角数字と3けた区切りのカンマに対応します。1坪=400/121㎡で換算し、単価の1円未満は四捨五入して「約」を付けます。面積は小数第2位まで表示します。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
-<p class="note">土地・建物を比較するときは価格に含まれる費用や税、面積の基準をそろえてください。延床面積と施工面積では坪単価が変わります。</p></section>
-<p>くわしい説明: <a href="../../guides/tsubo-tanka.html">坪単価の式と面積の比べ方</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../area/">坪・平米・畳の換算</a> — ㎡・坪・畳を、畳の種類を選んで換算</li>
-<li><a href="../shaku/">尺貫法の換算</a> — 尺・寸・間・丈・鯨尺とcm・m・mmを相互に換算</li>
-<li><a href="../tanka/">単価の比較(100gあたり)</a> — 値段と量から1gあたり・100gあたりの値段を出し、どれが安いか比べる</li>
-<li><a href="../rimawari/">不動産の利回り(表面・実質)</a> — 2,000万円・月10万円なら表面6%。経費・諸費用・空室率と価格の逆算</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import {calculateTsuboTanka} from './tsubo-tanka.js';
-const $=id=>document.getElementById(id);
-function update(){const el=$('result');try{const r=calculateTsuboTanka({price:$('price').value,area:$('area').value,unit:$('unit').value});el.classList.remove('err');el.textContent=`坪単価: ${r.tsuboPrice} / ㎡単価: ${r.m2Price} / 面積: ${r.m2}㎡ = ${r.tsubo}坪`;}catch(e){el.textContent=e.message;el.classList.add('err');}}
-document.querySelector('main').addEventListener('input',update);document.querySelector('main').addEventListener('change',update);update();
-</script></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/tsubo-tanka/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/tsubo-tanka/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/tsubo-tanka/">https://keisan.masumedo.com/tools/tsubo-tanka/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

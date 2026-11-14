@@ -3,46 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>割引・値引き後の税込価格の計算方法 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/guides/discount.html">
-<meta name="description" content="税抜・税込の価格に対する割引率・値引き額の計算方法を例で説明。税込1,980円の30%オフは1,386円。割引額・消費税の端数処理や、2割引きのあと1割引きが28%引きになる理由もまとめました。">
-<link rel="stylesheet" href="../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"割引・値引き後の税込価格","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/discount/"},{"@type":"ListItem","position":3,"name":"解説","item":"https://ramirobo2-debug.github.io/kurashi-keisan/guides/discount.html"}]}</script>
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/guides/discount">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/guides/discount">
 </head>
 <body>
-<header><a class="site" href="../">くらしの計算室</a><nav class="crumb"><a href="../">トップ</a> › <a href="../tools/discount/">割引・値引き後の税込価格</a> › 解説</nav></header>
-<main>
-<h1>割引・値引き後の税込価格の計算方法</h1>
-<p><a href="../tools/discount/">割引・値引き計算ツール</a>では、価格の基準(税抜・税込)、割引率または値引き額、税率8%・10%、端数処理を選べます。価格は0〜1兆円、割引率は0〜100の整数、値引き額は0〜元の価格の整数で入力してください。</p>
-<h2>割引額を先に計算する</h2>
-<p>割引率の場合は「元の価格 × 割引率 ÷ 100」で割引額を計算し、1円未満を処理してから元の価格から引きます。値引き額の場合は、指定した円の金額をそのまま引きます。値引き額の税抜・税込の基準は元の価格と同じです。</p>
-<h2>税抜価格から計算する場合</h2>
-<p>割引後の税抜価格に税率をかけ、税額の1円未満を処理して足します。例: 税抜1,000円の20%引き、税率10%なら、割引額200円、割引後の税抜800円、消費税80円で、税込880円です。</p>
-<h2>税込価格から計算する場合</h2>
-<p>割引後の税込価格が支払額です。内訳の税額は「割引後の税込価格 × 税率 ÷(100 + 税率)」の端数を処理し、税抜価格は税込価格から税額を引いて求めます。例: 税込1,080円から税込100円引き、税率8%で切り捨てなら、支払額980円、消費税72円、税抜908円です。</p>
-<h2>端数を処理するタイミング</h2>
-<p>選択した切り捨て・四捨五入・切り上げを、割引額と税額にそれぞれ適用します。四捨五入は0.5円以上を切り上げます。「割引後の価格」を直接丸める方法とは結果が異なる場合があります。</p>
-<p>例: 税抜105円の10%引き、税率10%では、割引額10.5円を切り捨てると10円引きで税抜95円、税額9円、税込104円です。四捨五入では11円引きで税抜94円、税額9円、税込103円です。切り上げでは11円引きで税抜94円、税額10円、税込104円です。</p>
-<p>税込価格から逆算した税抜価格は目安です。お店によって割引や端数の処理方法が異なるため、実際の支払額はお店の表示も確認してください。税の計算の詳細は<a href="tax.html">消費税の解説</a>をご覧ください。</p>
-<h2>よくある質問</h2>
-<h3>「3割引」は何%引きですか</h3>
-<p>1割は10%なので、3割引は30%引き、半額は50%引きです。割引率に30や50を入れて計算してください。</p>
-<h3>20%引きのあと、さらに10%引きは30%引きと同じですか</h3>
-<p>同じにはなりません。2回目の割引は、1回目の割引後の価格にかかるためです。税抜1,000円の20%引きは800円、そこから10%引きは720円で、元の価格から見ると28%引きです。30%引きなら700円です。ツールで2回続けて計算するときは、1回目の割引後の価格を2回目の価格に入れてください。</p>
-<h3>税込価格から割引するのと、税抜価格から割引するのとで支払額は変わりますか</h3>
-<p>端数の処理のタイミングが違うため、1円ほど変わる場合があります。お店の値札が税込なら「税込」、税抜なら「税抜」を選ぶと、お店の計算に近くなります。</p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../tools/tanka/">単価の比較(100gあたり)</a> — 値段と量から1gあたり・100gあたりの値段を出し、どれが安いか比べる</li>
-<li><a href="../tools/tax/">消費税の計算</a> — 税込・税抜・消費税額。8%と10%の混在にも対応</li>
-<li><a href="../tools/genkaritsu/">原価率と利益率</a> — 原価700円・売価1,000円なら原価率70%・利益率30%。売価や原価も逆算</li>
-<li><a href="../tools/percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
-</ul>
-</section>
-<!-- related:end -->
-</main>
-<footer><p><a href="../">トップ</a> ・ <a href="../privacy.html">プライバシーポリシー</a></p></footer>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/guides/discount">https://keisan.masumedo.com/guides/discount</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
 </body>
 </html>

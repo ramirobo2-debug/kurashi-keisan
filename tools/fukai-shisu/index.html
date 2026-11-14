@@ -1,32 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>不快指数の計算｜30℃・70%なら81.4 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/fukai-shisu/">
-<meta name="description" content="気温と湿度から不快指数を計算し、小数第1位と体感の目安を表示。30℃・70%なら81.4、25℃・60%なら72.8です。気温−20〜50℃、湿度0〜100%に対応し、計算式と8段階の目安も確認できます。">
-<link rel="stylesheet" href="../../assets/style.css"><style>input{max-width:100%;min-width:0}#result{overflow-wrap:anywhere;white-space:pre-line}</style>
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"不快指数","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/fukai-shisu/"}]}</script>
-</head><body><header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 不快指数</nav></header>
-<main><h1>不快指数の計算</h1><p>気温と湿度から不快指数と体感の目安を求めます。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card"><h2>気温と湿度を入力</h2>
-<div class="row"><label for="temperature">気温 (℃)</label><input id="temperature" type="text" inputmode="decimal" value="30"></div>
-<div class="row"><label for="humidity">湿度 (%)</label><input id="humidity" type="text" inputmode="decimal" value="70"></div>
-<p class="note">気温は−20〜50℃、湿度は0〜100%。全角数字・3けた区切りのカンマに対応します。小数第2位を四捨五入して小数第1位まで表示し、体感は丸める前の指数で判定します。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
-<p class="note">一般に使われる目安です。体感には個人差・地域差があり、風や日差しは計算に含みません。熱中症の危険度は暑さ指数(WBGT)で確認してください。</p></section>
-<p>くわしい説明: <a href="../../guides/fukai-shisu.html">不快指数の式と8段階の体感の目安</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../ondo/">温度の換算(摂氏・華氏)</a> — ℃と℉とケルビンを換算。体温・料理・天気の例も</li>
-<li><a href="../denki/">電気代の計算</a> — 消費電力と使う時間から、1時間・1日・1か月・1年の電気代</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import {calculateFukaiShisu} from './fukai-shisu.js';
-const $=id=>document.getElementById(id);
-function update(){const el=$('result');try{const r=calculateFukaiShisu({temperature:$('temperature').value,humidity:$('humidity').value});el.classList.remove('err');el.textContent=`不快指数: ${r.display}\n体感の目安: ${r.feeling}\n計算式: 0.81×気温 + 0.01×湿度×(0.99×気温 − 14.3) + 46.3`;}catch(e){el.textContent=e.message;el.classList.add('err');}}
-document.querySelector('main').addEventListener('input',update);document.querySelector('main').addEventListener('change',update);update();
-</script></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/fukai-shisu/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/fukai-shisu/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/fukai-shisu/">https://keisan.masumedo.com/tools/fukai-shisu/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

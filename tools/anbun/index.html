@@ -1,37 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>按分の計算|比率・面積で金額を分ける | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/anbun/">
-<meta name="description" content="合計金額と比率・面積・人数を入力し、2〜20行に按分する金額と割合を計算します。10,000円を3:2:1で分ける例や、小数の比率にも対応。最大剰余法・切り捨て・指定行への余り加算から端数処理を選べます。">
-<link rel="stylesheet" href="../../assets/style.css"><style>input,select{max-width:100%;min-width:0}.allocation{display:flex;flex-wrap:wrap;gap:.5rem;margin:.7rem 0}.allocation label{flex:1 1 120px}.allocation input{width:100%;box-sizing:border-box}#result{overflow-wrap:anywhere}.table-wrap{overflow-x:auto}</style>
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"按分","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/anbun/"}]}</script>
-</head><body>
-<header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 按分</nav></header>
-<main><h1>按分の計算(比率で金額を分ける)</h1><p>合計金額と分ける先の比率を入れると、行ごとの金額と割合、合計の確認を表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card"><h2>金額と比率を入力</h2>
-<div class="row"><label for="total">合計金額(円)</label><input id="total" type="text" inputmode="numeric" value="10000"></div>
-<div id="rows"></div><button id="add" type="button">行を追加</button>
-<div class="row"><label for="method">端数の処理</label><select id="method"><option value="largest">最大剰余法</option><option value="floor">切り捨て(余りを表示)</option><option value="target">指定した1行に余りを寄せる</option></select></div>
-<div class="row" id="target-row" hidden><label for="target">余りを寄せる行</label><select id="target"></select></div>
-<p class="note">2〜20行。名前は任意です。金額は0円〜1兆円の整数、比率は0以上の数(100文字以内)。全角数字と3けた区切りのカンマに対応します。面積や%は同じ単位の数だけ入力してください。最大剰余法は端数の大きい順に1円ずつ加算し、同じ端数なら上の行を優先します。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div><p class="note">割合は小数第2位に四捨五入するため、表示の合計が100%にならない場合があります。税の扱いは税務署にご確認ください。</p></section>
-<p>くわしい説明: <a href="../../guides/anbun.html">按分の式と端数の分け方</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../hi/">比の計算</a> — 比を簡単にする・a:b=c:xのxを求める・比で分ける</li>
-<li><a href="../warikan/">割り勘の計算</a> — 合計金額と人数から、端数の扱いを選んで1人分を計算</li>
-<li><a href="../hasuu/">四捨五入・切り上げ・切り捨て</a> — 桁を選んで四捨五入・切り上げ・切り捨て・偶数丸め</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import {calculateAnbun,yen} from './anbun.js';
-const $=id=>document.getElementById(id);
-function sync(){const selected=$('target').value;const rows=[...$('rows').children];$('target').replaceChildren(...rows.map((r,i)=>new Option(`${i+1}行目`,String(i))));$('target').value=Number(selected)<rows.length?selected:'0';if(!$('target').value)$('target').value='0';$('add').disabled=rows.length>=20;rows.forEach(r=>r.querySelector('button').disabled=rows.length<=2);update();}
-function add(value='1'){const row=document.createElement('div');row.className='allocation';row.innerHTML='<label>名前(任意)<input class="name" type="text"></label><label>比率<input class="ratio" type="text" inputmode="decimal"></label><button type="button">削除</button>';row.querySelector('.ratio').value=value;row.querySelector('button').addEventListener('click',()=>{row.remove();sync();});$('rows').append(row);sync();}
-function update(){const el=$('result');$('target-row').hidden=$('method').value!=='target';try{const r=calculateAnbun({total:$('total').value,rows:[...$('rows').children].map(row=>({name:row.querySelector('.name').value,ratio:row.querySelector('.ratio').value})),method:$('method').value,target:Number($('target').value)});el.classList.remove('err');el.textContent=`配分合計: ${yen(r.allocated)} / 余り: ${yen(r.remaining)} / 合計確認: ${yen(r.allocated+r.remaining)} = 入力 ${yen(r.total)}`;const wrap=document.createElement('div');wrap.className='table-wrap';const table=document.createElement('table');table.innerHTML='<caption>行ごとの按分結果</caption><thead><tr><th scope="col">名前</th><th scope="col">金額</th><th scope="col">割合</th></tr></thead>';const body=document.createElement('tbody');for(const row of r.rows){const tr=document.createElement('tr');for(const value of [row.name,yen(row.amount),row.percent+'%']){const td=document.createElement('td');td.textContent=value;tr.append(td);}body.append(tr);}table.append(body);wrap.append(table);el.append(wrap);}catch(e){el.textContent=e.message;el.classList.add('err');}}
-$('add').addEventListener('click',()=>add());document.querySelector('main').addEventListener('input',update);document.querySelector('main').addEventListener('change',update);['3','2','1'].forEach(add);
-</script></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/anbun/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/anbun/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/anbun/">https://keisan.masumedo.com/tools/anbun/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

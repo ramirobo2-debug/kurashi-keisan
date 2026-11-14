@@ -1,43 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>画面・画像の縦横比計算｜1920×1080は16:9 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/aspect/">
-<meta name="description" content="画面や画像の幅と高さから、16:9などのアスペクト比と小数の比を計算。1920×1080は16:9、1.7778です。比と片方の寸法からもう片方も逆算し、整数への四捨五入と小数になる場合の値を表示します。">
-<link rel="stylesheet" href="../../assets/style.css"><style>input,select{max-width:100%;min-width:0}#result{overflow-wrap:anywhere;white-space:pre-line}</style>
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"画面・画像の縦横比","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/aspect/"}]}</script>
-</head><body><header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 画面・画像の縦横比</nav></header>
-<main><h1>画面・画像の縦横比(アスペクト比)の計算</h1><p>幅と高さの比や同じ形になる寸法を求めます。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card"><h2>寸法と比を入力</h2>
-<div class="row"><label for="mode">計算するもの</label><select id="mode"><option value="ratio">幅と高さから比</option><option value="size">比と寸法からもう片方</option></select></div>
-<div id="ratio-fields"><div class="row"><label for="width">幅</label><input id="width" type="text" inputmode="numeric" value="1920"></div><div class="row"><label for="height">高さ</label><input id="height" type="text" inputmode="numeric" value="1080"></div></div>
-<div id="size-fields" hidden><div class="row"><label for="preset">幅:高さの比</label><select id="preset"><option>16:9</option><option>4:3</option><option>3:2</option><option>1:1</option><option>4:5</option><option>9:16</option><option value="custom">自由入力</option></select></div>
-<div class="row" id="custom-row" hidden><label for="ratio">自由な比(幅:高さ)</label><input id="ratio" type="text" value="16:9"></div>
-<div class="row"><label for="known">分かっている寸法</label><select id="known"><option value="width">幅</option><option value="height">高さ</option></select></div><div class="row"><label for="size">寸法</label><input id="size" type="text" inputmode="numeric" value="1280"></div></div>
-<p class="note">同じ単位の正の整数を入力してください。全角数字と3けた区切りのカンマに対応します。逆算した寸法は四捨五入し、小数は第4位まで表示します。</p><div id="result" class="result" aria-live="polite" aria-atomic="true"></div></section>
-<p>くわしい説明: <a href="../../guides/aspect.html">16:9・4:5などの縦横比と拡大縮小</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../inch/">インチ・フィート・ポンドの換算</a> — インチ・フィート・マイル・ポンド・オンスとcm・kgを換算。テレビの型の大きさも</li>
-<li><a href="../dpi/">印刷の解像度(dpiとピクセル)</a> — A4・350dpiは2894×4093px。mmとピクセル数を相互に計算</li>
-<li><a href="../hi/">比の計算</a> — 比を簡単にする・a:b=c:xのxを求める・比で分ける</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import {calculateAspect} from './aspect.js';
-const $=id=>document.getElementById(id);
-function update(){
- const reverse=$('mode').value==='size';
- $('ratio-fields').hidden=reverse;$('size-fields').hidden=!reverse;$('custom-row').hidden=$('preset').value!=='custom';
- const el=$('result');
- try{
-  const r=calculateAspect({mode:$('mode').value,width:$('width').value,height:$('height').value,ratio:$('preset').value==='custom'?$('ratio').value:$('preset').value,known:$('known').value,size:$('size').value});
-  el.classList.remove('err');
-  el.textContent=reverse?`${r.dimension}: ${r.rounded}\n${r.fractional?'小数になります('+r.decimal+')\n':''}計算式: 寸法 × 求める側の比 ÷ 分かっている側の比`:`縦横比: ${r.ratio}\n小数の比: ${r.decimal}\n計算式: 幅÷最大公約数 : 高さ÷最大公約数${r.note?'\n'+r.note:''}`;
- }catch(e){el.textContent=e.message;el.classList.add('err');}
-}
-document.querySelector('main').addEventListener('input',update);document.querySelector('main').addEventListener('change',update);update();
-</script></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/aspect/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/aspect/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/aspect/">https://keisan.masumedo.com/tools/aspect/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

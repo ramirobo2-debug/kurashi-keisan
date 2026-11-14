@@ -1,46 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>素因数分解・最大公約数・最小公倍数|約数の一覧 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/soinsu/">
-<meta name="description" content="360=2³×3²×5の素因数分解と約数24個の一覧、素数判定、2〜10個の整数の最大公約数・最小公倍数を計算します。48と180なら最大公約数12・最小公倍数720。1兆までの整数に対応します。">
-<link rel="stylesheet" href="../../assets/style.css">
-<style>input,select,textarea{max-width:100%;min-width:0;box-sizing:border-box}#result{overflow-wrap:anywhere}</style>
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"素因数分解・最大公約数・最小公倍数","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/soinsu/"}]}</script>
-</head><body><header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 素因数分解・最大公約数・最小公倍数</nav></header>
-<main><h1>素因数分解・最大公約数・最小公倍数</h1><p>整数を入れると、素因数分解と約数の一覧、または最大公約数・最小公倍数を表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card" aria-labelledby="settings"><h2 id="settings">整数を入力</h2>
-<div class="row"><label for="mode">モード</label><select id="mode"><option value="factorize">素因数分解</option><option value="common">最大公約数・最小公倍数</option></select></div>
-<div id="factor-input"><div class="row"><label for="number">整数</label><input id="number" type="text" inputmode="numeric" value="360"></div></div>
-<div id="common-input" hidden><label for="numbers">整数(1行に1個、2〜10個)</label><textarea id="numbers" rows="4">48
-180</textarea></div>
-<p class="note">素因数分解は2〜1兆、最大公約数・最小公倍数は1〜1兆の整数に対応します。全角数字と3けた区切りのカンマも使えます。約数が200個を超えると一覧は小さい順に先頭200個までです。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div></section>
-<p>くわしい説明: <a href="../../guides/soinsu.html">素因数分解・約数と互除法の解説</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../bunsu/">分数の計算・約分</a> — 分数と帯分数の四則演算、約分と通分の途中式</li>
-<li><a href="../hi/">比の計算</a> — 比を簡単にする・a:b=c:xのxを求める・比で分ける</li>
-<li><a href="../heikin/">平均・中央値の計算</a> — 数を並べて入れると合計・平均・中央値・最頻値・標準偏差</li>
-<li><a href="../kumiawase/">順列・組み合わせの計算</a> — nPr・nCr・階乗・重複組み合わせを正確に(BigInt)</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> › <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import {factorize,common} from './soinsu.js';
-const $=id=>document.getElementById(id);
-function update(){
- const only=$('mode').value==='factorize';$('factor-input').hidden=!only;$('common-input').hidden=only;
- const result=$('result');result.replaceChildren();result.classList.remove('err');
- try{
-  let lines;
-  if(only){const r=factorize($('number').value);lines=[`${r.n} = ${r.expression}`,'かけ算: '+r.expanded,r.isPrime?'素数です':'素数ではありません','約数の個数: '+r.count,`約数の一覧${r.truncated?'(先頭の200個まで)':''}: `+r.divisors.join('・')];}
-  else{const r=common($('numbers').value.split(/\r?\n/).filter(s=>s.trim()!==''));lines=['最大公約数: '+r.gcd,'最小公倍数: '+r.lcm];}
-  for(const line of lines){const p=document.createElement('p');p.textContent=line;result.append(p);}
- }catch(e){result.classList.add('err');const p=document.createElement('p');p.textContent=e.message;result.append(p);}
-}
-for(const id of ['mode','number','numbers'])$(id).addEventListener('input',update);
-$('mode').addEventListener('change',update);update();
-</script></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/soinsu/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/soinsu/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/soinsu/">https://keisan.masumedo.com/tools/soinsu/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

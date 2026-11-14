@@ -1,37 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>分散と標準偏差の計算｜8個の数で母分散4・標準偏差2 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/hyojun-hensa/">
-<meta name="description" content="2個から1,000個の数から、平均・母分散・母標準偏差・不偏分散・標本標準偏差をまとめて計算。改行・空白・カンマ区切りと全角数字に対応し、小数第4位まで表示します。全体と標本で割る数の違いも確認できます。">
-<link rel="stylesheet" href="../../assets/style.css"><style>textarea{box-sizing:border-box;width:100%;max-width:100%}#result{white-space:pre-line;overflow-wrap:anywhere}</style>
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"分散と標準偏差","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/hyojun-hensa/"}]}</script>
-</head><body><header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 分散と標準偏差</nav></header>
-<main><h1>分散と標準偏差の計算</h1><p>数の散らばりを母集団と標本の2通りで求めます。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card"><h2>数のリストを入力</h2><label for="numbers">数(2個以上、最大1,000個)</label><textarea id="numbers" rows="5">2,4,4,4,5,5,7,9</textarea>
-<p class="note">改行・空白・カンマで区切れます。負の数・小数・全角数字に対応します。3けた区切りのカンマを使うときは、数同士を改行か空白で区切ってください。各数は符号と小数点などを含め100文字までです。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
-<p class="note">小数第4位まで四捨五入します。母分散はn、不偏分散はn−1で割ります。標本標準偏差は不偏分散の平方根で、標準偏差自体の不偏推定量ではありません。</p></section>
-<p>くわしい説明: <a href="../../guides/hyojun-hensa.html">分散・標準偏差とn・n−1の使い分け</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../hensachi/">偏差値の計算</a> — 点数・平均点・標準偏差から偏差値。目標の偏差値に要る点数</li>
-<li><a href="../heikin/">平均・中央値の計算</a> — 数を並べて入れると合計・平均・中央値・最頻値・標準偏差</li>
-<li><a href="../root/">平方根・累乗の計算</a> — √の値と簡単にした形(√12=2√3)、累乗・立方根</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import {calculateHyojunHensa,fixed} from './hyojun-hensa.js';
-const input=document.getElementById('numbers'),result=document.getElementById('result');
-function update(){
- try{
-  const r=calculateHyojunHensa(input.value);
-  result.classList.remove('err');
-  result.textContent=`個数: ${r.count}個\n平均: ${fixed(r.mean)}\n母分散: ${fixed(r.populationVariance)}\n母標準偏差: ${r.populationStdDev}\n不偏分散: ${fixed(r.sampleVariance)}\n標本標準偏差: ${r.sampleStdDev}\n計算式: 平均 = 合計 ÷ n、母分散 = Σ(x−平均)² ÷ n、不偏分散 = Σ(x−平均)² ÷ (n−1)、標準偏差 = √分散`;
- }catch(e){result.classList.add('err');result.textContent=e.message;}
-}
-input.addEventListener('input',update);update();
-</script></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/hyojun-hensa/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/hyojun-hensa/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/hyojun-hensa/">https://keisan.masumedo.com/tools/hyojun-hensa/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

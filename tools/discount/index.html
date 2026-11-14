@@ -3,63 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>割引計算|◯%オフ・◯割引き・値引き後の税込価格 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/discount/">
-<meta name="description" content="税抜・税込価格から、◯%オフ・◯割引きや◯円引きのあとの税込価格を計算する無料ツール。税込1,980円の30%オフは1,386円。税率8%・10%と端数処理を選べます。">
-<link rel="stylesheet" href="../../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"割引・値引き後の税込価格","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/discount/"}]}</script>
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/discount/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/discount/">
 </head>
 <body>
-<header>
-<a class="site" href="../../">くらしの計算室</a>
-<nav class="crumb"><a href="../../">トップ</a> › 割引・値引き後の税込価格</nav>
-</header>
-<main>
-<h1>割引・値引き後の税込価格</h1>
-<p>セールの「◯%オフ」や「◯円引き」のあと、実際にいくら払うかを計算します。税抜・税込のどちらの価格からでも計算でき、税率(8%・10%)と端数の処理を選べます。入力した内容は、お使いの端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card" aria-labelledby="settings">
-<h2 id="settings">価格と割引を入力</h2>
-<div class="row"><label for="price">元の価格(0〜1兆円の整数)</label><input id="price" class="amt" type="text" inputmode="numeric" value="1000" autocomplete="off"><span>円</span></div>
-<div class="row"><label for="basis">価格・値引き額の基準</label><select id="basis"><option value="excluded">税抜</option><option value="included">税込</option></select></div>
-<div class="row"><label for="kind">割引の指定方法</label><select id="kind"><option value="percent">割引率(%)</option><option value="amount">値引き額(円)</option></select></div>
-<div class="row"><label id="value-label" for="value">割引率(0〜100の整数、%)</label><input id="value" class="amt" type="text" inputmode="numeric" value="20" autocomplete="off"></div>
-<div class="row"><label for="rate">税率</label><select id="rate"><option value="10">10%</option><option value="8">8%</option></select></div>
-<div class="row"><label for="mode">端数の処理</label><select id="mode"><option value="floor">切り捨て</option><option value="round">四捨五入</option><option value="ceil">切り上げ</option></select></div>
-<p class="note">入力価格と同じ基準で割引額を計算して引き、次に税額を計算します。割引額と税額の1円未満に、それぞれ選択した端数処理を適用します。値引き額は元の価格以下にしてください。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
-<p class="note">計算結果は目安です。実際の価格はお店の計算方法も確認してください。</p>
-</section>
-<p>くわしい説明: <a href="../../guides/discount.html">割引・値引き後の税込価格の計算方法と端数処理</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../tanka/">単価の比較(100gあたり)</a> — 値段と量から1gあたり・100gあたりの値段を出し、どれが安いか比べる</li>
-<li><a href="../tax/">消費税の計算</a> — 税込・税抜・消費税額。8%と10%の混在にも対応</li>
-<li><a href="../genkaritsu/">原価率と利益率</a> — 原価700円・売価1,000円なら原価率70%・利益率30%。売価や原価も逆算</li>
-<li><a href="../percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
-</ul>
-</section>
-<!-- related:end -->
-</main>
-<footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import { calculateDiscount, parseAmount, yen } from "./discount.js";
-const $ = (id) => document.getElementById(id);
-function update() {
-  $("value-label").textContent = $("kind").value === "percent" ? "割引率(0〜100の整数、%)" : "値引き額(円の整数)";
-  try {
-    const result = calculateDiscount(parseAmount($("price").value), $("basis").value, $("kind").value, parseAmount($("value").value), Number($("rate").value), $("mode").value);
-    $("result").textContent = `割引額(${$("basis").value === "excluded" ? "税抜" : "税込"})${yen(result.discount)} / 割引後: 税抜 ${yen(result.excluded)} + 消費税 ${yen(result.tax)} = 税込 ${yen(result.included)}`;
-    $("result").classList.remove("err");
-  } catch (error) {
-    $("result").textContent = error.message;
-    $("result").classList.add("err");
-  }
-}
-document.querySelectorAll("input").forEach((element) => element.addEventListener("input", update));
-document.querySelectorAll("select").forEach((element) => element.addEventListener("change", update));
-update();
-</script>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/discount/">https://keisan.masumedo.com/tools/discount/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
 </body>
 </html>

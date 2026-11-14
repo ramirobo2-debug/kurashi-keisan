@@ -1,39 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>預金の利息の計算|定期預金・税引き後 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/risoku/">
-<meta name="description" content="元金・年利・預入期間から預金の利息と税引き後の手取りを計算します。100万円を年0.3%で1年預けると手取りは2,391円。年・月・日単位の単利と、税引き後の利息を毎年元金に加える複利の年別明細を表示します。">
-<link rel="stylesheet" href="../../assets/style.css"><style>input,select{max-width:100%;min-width:0}#result{overflow-wrap:anywhere}.table-wrap{overflow-x:auto}</style><script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"預金の利息","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/risoku/"}]}</script>
-</head><body>
-<header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 預金の利息</nav></header>
-<main><h1>預金の利息の計算(税引き後)</h1><p>元金・年利・期間を入れると、利息と税引き後の手取り、満期の受取額を表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card"><h2>預金の条件を入力</h2>
-<div class="row"><label for="principal">元金(円)</label><input id="principal" type="text" inputmode="numeric" value="1000000"></div>
-<div class="row"><label for="rate">年利(%)</label><input id="rate" type="text" inputmode="decimal" value="0.3"></div>
-<div class="row"><label for="period">期間</label><input id="period" type="text" inputmode="numeric" value="1"><label for="unit">単位</label><select id="unit"><option value="year">年</option><option value="month">月</option><option value="day">日</option></select></div>
-<div class="row"><label for="method">計算方法</label><select id="method"><option value="simple">単利</option><option value="compound">1年ごとの複利(税引き後)</option></select></div>
-<p class="note">元金は1円〜1兆円、年利は0〜100%(小数第3位まで)、期間は1〜100年相当の整数。全角数字と3けた区切りのカンマに対応します。月は12か月、日は365日で1年です。複利の1年未満の残りは最後に単利で精算します。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div><p class="note">利息、所得税等15.315%、住民税5%をそれぞれ1円未満切り捨てで計算する目安です。金融機関によって端数処理や利払いの条件が異なることがあります。</p></section>
-<p>くわしい説明: <a href="../../guides/risoku.html">預金の単利・複利と税引き後の利息</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../tsumitate/">積立と複利の計算</a> — 毎月の積立額と利回りから、将来の金額</li>
-<li><a href="../percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
-<li><a href="../loan/">ローンの返済額の計算</a> — 元利均等・元金均等の毎月の返済額と総返済額</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import {calculateRisoku,yen} from './risoku.js';
-const $=id=>document.getElementById(id);
-function update(){const el=$('result');try{
- const r=calculateRisoku(Object.fromEntries(['principal','rate','period','unit','method'].map(id=>[id,$(id).value])));
- el.classList.remove('err');el.textContent=`税引き前の利息: ${yen(r.interest)} / 所得税等: ${yen(r.incomeTax)} / 住民税: ${yen(r.residentTax)} / 手取り: ${yen(r.net)} / 満期の受取額: ${yen(r.total)}`;
- if(r.yearly.length){const wrap=document.createElement('div');wrap.className='table-wrap';const table=document.createElement('table');table.innerHTML='<caption>複利の年ごとの明細</caption><thead><tr><th scope="col">期間</th><th scope="col">税引き前の利息</th><th scope="col">所得税等</th><th scope="col">住民税</th><th scope="col">手取り</th><th scope="col">受取額</th></tr></thead>';const body=document.createElement('tbody');
- for(const row of r.yearly){const tr=document.createElement('tr');for(const value of [row.partial?`${row.year-1}年後の端数期間`:`${row.year}年目`,...['interest','incomeTax','residentTax','net','total'].map(k=>yen(row[k]))]){const td=document.createElement('td');td.textContent=value;tr.append(td);}body.append(tr);}table.append(body);wrap.append(table);el.append(wrap);}
- }catch(e){el.textContent=e.message;el.classList.add('err');}}
-document.querySelectorAll('input,select').forEach(el=>{el.addEventListener('input',update);el.addEventListener('change',update);});update();
-</script></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/risoku/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/risoku/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/risoku/">https://keisan.masumedo.com/tools/risoku/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

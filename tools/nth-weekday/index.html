@@ -1,62 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>第◯◯曜日の日付一覧|第2火曜日・最終土曜日 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/nth-weekday/">
-<meta name="description" content="毎月の第2火曜日・第3月曜日・最終金曜日などの日付を1年分、祝日名つきで一覧表示。第2・第4土曜日のような複数の指定もできます。ゴミの日・定例会議・休診日の確認に。2000〜2099年に対応。">
-<link rel="stylesheet" href="../../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"第◯◯曜日の日付一覧","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/nth-weekday/"}]}</script>
-</head><body><header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 第◯◯曜日の日付一覧</nav></header>
-<main><h1>第◯◯曜日の日付一覧</h1><p>年と第何・曜日を選ぶと、毎月の日付を1年分、祝日名つきで表示します。ゴミの日や定例会議、病院の休診日の確認に使えます。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card" aria-labelledby="settings"><h2 id="settings">年と曜日の設定</h2>
-<div class="row"><label for="year">年(2000〜2099)</label><input id="year" type="text" inputmode="numeric" autocomplete="off"></div>
-<fieldset><legend>第何(複数選べます)</legend>
-<label><input type="checkbox" name="nth" value="1">第1</label>
-<label><input type="checkbox" name="nth" value="2" checked>第2</label>
-<label><input type="checkbox" name="nth" value="3">第3</label>
-<label><input type="checkbox" name="nth" value="4">第4</label>
-<label><input type="checkbox" name="nth" value="5">第5</label>
-<label><input type="checkbox" name="nth" value="-1">最終</label></fieldset>
-<div class="row"><label for="weekday">曜日</label><select id="weekday"><option value="0">日曜日</option><option value="1">月曜日</option><option value="2" selected>火曜日</option><option value="3">水曜日</option><option value="4">木曜日</option><option value="5">金曜日</option><option value="6">土曜日</option></select></div>
-<p class="note">第1は1〜7日、第2は8〜14日です。第5がない月は「なし」と表示します。最終はその月の最後の指定曜日です。祝日は制度の変更や特例で変わることがあり、春分・秋分の日は予測を含みます。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div></section>
-<p>くわしい説明: <a href="../../guides/nth-weekday.html">第◯曜日の数え方と祝日の決まり</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../calendar/">祝日入りカレンダー(印刷用)</a> — 月・年のカレンダーを祝日・和暦つきで表示・印刷</li>
-<li><a href="../weekday/">◯年◯月◯日は何曜日</a> — 曜日・その年の何日目か・祝日名を表示</li>
-<li><a href="../days/">日数・営業日の計算</a> — ◯日後・期間の日数・土日祝を除く営業日</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer><script type="module">
-import { nthWeekday } from "./nth-weekday.js";
-import { formatDate, holidayName } from "../days/days.js";
-const $ = id => document.getElementById(id);
-$("year").value = new Date().getFullYear();
-function update() {
-  const box = $("result"); box.replaceChildren();
-  try {
-    const year = $("year").value.trim(), w = Number($("weekday").value);
-    const selected = [...document.querySelectorAll('input[name="nth"]:checked')].map(e => Number(e.value));
-    if (!selected.length) throw new RangeError("第何かを1つ以上選んでください");
-    const table = document.createElement("table"), header = table.createTHead().insertRow();
-    for (const text of ["月", ...selected.map(n => `${n === -1 ? "最終" : `第${n}`}${$("weekday").selectedOptions[0].textContent}`)]) {
-      const th = document.createElement("th"); th.scope = "col"; th.textContent = text; header.append(th);
-    }
-    const body = table.createTBody();
-    for (let m = 1; m <= 12; m++) {
-      const row = body.insertRow(), th = document.createElement("th"); th.scope = "row"; th.textContent = `${m}月`; row.append(th);
-      for (const n of selected) {
-        const d = nthWeekday(year, m, w, n), cell = row.insertCell();
-        if (d === null) cell.textContent = "なし";
-        else { const date = [Number(year), m, d], holiday = holidayName(date); cell.textContent = formatDate(date) + (holiday ? ` ${holiday}` : ""); }
-      }
-    }
-    const wrap = document.createElement("div"); wrap.className = "table-wrap"; wrap.append(table); box.append(wrap); box.classList.remove("err");
-  } catch (e) { box.textContent = e.message; box.classList.add("err"); }
-}
-$("year").addEventListener("input", update);
-document.querySelectorAll('select, input[type="checkbox"]').forEach(e => e.addEventListener("change", update));
-update();
-</script></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/nth-weekday/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/nth-weekday/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/nth-weekday/">https://keisan.masumedo.com/tools/nth-weekday/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

@@ -1,56 +1,13 @@
 <!doctype html>
-<html lang="ja"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>積立と複利の計算|毎月の積立で将来いくらになるか | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/tsumitate/">
-<meta name="description" content="毎月の積立額・はじめの金額・年利・期間から複利で最終額・元本・運用益を計算。毎月3万円を年3%で20年積み立てると約985万円(元本720万円)。目標額から必要な毎月の積立額も逆算できます。">
-<link rel="stylesheet" href="../../assets/style.css">
-<style>.row[hidden] { display: none; }</style>
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"積立と複利の計算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/tsumitate/"}]}</script>
-</head><body>
-<header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 積立と複利の計算</nav></header>
-<main><h1>積立と複利の計算</h1>
-<p>毎月末の積立を月ごとの複利で計算します。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card" aria-labelledby="settings"><h2 id="settings">積立の条件を入力</h2>
-<div class="row"><label for="mode">計算方法</label><select id="mode"><option value="future">積立額から最終額を出す</option><option value="target">目標額から毎月の積立額を出す</option></select></div>
-<div class="row" id="monthly-row"><label for="monthly">毎月の積立額(円)</label><input id="monthly" class="amt" type="text" inputmode="numeric" value="30000" autocomplete="off"></div>
-<div class="row" id="target-row" hidden><label for="target">目標額(円)</label><input id="target" class="amt" type="text" inputmode="numeric" value="20000000" autocomplete="off"></div>
-<div class="row" id="initial-row"><label for="initial">はじめの金額(円)</label><input id="initial" class="amt" type="text" inputmode="numeric" value="0" autocomplete="off"></div>
-<div class="row" id="rate-row"><label for="rate">年利・想定利回り(%)</label><input id="rate" class="amt" type="text" inputmode="decimal" value="3" autocomplete="off"></div>
-<div class="row" id="years-row"><label for="years">期間(年)</label><input id="years" class="amt" type="text" inputmode="numeric" value="20" autocomplete="off"></div>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
-<p class="note">毎月の積立額0〜1,000万円、はじめの金額0〜10億円、目標額1円〜1兆円。金額は全角数字・3桁区切りのカンマ・「円」も使えます。年利0〜20%(小数第2位まで)、期間1〜50年。目標額からの逆算結果は1,000万円を超える場合も表示します。</p>
-<p class="note">利回りは一定と仮定した目安の計算で、将来の運用成果を示すものではありません。実際の運用の結果は、金融機関や商品、相場の動きで変わり、元本を下回ることもあります。投資の助言ではありません。NISAなどの非課税や、課税口座の税金(20.315%)、手数料は考慮していません。月利は年利÷12、毎月末に積み立てます。金額の表示は1円未満切り捨て、必要な毎月の積立額は切り上げです。</p>
-<h2>年ごとの表</h2><div id="yearly" class="table-wrap"></div></section>
-<p>くわしい説明: <a href="../../guides/tsumitate.html">積立と複利の計算方法・目標額からの逆算</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../loan/">ローンの返済額の計算</a> — 元利均等・元金均等の毎月の返済額と総返済額</li>
-<li><a href="../risoku/">預金の利息の計算(税引き後)</a> — 元金・年利・期間から利息と税金を引いた手取り。100万円を年0.3%で1年なら2,391円</li>
-<li><a href="../72-housoku/">72の法則</a> — 年3%なら約24年(複利の式では23.45年)。お金が2倍になる年数と、必要な年利を計算</li>
-<li><a href="../percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import { calculateTsumitate, calculateTarget } from "./tsumitate.js";
-const $ = id => document.getElementById(id);
-const yen = n => n.toLocaleString("ja-JP") + "円";
-function update() {
-  const target = $("mode").value === "target";
-  $("monthly-row").hidden = target; $("target-row").hidden = !target;
-  try {
-    const r = (target ? calculateTarget : calculateTsumitate)($(target ? "target" : "monthly").value, $("initial").value, $("rate").value, $("years").value);
-    $("result").textContent = (target ? `必要な毎月の積立額: ${yen(r.monthly)} / ` : "") + `最終の金額: ${yen(r.total)} / 元本: ${yen(r.principal)} / 運用益: ${yen(r.profit)}`;
-    $("result").classList.remove("err");
-    $("yearly").innerHTML = `<table><thead><tr><th scope="col">年</th><th scope="col">元本</th><th scope="col">金額</th><th scope="col">運用益</th></tr></thead><tbody>${r.yearly.map(x => `<tr><th scope="row">${x.year}年目</th><td>${yen(x.principal)}</td><td>${yen(x.total)}</td><td>${yen(x.profit)}</td></tr>`).join("")}</tbody></table>`;
-  } catch (e) {
-    $("result").textContent = e.message; $("result").classList.add("err"); $("yearly").replaceChildren();
-  }
-}
-document.querySelectorAll("input, select").forEach(el => el.addEventListener("input", update));
-update();
-</script></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/tsumitate/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/tsumitate/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/tsumitate/">https://keisan.masumedo.com/tools/tsumitate/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

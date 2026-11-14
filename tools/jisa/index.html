@@ -1,59 +1,13 @@
 <!doctype html>
-<html lang="ja"><head>
+<html lang="ja">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>時差の計算|日本時間とニューヨーク・ロンドンなど海外の時刻 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/jisa/">
-<meta name="description" content="日本時間からニューヨーク・ロサンゼルス・ロンドン・パリ・シドニー・ハワイなど12都市の日時を、夏時間も入れて換算。曜日・前日/翌日・日本との時差を表示します。海外を基準にもできます。">
-<link rel="stylesheet" href="../../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"時差の計算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/jisa/"}]}</script>
-</head><body>
-<header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 時差の計算</nav></header>
-<main><h1>時差の計算</h1><p>日付と時刻を入れると、海外の都市の日時と日本との時差を夏時間も入れて表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card" aria-labelledby="settings"><h2 id="settings">基準の日時と都市</h2>
-<div class="row"><label for="date">日付</label><input id="date" type="date" min="1900-01-01" max="2099-12-31"></div>
-<div class="row"><label for="time">時刻</label><input id="time" type="time" step="60"></div>
-<div class="row"><label for="base">基準の都市</label><select id="base"></select></div>
-<fieldset><legend>表示する都市(複数選択)</legend><div id="cities"></div></fieldset>
-<p class="note">1900〜2099年に対応。時差と前日・翌日は日本との比較です。夏時間で存在しない時刻は換算できません。2回ある時刻は早い方を採用し、注意を表示します。時刻の規則はブラウザのデータに基づきます。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div></section>
-<p>くわしい説明: <a href="../../guides/jisa.html">時差と夏時間の考え方</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../days/">日数・営業日の計算</a> — ◯日後・期間の日数・土日祝を除く営業日</li>
-<li><a href="../weekday/">◯年◯月◯日は何曜日</a> — 曜日・その年の何日目か・祝日名を表示</li>
-<li><a href="../calendar/">祝日入りカレンダー(印刷用)</a> — 月・年のカレンダーを祝日・和暦つきで表示・印刷</li>
-<li><a href="../kakudo/">角度の換算(度・ラジアン・度分秒)</a> — 180度=πラジアン、35.6812度=35度40分52.32秒を相互に</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import { CITIES, localParts, calculateJisa, formatCity } from "./jisa.js";
-const $ = (id) => document.getElementById(id);
-for (const [zone, name] of CITIES) {
-  const option = document.createElement("option"); option.value = zone; option.textContent = name; $("base").append(option);
-  const label = document.createElement("label"), input = document.createElement("input");
-  input.type = "checkbox"; input.value = zone; input.checked = zone !== "Asia/Tokyo";
-  label.append(input, document.createTextNode(name));
-  const line = document.createElement("div"); line.append(label); $("cities").append(line);
-}
-const now = localParts(Math.floor(Date.now() / 60000) * 60000, "Asia/Tokyo");
-$("date").value = now.date; $("time").value = now.time;
-function update() {
-  const result = $("result"); result.replaceChildren(); result.classList.remove("err");
-  try {
-    const zones = [...document.querySelectorAll("#cities input:checked")].map((el) => el.value);
-    const r = calculateJisa($("date").value, $("time").value, $("base").value, zones);
-    if (r.warning) { const p = document.createElement("p"); p.textContent = r.warning; result.append(p); }
-    if (r.instant === null) result.classList.add("err");
-    else if (!zones.length) result.append(document.createTextNode("表示する都市を選んでください。"));
-    for (const row of r.rows) { const p = document.createElement("p"); p.textContent = formatCity(row); result.append(p); }
-  } catch (error) { result.textContent = error.message; result.classList.add("err"); }
-}
-document.querySelectorAll("input").forEach((el) => el.addEventListener("input", update));
-$("base").addEventListener("change", update);
-update();
-</script></body></html>
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/jisa/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/jisa/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/jisa/">https://keisan.masumedo.com/tools/jisa/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

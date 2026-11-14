@@ -1,46 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>速さ・時間・道のりの計算|はじき・時速・分速・秒速 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/hayasa/">
-<meta name="description" content="速さ・時間・道のりのうち2つを入れると残りの値と式を表示します。時速60kmで2時間30分なら150km。時速・分速・秒速の換算と、時間・分・秒の表示に対応し、入力は端末内だけで計算します。">
-<link rel="stylesheet" href="../../assets/style.css">
-<style>input,select{max-width:100%;min-width:0}#result{overflow-wrap:anywhere}</style>
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"速さ・時間・道のりの計算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/hayasa/"}]}</script>
-</head><body><header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 速さ・時間・道のりの計算</nav></header>
-<main><h1>速さ・時間・道のりの計算</h1><p>速さ・時間・道のりのうち2つを入れると残りの値と式を表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card" aria-labelledby="settings"><h2 id="settings">値を入力</h2>
-<div class="row"><label for="mode">求めるもの</label><select id="mode"><option value="distance">道のりを求める</option><option value="time">時間を求める</option><option value="speed">速さを求める</option></select></div>
-<div id="speed-inputs" class="row"><label for="speed">速さ</label><input id="speed" type="text" inputmode="decimal" value="60"><label for="speedUnit">速さの単位</label><select id="speedUnit"><option value="kmh">時速km</option><option value="mpm">分速m</option><option value="mps">秒速m</option></select></div>
-<div id="time-inputs"><div class="row"><label for="hours">時間</label><input id="hours" type="text" inputmode="decimal" value="2"><label for="minutes">分</label><input id="minutes" type="text" inputmode="decimal" value="30"><label for="seconds">秒</label><input id="seconds" type="text" inputmode="decimal" value="0"></div></div>
-<div class="row"><span id="distance-inputs"><label for="distance">道のり</label><input id="distance" type="text" inputmode="decimal" value="120"></span><label for="distanceUnit">道のりの単位</label><select id="distanceUnit"><option value="km">km</option><option value="m">m</option></select></div>
-<p class="note">全角数字と3けた区切りのカンマに対応します。使う欄はすべて入力してください。負の数・速さ0・時間0での割り算はエラーです。内部は分数で計算し、表示は小数第3位を四捨五入します。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div></section>
-<p>くわしい説明: <a href="../../guides/hayasa.html">はじきの式と単位・平均の速さ</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../pace/">速度とペースの計算</a> — km/h・m/s・ノット・mphの換算と、マラソンのペース・タイム</li>
-<li><a href="../nenpi/">燃費とガソリン代の計算</a> — km/L・L/100km・mpgの換算と、距離からガソリン代</li>
-<li><a href="../jikan-tashizan/">時間の足し算・引き算</a> — ◯時間◯分の合計・差と、1.75時間⇔1時間45分の変換</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import {calculate} from './hayasa.js';
-const $=id=>document.getElementById(id);
-function update(){
- const mode=$('mode').value,result=$('result');
- $('speed-inputs').hidden=mode==='speed';$('time-inputs').hidden=mode==='time';$('distance-inputs').hidden=mode==='distance';result.replaceChildren();
- try{
-  const values=Object.fromEntries(['mode','speed','speedUnit','distance','distanceUnit','hours','minutes','seconds'].map(id=>[id,$(id).value])),r=calculate(values);
-  const formula={distance:'道のり = 速さ × 時間',time:'時間 = 道のり ÷ 速さ',speed:'速さ = 道のり ÷ 時間'}[mode];
-  const units={kmh:'時速km',mpm:'分速m',mps:'秒速m'};
-  const expression=mode==='distance'?`${values.speed} (${units[values.speedUnit]}) × ${values.hours}時間${values.minutes}分${values.seconds}秒`:mode==='time'?`${values.distance}${values.distanceUnit} ÷ ${values.speed} (${units[values.speedUnit]})`:`${values.distance}${values.distanceUnit} ÷ ${values.hours}時間${values.minutes}分${values.seconds}秒`;
-  const lines=[formula,expression,mode==='distance'?`道のり: ${r.distance}${r.distanceUnit}`:mode==='time'?`時間: ${r.time} (${r.hours}時間)`:`速さ: 時速${r.kmh}km・分速${r.mpm}m・秒速${r.mps}m`];
-  for(const line of lines){const p=document.createElement('p');p.textContent=line;result.append(p);}result.classList.remove('err');
- }catch(error){result.textContent=error.message;result.classList.add('err');}
-}
-document.querySelector('main').addEventListener('input',update);document.querySelector('main').addEventListener('change',update);update();
-</script></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/hayasa/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/hayasa/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/hayasa/">https://keisan.masumedo.com/tools/hayasa/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

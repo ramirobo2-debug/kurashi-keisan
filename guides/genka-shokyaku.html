@@ -1,25 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>定額法の減価償却と月割り｜10月開始は3か月分 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/guides/genka-shokyaku.html">
-<meta name="description" content="定額法の償却率と年ごとの計算方法を解説。100万円・5年で10月から使うと初年度は5万円です。償却率の切り上げ、月割り、備忘価額1円、耐用年数の調べ方、10万円未満の経費と20万円未満の一括償却資産の違いを紹介します。">
-<link rel="stylesheet" href="../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"減価償却(定額法)","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/genka-shokyaku/"},{"@type":"ListItem","position":3,"name":"解説","item":"https://ramirobo2-debug.github.io/kurashi-keisan/guides/genka-shokyaku.html"}]}</script>
-</head><body><header><a class="site" href="../">くらしの計算室</a><nav class="crumb"><a href="../">トップ</a> › <a href="../tools/genka-shokyaku/">減価償却(定額法)</a> › 解説</nav></header>
-<main><h1>定額法の減価償却と月割り</h1><p>減価償却は、資産の取得価額を使用する年に分けて費用にする考え方です。<a href="../tools/genka-shokyaku/">減価償却の計算ツール</a>で年ごとの金額を確認できます。</p>
-<section class="card"><h2>定額法の式と償却率</h2><p>年の償却額＝取得価額×償却率。償却率は1÷耐用年数を小数第3位まで切り上げた値です。5年なら0.200、3年なら0.334、6年なら0.167です(耐用年数省令の別表第八の2〜50年の率は、すべてこの値と一致します)。このツールでは1円未満を切り捨てます(No.2106 には端数の扱いは書かれていません)。国税庁の例では100万円・10年なら9年間100,000円ずつ、10年目に99,999円です。30万円・3年なら100,200円、100,200円、99,599円と償却し、最後に1円を残します。</p><p class="note">ここでは平成19年4月1日以後に取得した資産の定額法を扱います。古い資産の旧定額法や定率法には対応していません。</p></section>
-<section class="card"><h2>初年度は使い始めた月から月割り</h2><p>初年度の償却額＝取得価額×償却率×使用月数÷12。使用開始月も含めます。100万円・5年・10月開始なら3か月分の50,000円。その後は200,000円を4年、6年目に149,999円を償却します。年額を先に丸めず、月割りした額の1円未満を切り捨てます。</p><p>帳簿価額は取得価額から償却額を引いた残りです。建物・機械・パソコンなどの有形の資産(坑道を除く)は備忘価額として1円を残し、最後の年は帳簿価額から1円を引いた額まで償却します。</p></section>
-<section class="card"><h2>耐用年数と少額の資産</h2><p>耐用年数は国税庁の耐用年数表で資産の種類・用途を確かめてください。代表例はパソコン4年、普通自動車6年ですが、用途や中古資産などで扱いが異なります。</p><p>使用可能期間が1年未満か取得価額10万円未満の資産は、使い始めた年に全額を経費にできます。10万円以上20万円未満なら、一括償却資産としてまとめ、使い始めた年から3年間、合計額の3分の1ずつ費用にする方法も選べます。どちらも、令和4年4月1日以後に取得し、主な業務としてでなく貸し付ける資産は対象外です。このツールは個別の資産を定額法で計算します。</p><p class="note">税務上の適用条件は国税庁の案内で確認してください。参照先は国税庁「No.2106 定額法と定率法による減価償却」、減価償却資産の償却率表(別表第八)、「No.2100 減価償却のあらまし」(いずれも令和8年4月1日現在の法令等。2026年11月に確認)です。</p></section>
-<section class="card"><h2>よくある質問</h2><h3>耐用年数と同じ年数で終わりますか?</h3><p>年の途中から使うと翌年以降へ繰り越すため、年数が延びることがあります。切り上げた償却率や円未満の切り捨てでも変わります。</p><h3>1月から使うと何か月分ですか?</h3><p>12か月分です。7月なら6か月分、12月なら1か月分です。</p><h3>最後に1円残すのはなぜ?</h3><p>使用中の資産があることを帳簿に残すためです。取得価額1円の入力では償却額の合計は0円です。ソフトウェアなどの無形固定資産と坑道は1円を残さず全額まで償却するため、このツールの最後の年とは1円ずれます。</p><h3>少額の入力で計算が止まるのはなぜ?</h3><p>年額が1円未満だと切り捨て後は0円となり、帳簿価額が減りません。その場合は償却が進まない旨を表示します。</p></section>
-<p><a href="../tools/genka-shokyaku/">定額法の減価償却を計算する</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../tools/genkaritsu/">原価率と利益率</a> — 原価700円・売価1,000円なら原価率70%・利益率30%。売価や原価も逆算</li>
-<li><a href="../tools/hasuu/">四捨五入・切り上げ・切り捨て</a> — 桁を選んで四捨五入・切り上げ・切り捨て・偶数丸め</li>
-<li><a href="../tools/tax/">消費税の計算</a> — 税込・税抜・消費税額。8%と10%の混在にも対応</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../">トップ</a> ・ <a href="../privacy.html">プライバシーポリシー</a></p></footer></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/guides/genka-shokyaku">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/guides/genka-shokyaku">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/guides/genka-shokyaku">https://keisan.masumedo.com/guides/genka-shokyaku</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

@@ -1,42 +1,13 @@
 <!doctype html>
-<html lang="ja"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ローンの返済額の計算方法|元利均等と元金均等の違い | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/guides/loan.html">
-<meta name="description" content="ローンの毎月の返済額の計算式と、元利均等・元金均等の違いを3,000万円・年1%・35年の例で説明します。金利が0.5%違うと総返済額がいくら変わるか、銀行の見積もりと違う理由も確認できます。">
-<link rel="stylesheet" href="../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"ローンの返済額","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/loan/"},{"@type":"ListItem","position":3,"name":"解説","item":"https://ramirobo2-debug.github.io/kurashi-keisan/guides/loan.html"}]}</script>
-</head><body>
-<header><a class="site" href="../">くらしの計算室</a><nav class="crumb"><a href="../">トップ</a> › <a href="../tools/loan/">ローンの返済額</a> › 解説</nav></header>
-<main><h1>ローンの返済額の計算方法と元利均等・元金均等の違い</h1>
-<p><a href="../tools/loan/">ローンの返済額の計算</a>で条件を変えて比較できます。</p>
-<h2>元利均等と元金均等</h2>
-<p>元利均等は毎月の返済額を一定にし、最終回に端数を調整します。借入額P、月利r、回数nとして、毎月の返済額は floor(P × r × (1+r)^n ÷ ((1+r)^n − 1))。月利は年利(割合) ÷ 12です。年利0%では floor(P ÷ n) です。</p>
-<p>元金均等は毎月の元金を floor(P ÷ n) とし、利息を足します。最終回は残った元金をすべて返します。残高が減るにつれて返済額も原則として減りますが、最終回は元金の端数をまとめて返すため、前の回より少し増えることがあります。</p>
-<table><caption>3,000万円・年1%・35年の比較</caption><thead><tr><th scope="col">方法</th><th scope="col">初回</th><th scope="col">最終回</th><th scope="col">総返済額</th></tr></thead><tbody><tr><td>元利均等</td><td>84,685円</td><td>84,789円</td><td>35,567,804円</td></tr><tr><td>元金均等</td><td>96,428円</td><td>71,727円</td><td>35,262,332円</td></tr></tbody></table>
-<p>この例では元金均等の総返済額が305,472円少なくなりますが、初回の負担は大きくなります。</p>
-<h2>利息と端数の計算</h2>
-<p>年利は0.001%単位の整数(1%なら1000)で保持し、毎月の利息を floor(残高 × 年利の整数 ÷ 1,200,000) とします。上の元利均等の初回は利息25,000円、元金59,685円で、利息の合計は5,567,804円です。年の表は12回ごとの合計で、最後の年は残りの月数をまとめます。</p>
-<h2>金利が0.5%違うと</h2>
-<p>3,000万円・35年・元利均等で年0.5%なら毎月77,875円、総返済額32,707,560円です。年1%との差は2,860,244円です。100万円・年3%・5年では毎月17,968円、総返済額1,078,090円になります。</p>
-<p>固定金利として計算した目安です。実際の返済額は、金融機関やローンの商品・契約の内容で変わります(端数の処理・ボーナス払い・手数料・保証料など)。繰り上げ返済と金利の変動は扱いません。借入や投資の助言ではありません。</p>
-<h2>よくある質問</h2>
-<h3>元金均等のほうが総返済額は少ないですか</h3><p>3,000万円・年1%・35年では元利均等35,567,804円に対し、元金均等35,262,332円です。同じ条件なら元金が早く減るため利息を抑えられます。</p>
-<h3>金利0%の返済額はいくらですか</h3><p>120万円を1年で返す場合は毎月100,000円、利息は0円です。割り切れない場合は最終回に残額を返します。</p>
-<h3>銀行の見積もりと金額が違うのはなぜですか</h3><p>端数の処理や費用、ボーナス払いなどが違うためです。契約する金融機関の返済予定表も確認してください。</p>
-<h3>繰り上げ返済も計算できますか</h3><p>このツールでは扱いません。繰り上げ返済後の条件は金融機関で確認してください。</p>
-<p>毎月の積立で将来いくらになるかは<a href="../tools/tsumitate/">積立と複利の計算</a>、割合の確認には<a href="../tools/percent/">パーセント計算</a>を使えます。</p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../tools/tsumitate/">積立と複利の計算</a> — 毎月の積立額と利回りから、将来の金額</li>
-<li><a href="../tools/percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
-<li><a href="../tools/wage/">時給・日給・月給・年収の換算</a> — 働く時間と日数から、給与を相互に換算</li>
-</ul>
-</section>
-<!-- related:end -->
-</main>
-<footer><p><a href="../">トップ</a> ・ <a href="../privacy.html">プライバシーポリシー</a></p></footer>
-
-</body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/guides/loan">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/guides/loan">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/guides/loan">https://keisan.masumedo.com/guides/loan</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

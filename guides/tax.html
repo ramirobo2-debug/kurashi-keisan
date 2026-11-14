@@ -3,91 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>消費税の計算方法|税込・税抜の出し方、端数処理とインボイス | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/guides/tax.html">
-<meta name="description" content="税抜から税込、税込から税抜と消費税額を出す式、切り捨て・四捨五入の違い、軽減税率8%の対象、8%と10%が混ざった請求書で端数処理を税率ごとに1回にする決まりを、例でまとめました。">
-<link rel="stylesheet" href="../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"消費税の計算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/tax/"},{"@type":"ListItem","position":3,"name":"解説","item":"https://ramirobo2-debug.github.io/kurashi-keisan/guides/tax.html"}]}</script>
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/guides/tax">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/guides/tax">
 </head>
 <body>
-<header>
-  <a class="site" href="../">くらしの計算室</a>
-  <nav class="crumb"><a href="../">トップ</a> › <a href="../tools/tax/">消費税の計算</a> › 解説</nav>
-</header>
-<main>
-<h1>消費税の計算方法|税込・税抜の出し方、端数処理、8%と10%の混在とインボイスの決まり</h1>
-<p>すぐに計算したいときは、<a href="../tools/tax/">消費税の計算ツール</a>をお使いください。このページでは、計算の式と、まちがえやすい点を説明します。</p>
-
-<h2>税抜から税込を出す</h2>
-<p>消費税額は「税抜の金額 × 税率」です。税込の金額は、税抜の金額に消費税額を足します。</p>
-<div class="table-wrap"><table>
-<thead><tr><th>税率</th><th>式</th><th>税抜 1,980円のとき</th></tr></thead>
-<tbody>
-<tr><td>10%</td><td>税抜 × 0.1 = 消費税</td><td>消費税 198円、税込 2,178円</td></tr>
-<tr><td>8%</td><td>税抜 × 0.08 = 消費税</td><td>158.4円 → 切り捨てて158円、税込 2,138円</td></tr>
-</tbody></table></div>
-
-<h2>税込から税抜を出す</h2>
-<p>税込の金額から消費税額を出すときは、10%なら「税込 × 10 ÷ 110」、8%なら「税込 × 8 ÷ 108」です。税抜の金額は、税込の金額から消費税額を引きます。</p>
-<p>例: 税込 1,000円(10%)の消費税は 1,000 × 10 ÷ 110 = 90.90…円。切り捨てなら90円で、税抜は910円です。</p>
-<p>注意: 税込の金額によっては、ぴったり当てはまる税抜の金額がありません。910円に10%をかけると1,001円、909円なら999.9円(切り捨てて999円)で、どちらも1,000円になりません。税込から逆算した税抜の金額は、目安として使ってください。</p>
-
-<h2>1円未満の端数(切り捨て・四捨五入・切り上げ)</h2>
-<p>消費税額の1円未満をどう処理するかは、法律では決まっておらず、お店や会社が選べます。多く使われているのは切り捨てです。</p>
-<div class="table-wrap"><table>
-<thead><tr><th>処理</th><th>158.4円</th><th>158.5円</th><th>158.6円</th></tr></thead>
-<tbody>
-<tr><td>切り捨て</td><td>158円</td><td>158円</td><td>158円</td></tr>
-<tr><td>四捨五入</td><td>158円</td><td>159円</td><td>159円</td></tr>
-<tr><td>切り上げ</td><td>159円</td><td>159円</td><td>159円</td></tr>
-</tbody></table></div>
-
-<h2>8%(軽減税率)になるもの</h2>
-<ul>
-<li>飲食料品(お酒と、外食・ケータリングを除く)。持ち帰りや宅配は8%、お店の中で食べると10%</li>
-<li>週2回以上発行される新聞の定期購読</li>
-</ul>
-<p>軽減税率は、2019年10月1日に税率が10%に上がったときに始まりました。</p>
-
-<h2>8%と10%が混ざった請求書の計算(インボイスの決まり)</h2>
-<p>2023年10月から始まったインボイス制度(適格請求書)では、消費税の端数処理は「1枚の請求書につき、税率ごとに1回」と決められています。品物ごとに端数を処理して足すことはできません。</p>
-<p>例: 税抜で 8%の品 198円・298円・158円、10%の品 498円・330円。</p>
-<div class="table-wrap"><table>
-<thead><tr><th>数え方</th><th>8%の消費税</th><th>10%の消費税</th><th>合計</th></tr></thead>
-<tbody>
-<tr><td>税率ごとに合計してから1回(正しい)</td><td>654円 × 8% = 52.32 → 52円</td><td>828円 × 10% = 82.8 → 82円</td><td>134円</td></tr>
-<tr><td>1行ずつ切り捨てて足す</td><td>15 + 23 + 12 = 50円</td><td>49 + 33 = 82円</td><td>132円</td></tr>
-</tbody></table></div>
-<p>このように、数え方で数円ずれることがあります。ツールでは、税率ごとにまとめて計算し、1行ずつ処理した場合とずれるときは、その差も表示します。</p>
-<p>請求書には、税率ごとに分けた合計の金額と、税率ごとの消費税額を書きます。くわしくは国税庁のインボイス制度の案内を確認してください。</p>
-
-<h2>値札の「総額表示」</h2>
-<p>お客さんに向けた値札や広告では、2021年4月から、消費税を含めた総額の表示が義務になっています(「1,100円(税抜1,000円)」のように、税抜の金額を一緒に書くのはかまいません)。</p>
-
-<h2>よくある質問</h2>
-<h3>税込1万円の税抜はいくらですか</h3>
-<p>10%なら消費税は 10,000 × 10 ÷ 110 = 909.09…円で、切り捨てると909円、税抜は9,091円です。8%なら 10,000 × 8 ÷ 108 = 740.74…円で、切り捨てると740円、税抜は9,260円です。</p>
-<h3>税込の金額を1.1で割ってもよいですか</h3>
-<p>税抜の目安を出すだけなら同じです(1,100 ÷ 1.1 = 1,000円)。ただし割り切れないときは1円未満が出るので、先に消費税額を「税込 × 10 ÷ 110」で出して端数を処理し、税込から引くと、請求書の書き方とそろいます。例: 税込980円(10%)は、消費税89円・税抜891円です。</p>
-<h3>「外税」と「内税」の違いは何ですか</h3>
-<p>外税は、表示した金額が税抜で、支払うときに消費税を足す書き方です。内税は、表示した金額に消費税が含まれている書き方です。お客さんに向けた値札では総額(税込)の表示が義務のため、外税だけの表示はできません。</p>
-<h3>1円や2円の品物にも消費税はかかりますか</h3>
-<p>かかりますが、1円未満を切り捨てると0円になることがあります。例: 税抜9円の品の10%は0.9円で、切り捨てると0円です。インボイスでは税率ごとの合計に1回だけ端数処理をするので、ほかの品と合計してから計算します。</p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../tools/warikan/">割り勘の計算</a> — 合計金額と人数から、端数の扱いを選んで1人分を計算</li>
-<li><a href="../tools/discount/">割引・値引き後の税込価格</a> — 割引率や値引き額から支払額を計算</li>
-<li><a href="../tools/percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
-<li><a href="../tools/inshi/">収入印紙の金額(領収書・契約書)</a> — 領収書・請負契約書・不動産の売買契約書の金額から印紙税の額</li>
-</ul>
-</section>
-<!-- related:end -->
-</main>
-<footer>
-  <p><a href="../">トップ</a> ・ <a href="../privacy.html">プライバシーポリシー</a></p>
-  <p>計算結果は目安です。申告や請求書の作成では、税務署や会計ソフトの案内も確認してください。</p>
-</footer>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/guides/tax">https://keisan.masumedo.com/guides/tax</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
 </body>
 </html>

@@ -1,31 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>素因数分解のしかた|約数の個数・最大公約数と互除法 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/guides/soinsu.html">
-<meta name="description" content="360=2³×3²×5の約数が(3+1)(2+1)(1+1)=24個になる理由、48と180の最大公約数12と最小公倍数720、ユークリッドの互除法の手順を、素因数分解のしかたから例で説明します。">
-<link rel="stylesheet" href="../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"素因数分解・最大公約数・最小公倍数","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/soinsu/"},{"@type":"ListItem","position":3,"name":"解説","item":"https://ramirobo2-debug.github.io/kurashi-keisan/guides/soinsu.html"}]}</script>
-</head><body><header><a class="site" href="../">くらしの計算室</a><nav class="crumb"><a href="../">トップ</a> › <a href="../tools/soinsu/">素因数分解・最大公約数・最小公倍数</a> › 解説</nav></header>
-<main><h1>素因数分解・約数と互除法</h1><p>このページでは、素数と素因数分解、約数の個数、最大公約数・最小公倍数と互除法を説明します。<a href="../tools/soinsu/">素因数分解ツール</a>で確認できます。</p>
-<section class="card"><h2>素数と素因数分解</h2><p>素数は1より大きく、正の約数が1と自分自身だけの整数です。97の約数は1と97なので素数です。1は素数ではありません。素因数分解は整数を素数の積に分けることで、360 = 2×2×2×3×3×5 = 2³×3²×5です。2026 = 2×1013となります。</p><p>2から順に試し割りし、割れたら同じ数でもう一度割ります。残りの数の平方根まで調べて割れなければ、残りは素数です。ツールでは2〜1兆の整数を扱います。</p></section>
-<h2>約数の個数</h2><p>各素因数の指数に1を足してかけます。360なら2の指数は0〜3、3は0〜2、5は0〜1から選べるため、(3+1)(2+1)(1+1)=24個です。1,000,000 = 2⁶×5⁶なら49個です。一覧は小さい順で、200個を超えると先頭200個までを表示し、個数は全体の値を表示します。</p>
-<h2>最大公約数と最小公倍数</h2><p>共通する約数の最大が最大公約数、共通する正の倍数の最小が最小公倍数です。48と180では12と720です。2数の積は最大公約数×最小公倍数に等しく、48×180 = 12×720です。最小公倍数は「一方÷最大公約数×もう一方」で求めます。3数以上は順に2数ずつ計算します。4・6・10なら最大公約数2、最小公倍数60です。積の関係式は3数以上にそのまま使えません。</p>
-<h2>ユークリッドの互除法</h2><p>180÷48 = 3余り36、48÷36 = 1余り12、36÷12 = 3余り0と、割る数と余りで割り算を繰り返します。余りが0になったときの割る数12が最大公約数です。</p>
-<h2>分数と比への利用</h2><p>約分は分子と分母を最大公約数で割り、通分は分母の最小公倍数を使います。<a href="../tools/bunsu/">分数の計算</a>と<a href="../tools/hi/">比の計算</a>も利用できます。</p>
-<h2>よくある質問</h2>
-<h3>1は使えますか?</h3><p>素因数分解は2以上が対象です。最大公約数・最小公倍数には1も使え、1と5なら結果は1と5です。</p>
-<h3>どう入力しますか?</h3><p>最大公約数・最小公倍数は1行に1個ずつ2〜10個入力します。全角数字や1,000,000のような3けた区切りも使えます。0・負の数・小数・1兆を超える数は使えません。</p>
-<h3>大きな答えも正確ですか?</h3><p>BigIntで整数のまま計算するため、最小公倍数が1兆を超えても正確です。</p>
-<h3>入力は送信されますか?</h3><p>端末の中だけで計算し、どこにも送信しません。</p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../tools/bunsu/">分数の計算・約分</a> — 分数と帯分数の四則演算、約分と通分の途中式</li>
-<li><a href="../tools/hi/">比の計算</a> — 比を簡単にする・a:b=c:xのxを求める・比で分ける</li>
-<li><a href="../tools/heikin/">平均・中央値の計算</a> — 数を並べて入れると合計・平均・中央値・最頻値・標準偏差</li>
-<li><a href="../tools/kumiawase/">順列・組み合わせの計算</a> — nPr・nCr・階乗・重複組み合わせを正確に(BigInt)</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../">トップ</a> ・ <a href="../privacy.html">プライバシーポリシー</a></p></footer></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/guides/soinsu">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/guides/soinsu">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/guides/soinsu">https://keisan.masumedo.com/guides/soinsu</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

@@ -3,71 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>年齢早見表|生まれ年から和暦・干支・満年齢の一覧 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/age-table/">
-<meta name="description" content="生まれ年ごとの西暦・和暦・干支と、誕生日前・誕生日後の満年齢を一覧で表示する無料の年齢早見表。基準日を変えて、過去や将来の年齢も調べられます。改元の年は両方の元号を表示。">
-<link rel="stylesheet" href="../../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"年齢早見表","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/age-table/"}]}</script>
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/age-table/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/age-table/">
 </head>
 <body>
-<header>
-  <a class="site" href="../../">くらしの計算室</a>
-  <nav class="crumb"><a href="../../">トップ</a> › 年齢早見表</nav>
-</header>
-<main>
-<h1>年齢早見表</h1>
-<p>生まれ年ごとに、西暦・和暦・干支と、基準日の年の誕生日前・誕生日後の満年齢を一覧で表示します。新しい生まれ年から順に並べています。入力した内容は、お使いの端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card" aria-labelledby="s1">
-  <h2 id="s1">基準日を選ぶ</h2>
-  <div class="row"><label for="ref-date">基準日</label><input id="ref-date" type="date" min="1873-01-01" max="9999-12-31"></div>
-  <p class="note">最初は今日を基準にしています。誕生日前の欄は基準日の年の誕生日をまだ迎えていない人、誕生日後の欄は迎えた人(当日を含む)の満年齢です。まだ生まれていない場合は「—」です。改元の年は両方の元号を、干支は十二支を1月1日の区切りで表示します。</p>
-  <div id="result" class="result" aria-live="polite"></div>
-  <div id="age-table" class="table-wrap"></div>
-</section>
-<p>くわしい説明: <a href="../../guides/age-table.html">年齢早見表の見方と満年齢の計算方法</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../wareki/">和暦・西暦の変換と年齢の計算</a> — 令和・平成・昭和などと西暦を変換し、満年齢も表示</li>
-<li><a href="../school/">入学・卒業年の早見表</a> — 生年月日から小学校〜大学の入学年・卒業年</li>
-<li><a href="../weekday/">◯年◯月◯日は何曜日</a> — 曜日・その年の何日目か・祝日名を表示</li>
-<li><a href="../yakudoshi/">厄年と年祝い</a> — 生まれ年から厄年と還暦・古希などの年祝いを表示</li>
-</ul>
-</section>
-<!-- related:end -->
-</main>
-<footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import { ageTable } from "./age-table.js";
-const input = document.getElementById("ref-date");
-const result = document.getElementById("result");
-const wrap = document.getElementById("age-table");
-const today = new Date(), currentYear = today.getFullYear();
-input.value = `${currentYear}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
-function render() {
-  const parts = input.value.split("-").map(Number);
-  const rows = parts.length === 3 ? ageTable(...parts, currentYear) : null;
-  wrap.replaceChildren();
-  result.classList.toggle("err", !rows);
-  if (!rows) { result.textContent = "1873〜9999年の正しい基準日を入れてください"; return; }
-  result.textContent = `${parts[0]}年${parts[1]}月${parts[2]}日を基準とする年齢早見表`;
-  const table = document.createElement("table");
-  table.createCaption().textContent = `${currentYear}〜1873年生まれの和暦・干支・満年齢`;
-  const head = table.createTHead().insertRow();
-  ["生まれ年(西暦)", "和暦", "干支", "満年齢(誕生日前)", "満年齢(誕生日後)"].forEach(label => {
-    const th = document.createElement("th"); th.scope = "col"; th.textContent = label; head.append(th);
-  });
-  const body = table.createTBody();
-  for (const row of rows.slice().reverse()) {
-    const tr = body.insertRow(), th = document.createElement("th");
-    th.scope = "row"; th.textContent = `${row.year}年`; tr.append(th);
-    [row.wareki, row.eto, row.before === null ? "—" : `${row.before}歳`, row.after === null ? "—" : `${row.after}歳`].forEach(value => { tr.insertCell().textContent = value; });
-  }
-  wrap.append(table);
-}
-input.addEventListener("input", render);
-render();
-</script>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/age-table/">https://keisan.masumedo.com/tools/age-table/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
 </body>
 </html>

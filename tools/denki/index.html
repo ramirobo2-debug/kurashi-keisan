@@ -3,54 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>電気代の計算|家電の1時間・1か月・1年の電気代 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/denki/">
-<meta name="description" content="家電の消費電力(W)と使う時間から、1時間・1日・1か月・1年の電気代を計算。エアコン・ドライヤー・電子レンジ・LED電球の例をボタンで入れられ、単価も変えられます。">
-<link rel="stylesheet" href="../../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"電気代の計算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/denki/"}]}</script>
-</head><body>
-<header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 電気代の計算</nav></header>
-<main><h1>電気代の計算</h1>
-<p>家電の消費電力と使う時間を入れると、1時間・1日・1か月・1年の電気代の目安を表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card" aria-labelledby="settings"><h2 id="settings">消費電力と使用時間を入力</h2>
-<div class="row"><label for="watts">消費電力(W)</label><input id="watts" class="amt" type="text" inputmode="decimal" value="1200" autocomplete="off"></div>
-<div class="row"><label for="time">1日に使う時間</label><input id="time" class="amt" type="text" inputmode="decimal" value="3" autocomplete="off"></div>
-<div class="row"><label for="unit">時間の単位</label><select id="unit"><option value="hours">時間</option><option value="minutes">分</option></select></div>
-<div class="row"><label for="rate">電気料金の単価(円/kWh)</label><input id="rate" class="amt" type="text" inputmode="decimal" value="31" autocomplete="off"></div>
-<div class="row"><label for="days">1か月の日数</label><input id="days" class="amt" type="text" inputmode="numeric" value="30" autocomplete="off"></div>
-<p>家電の例(機種・運転状態で変わります): <button type="button" data-watts="600">エアコン600W</button> <button type="button" data-watts="1200">ドライヤー1,200W</button> <button type="button" data-watts="1000">電子レンジ1,000W</button> <button type="button" data-watts="8">LED電球8W</button></p>
-<p class="note">消費電力は0.1〜100,000W(小数第1位まで)、時間は0.01〜24時間、分は0.6〜1,440分(小数第2位まで)、単価は0.01〜1,000円(小数第2位まで)、月の日数は1〜31の整数です。単位を切り替えたら数値を入れ直してください。結果は最後に小数第1位で四捨五入します。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
-<p class="note">計算結果は目安です。既定の31円/kWhは全国家庭電気製品公正取引協議会の「電気料金の目安単価」(2022年7月改定)です。実際の単価は契約・燃料費調整額・再エネ賦課金で変わります。検針票の「請求額 ÷ 使用量」で自分の単価の目安を出せます(基本料金を含むため、個々の家電の使用分とは一致しません)。</p></section>
-<p>くわしい説明: <a href="../../guides/denki.html">電気代の計算方法と式</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../warikan/">割り勘の計算</a> — 合計金額と人数から、端数の扱いを選んで1人分を計算</li>
-<li><a href="../percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
-<li><a href="../tax/">消費税の計算</a> — 税込・税抜・消費税額。8%と10%の混在にも対応</li>
-<li><a href="../ampere/">ワットとアンペアの換算</a> — 100V・1200Wは12A。複数の家電の合計とワット数の逆算</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import { calculateDenki } from "./denki.js";
-const $ = (id) => document.getElementById(id);
-const yen = (value) => value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-function update() {
-  try {
-    const r = calculateDenki($("watts").value, $("time").value, $("rate").value, $("days").value, $("unit").value);
-    $("result").textContent = `1時間あたり: ${yen(r.hourly)}円 / 1日: ${yen(r.daily)}円 / 1か月(${$("days").value}日): ${yen(r.monthly)}円 / 1年(365日): ${yen(r.yearly)}円 / 式: 消費電力 ÷ 1000 × 時間 × 単価`;
-    $("result").classList.remove("err");
-  } catch (error) {
-    $("result").textContent = error.message;
-    $("result").classList.add("err");
-  }
-}
-document.querySelectorAll("input").forEach((el) => el.addEventListener("input", update));
-$("unit").addEventListener("change", update);
-document.querySelectorAll("button[data-watts]").forEach((el) => el.addEventListener("click", () => { $("watts").value = el.dataset.watts; update(); }));
-update();
-</script></body></html>
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/denki/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/denki/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/denki/">https://keisan.masumedo.com/tools/denki/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

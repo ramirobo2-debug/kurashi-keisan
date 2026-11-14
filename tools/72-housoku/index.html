@@ -1,46 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>72の法則の計算｜年利3%で2倍になる年数 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/72-housoku/">
-<meta name="description" content="72÷年利でお金が2倍になる年数を計算。年3%なら約24年、年6%なら約12年。複利の式による23.45年・11.90年との違いや、10年で2倍にする年利の目安(72÷10で7.2%、複利の式では7.18%)も確認できます。">
-<link rel="stylesheet" href="../../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"72の法則","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/72-housoku/"}]}</script>
-</head><body>
-<header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 72の法則</nav></header>
-<main><h1>72の法則｜お金が2倍になる年数</h1><p>年利から2倍になるまでの年数、または目標の年数から必要な年利を計算します。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card"><h2>年利または年数を入力</h2>
-<div class="row"><label for="mode">求めたいもの</label><select id="mode"><option value="years">年利から2倍になる年数</option><option value="rate">年数から必要な年利</option></select></div>
-<div class="row" id="rate-row"><label for="rate">年利(%)</label><input id="rate" type="text" inputmode="decimal" value="3"></div>
-<div class="row" id="years-row" hidden><label for="years">2倍にしたい年数(年)</label><input id="years" type="text" inputmode="decimal" value="10"></div>
-<p class="note">年利は0より大きく100%以下、年数は0より大きい数。全角数字と3けた区切りのカンマにも対応します。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
-<p class="note">一定の年利の複利で、追加の入出金なしの計算です。複利の式の年数は年の途中も同じ割合で増えるとみなした理論値で、利息が年1回だけ付く場合は次の利払いの年に2倍を超えます。税金・手数料を引いた利回りで考えてください。実際の成果を保証するものではありません。差は丸める前の「72の法則 − 複利の式」から計算し、小数第2位に四捨五入します。</p></section>
-<p>くわしい説明: <a href="../../guides/72-housoku.html">72で割る理由と複利の式</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../tsumitate/">積立と複利の計算</a> — 毎月の積立額と利回りから、将来の金額</li>
-<li><a href="../risoku/">預金の利息の計算(税引き後)</a> — 元金・年利・期間から利息と税金を引いた手取り。100万円を年0.3%で1年なら2,391円</li>
-<li><a href="../cagr/">年平均成長率(CAGR)</a> — 100から150へ5年なら年8.45%。単純平均との比較と最後の値の計算</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import {calculate72, fixed2, compact2} from './72-housoku.js';
-const $ = id => document.getElementById(id);
-function update() {
-  const mode = $('mode').value, el = $('result');
-  $('rate-row').hidden = mode !== 'years';
-  $('years-row').hidden = mode !== 'rate';
-  try {
-    const r = calculate72({mode, rate: $('rate').value, years: $('years').value});
-    const unit = mode === 'years' ? '年' : '%';
-    el.textContent = `72の法則: ${compact2(r.approximate)}${unit} / 正確な${mode === 'years' ? '年数' : '年利'}(複利の式): ${fixed2(r.exact)}${unit} / 差(72の法則 − 複利の式): ${fixed2(r.difference)}${mode === 'years' ? '年' : 'ポイント'}`;
-    el.classList.remove('err');
-  } catch (e) { el.textContent = e.message; el.classList.add('err'); }
-}
-for (const id of ['mode', 'rate', 'years']) for (const event of ['input', 'change']) $(id).addEventListener(event, update);
-update();
-</script></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/72-housoku/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/72-housoku/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/72-housoku/">https://keisan.masumedo.com/tools/72-housoku/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

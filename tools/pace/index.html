@@ -1,65 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>速度とペースの計算|km/h・ノット換算とマラソンのタイム | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/pace/">
-<meta name="description" content="km/h・m/s・ノット・mphを相互に換算し、距離とタイムからペース(分/km)、ペースからゴールタイムを計算。フルマラソンを4時間で走るペースは約5分41.2秒/km、100km/hは27.78m/sです。">
-<link rel="stylesheet" href="../../assets/style.css">
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"速度とペースの計算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/pace/"}]}</script>
-</head><body>
-<header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 速度とペースの計算</nav></header>
-<main><h1>速度とペースの計算</h1><p>速度と単位を入れるとkm/h・m/s・ノット・mphに換算した値を、距離とタイム(またはペース)を入れるとペース・タイム・平均速度を表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card" aria-labelledby="settings"><h2 id="settings">計算方法と数値を入力</h2>
-<div class="row"><label for="mode">モード</label><select id="mode"><option value="speed">速度の換算</option><option value="running">ペースとタイム</option></select></div>
-<div id="speed-fields">
-<div class="row"><label for="amount">速度</label><input id="amount" class="amt" type="text" inputmode="decimal" value="100"></div>
-<div class="row"><label for="unit">入力する単位</label><select id="unit"><option value="kmh">km/h</option><option value="ms">m/s</option><option value="knot">ノット</option><option value="mph">mph</option></select></div>
-</div>
-<div id="running-fields" hidden>
-<div class="row"><label for="distance">距離(km)</label><input id="distance" class="amt" type="text" inputmode="decimal" value="42.195"></div>
-<p><button type="button" data-distance="42.195">フル</button> <button type="button" data-distance="21.0975">ハーフ</button> <button type="button" data-distance="10">10km</button> <button type="button" data-distance="5">5km</button></p>
-<div class="row"><label for="source">入力する値</label><select id="source"><option value="time">タイム</option><option value="pace">ペース(分・秒/km)</option></select></div>
-<div class="row" id="hours-row"><label for="hours">時</label><input id="hours" class="amt" type="text" inputmode="numeric" value="4"></div>
-<div class="row"><label for="minutes">分</label><input id="minutes" class="amt" type="text" inputmode="numeric" value="0"></div>
-<div class="row"><label for="seconds">秒</label><input id="seconds" class="amt" type="text" inputmode="decimal" value="0"></div>
-</div>
-<p class="note">速度と距離は0より大きい値を入力してください。全角数字・3桁区切りのカンマに対応し、各欄100文字以内です。時・分は0以上の整数、タイムの分と秒は60未満です。タイム・ペースの合計は0より大きくしてください。速度は小数第3位を四捨五入して小数第2位まで、ペースとタイムの秒は小数第2位以下を切り捨てて小数第1位まで表示します。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
-<p>式: km/h = m/s × 3.6 = ノット × 1.852 = mph × 1.609344。タイム(秒) = 距離(km) × ペース(秒/km)、平均速度(km/h) = 距離 ÷ タイム(時間)。</p>
-<p class="note">一定の平均ペースで走った場合の目安です。休憩・高低差・天候などは考慮しません。</p></section>
-<p>くわしい説明: <a href="../../guides/pace.html">速度の単位とペース・タイムの計算</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../mets/">消費カロリーの計算(METs)</a> — 体重・運動の強さ・時間から消費カロリーの目安</li>
-<li><a href="../jikan/">時間の計算(勤務時間)</a> — 開始・終了の時刻と休憩から勤務時間を出し、1週間・1か月の合計も</li>
-<li><a href="../percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import { convertSpeed, calculatePace } from './pace.js';
-const $ = id => document.getElementById(id);
-const labels = { kmh: 'km/h', ms: 'm/s', knot: 'ノット', mph: 'mph' };
-function update() {
- const running = $('mode').value === 'running';
- $('speed-fields').hidden = running;
- $('running-fields').hidden = !running;
- $('hours-row').hidden = $('source').value === 'pace';
- try {
-  if (running) {
-   const r = calculatePace($('distance').value, $('source').value, { hours: $('hours').value, minutes: $('minutes').value, seconds: $('seconds').value });
-   $('result').textContent = `タイム: ${r.time} / ペース: ${r.pace} / 平均速度: ${r.speed}km/h`;
-  } else {
-   const unit = $('unit').value;
-   $('result').textContent = '結果: ' + Object.entries(convertSpeed($('amount').value, unit)).filter(([key]) => key !== unit).map(([key, value]) => value + labels[key]).join(' / ');
-  }
-  $('result').classList.remove('err');
- } catch (error) { $('result').textContent = error.message; $('result').classList.add('err'); }
-}
-document.querySelectorAll('input').forEach(e => e.addEventListener('input', update));
-document.querySelectorAll('select').forEach(e => e.addEventListener('change', update));
-document.querySelectorAll('[data-distance]').forEach(e => e.addEventListener('click', () => { $('distance').value = e.dataset.distance; update(); }));
-update();
-</script></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/pace/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/pace/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/pace/">https://keisan.masumedo.com/tools/pace/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

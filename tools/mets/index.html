@@ -1,51 +1,13 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>消費カロリーの計算(METs)|運動・ウォーキングのkcal | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/mets/">
-<meta name="description" content="体重・運動の強さ(METs)・時間から消費カロリー(kcal)の目安を計算。歩行・ジョギング・自転車・水泳・ラジオ体操・掃除機がけなどを一覧から選べ、安静時を除いた運動で増えた分も表示します。">
-<link rel="stylesheet" href="../../assets/style.css"><script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"消費カロリーの計算(METs)","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/mets/"}]}</script>
-</head><body>
-<header><a class="site" href="../../">くらしの計算室</a><nav class="crumb"><a href="../../">トップ</a> › 消費カロリーの計算(METs)</nav></header>
-<main><h1>消費カロリーの計算(METs)</h1><p>体重・運動・時間を入れると、消費カロリーと、安静時を除いた運動で増えた分の目安を表示します。入力は端末の中だけで計算し、どこにも送信しません。</p>
-<section class="card" aria-labelledby="settings"><h2 id="settings">体重と運動を入力</h2>
-<div class="row"><label for="weight">体重(kg)</label><input id="weight" class="amt" type="text" inputmode="decimal" value="60" autocomplete="off"></div>
-<div class="row"><label for="activity">運動の一覧</label><select id="activity"></select></div>
-<div class="row"><label for="mets">運動の強さ(METs)</label><input id="mets" class="amt" type="text" inputmode="decimal" value="3.0" autocomplete="off"></div>
-<div class="row"><label for="minutes">時間(分)</label><input id="minutes" class="amt" type="text" inputmode="numeric" value="30" autocomplete="off"></div>
-<p class="note">体重20〜300kg、METs 1.0〜23.0は小数第1位まで。時間は1〜1440分の整数です。結果は小数第1位に四捨五入します。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
-<p>消費カロリー(kcal) = 1.05 × METs × 時間(時) × 体重(kg)。運動で増えた分はMETsから1を引いて計算します。</p>
-<p class="note">結果は目安であり、体格・年齢・体力で変わります。持病のある方や妊娠中の方は運動の前に医師に相談してください。病気の診断・治療ではありません。</p>
-<p class="note">運動の一覧の値: 厚生労働省「生活活動のメッツ表」「運動のメッツ表」(国立健康・栄養研究所 改訂版「身体活動のメッツ(METs)表」より改変)。一覧にない運動は METs を直接入力できます。</p></section>
-<p>くわしい説明: <a href="../../guides/mets.html">METsと消費カロリーの計算式</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../energy/">カロリーとジュールの換算</a> — kcal・kJ・J・Wh・kWhを相互に換算</li>
-<li><a href="../bmi/">BMIと標準体重</a> — 身長と体重からBMI・判定・標準体重を計算</li>
-<li><a href="../percent/">パーセント計算</a> — 割合・何%・増減率・◯%増しと◯%減らし</li>
-</ul>
-</section>
-<!-- related:end -->
-</main><footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p></footer>
-<script type="module">
-import { calculateMets, ACTIVITIES } from "./mets.js";
-const $ = id => document.getElementById(id);
-for (const a of ACTIVITIES) $("activity").add(new Option(`${a.name} (${a.mets}METs)`, a.mets));
-$("activity").add(new Option("直接入力", "custom"));
-function update() {
-  try {
-    const r = calculateMets($("weight").value, $("mets").value, $("minutes").value);
-    $("result").textContent = `消費カロリー: ${r.total}kcal / 運動で増えた分: ${r.extra}kcal`;
-    $("result").classList.remove("err");
-  } catch (error) { $("result").textContent = error.message; $("result").classList.add("err"); }
-}
-$("activity").addEventListener("change", () => {
-  if ($("activity").value !== "custom") $("mets").value = $("activity").value;
-  update();
-});
-$("mets").addEventListener("input", () => { $("activity").value = "custom"; update(); });
-for (const id of ["weight", "minutes"]) $(id).addEventListener("input", update);
-update();
-</script></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/mets/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/mets/">
+</head>
+<body>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/mets/">https://keisan.masumedo.com/tools/mets/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
+</body>
+</html>

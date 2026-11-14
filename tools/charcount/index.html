@@ -3,59 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>文字数カウント|空白・改行を除く文字数と原稿用紙の枚数 | くらしの計算室</title>
-<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/tools/charcount/">
-<meta name="description" content="文章を貼り付けるだけで、空白を含む・含まない文字数、改行の数、行数、原稿用紙(400字詰め)の枚数、UTF-8のバイト数を数える無料ツール。絵文字も1文字と数えます。文章は送信しません。">
-<link rel="stylesheet" href="../../assets/style.css">
-<style>textarea { width: 100%; min-width: 0; padding: 8px; font: inherit; color: var(--text); background: var(--card); border: 1px solid var(--border); border-radius: 6px; resize: vertical; } #result { white-space: pre-line; }</style>
-<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"文字数カウント","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/charcount/"}]}</script>
+<title>くらしの計算室は移転しました</title>
+<link rel="canonical" href="https://keisan.masumedo.com/tools/charcount/">
+<meta http-equiv="refresh" content="0; url=https://keisan.masumedo.com/tools/charcount/">
 </head>
 <body>
-<header>
-  <a class="site" href="../../">くらしの計算室</a>
-  <nav class="crumb"><a href="../../">トップ</a> › 文字数カウント</nav>
-</header>
-<main>
-<h1>文字数カウント</h1>
-<p>文章を入れると、入力のたびに文字数・改行の数・行数・原稿用紙の枚数・UTF-8のバイト数を数えます。入力した文章は、お使いの端末の中だけで数え、どこにも送信・保存しません。</p>
-<section class="card" aria-labelledby="settings">
-<h2 id="settings">文章を入力</h2>
-<label for="text">数えたい文章</label>
-<textarea id="text" rows="8" autocomplete="off" spellcheck="false" aria-describedby="rules"></textarea>
-<p class="note" id="rules">改行は文字数に入れません。「空白を含まない文字数」では、半角・全角の空白とタブも除きます。絵文字や濁点を組み合わせた文字は1文字と数えます。原稿用紙の枚数は「空白を含む文字数 ÷ 400」の目安です(改行による余白は含みません)。</p>
-<div id="result" class="result" aria-live="polite" aria-atomic="true"></div>
-</section>
-<p>くわしい説明: <a href="../../guides/charcount.html">文字数の数え方と原稿用紙の枚数</a></p>
-<!-- related:start -->
-<section class="related" aria-labelledby="related">
-<h2 id="related">関連するツール</h2>
-<ul class="tools">
-<li><a href="../zenkaku/">全角・半角の変換</a> — 英数字・記号・カタカナの全角と半角を、種類を選んで変換</li>
-<li><a href="../wareki/">和暦・西暦の変換と年齢の計算</a> — 令和・平成・昭和などと西暦を変換し、満年齢も表示</li>
-<li><a href="../days/">日数・営業日の計算</a> — ◯日後・期間の日数・土日祝を除く営業日</li>
-<li><a href="../youshi/">用紙サイズと拡大縮小率</a> — A0〜A6・JIS B0〜B6・はがきの寸法とコピー倍率</li>
-</ul>
-</section>
-<!-- related:end -->
-</main>
-<footer><p><a href="../../">トップ</a> ・ <a href="../../privacy.html">プライバシーポリシー</a></p><p>提出先によって数え方(空白・改行・記号の扱い)が決められている場合は、その決まりも確認してください。</p></footer>
-<script type="module">
-import { countCharacters } from "./charcount.js";
-const input = document.getElementById("text");
-const result = document.getElementById("result");
-function update() {
-  try {
-    const r = countCharacters(input.value);
-    const pages = Number(r.manuscriptPages.toFixed(2));
-    result.textContent = `空白を含む文字数: ${r.withSpaces.toLocaleString("ja-JP")}文字\n空白を含まない文字数: ${r.withoutSpaces.toLocaleString("ja-JP")}文字\n改行の数: ${r.newlines}個\n行数: ${r.lines}行\n原稿用紙(400字詰め): 約${pages}枚\nUTF-8: ${r.utf8Bytes.toLocaleString("ja-JP")}バイト`;
-    result.classList.remove("err");
-  } catch (error) {
-    result.textContent = error.message;
-    result.classList.add("err");
-  }
-}
-input.addEventListener("input", update);
-update();
-</script>
+<p>くらしの計算室は <a href="https://keisan.masumedo.com/tools/charcount/">https://keisan.masumedo.com/tools/charcount/</a> へ移転しました。自動で移動しない場合は、リンクを押してください。</p>
 </body>
 </html>
