@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>100V・15Aは何ワット? 1,500Wの目安と計算 | くらしの計算室</title>
+<link rel="canonical" href="https://ramirobo2-debug.github.io/kurashi-keisan/guides/ampere.html">
+<meta name="description" content="W=V×Aの式を使い、100V・15Aが1,500Wになる関係を解説します。家庭の100Vと200V、複数の家電を使うときの合計、力率による違い、契約アンペアと回路のブレーカーの役割、コンセントの容量の確かめ方を紹介します。">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json" data-gen="seo">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"くらしの計算室","item":"https://ramirobo2-debug.github.io/kurashi-keisan/"},{"@type":"ListItem","position":2,"name":"ワットとアンペアの換算","item":"https://ramirobo2-debug.github.io/kurashi-keisan/tools/ampere/"},{"@type":"ListItem","position":3,"name":"解説","item":"https://ramirobo2-debug.github.io/kurashi-keisan/guides/ampere.html"}]}</script>
+</head><body><header><a class="site" href="../">くらしの計算室</a><nav class="crumb"><a href="../">トップ</a> › <a href="../tools/ampere/">ワットとアンペアの換算</a> › 解説</nav></header>
+<main><h1>100V・15Aと1,500Wの関係</h1><p><a href="../tools/ampere/">ワットとアンペアの換算ツール</a>で、家電の電力の合計と電流を確認できます。</p>
+<section class="card"><h2>W=V×Aで電力と電流を換算</h2><p>力率を1とすると、電力W＝電圧V×電流Aです。電流はW÷Vで、100V・1200Wなら12A。1500Wと800Wを同時に使うと合計2,300W、100Vでは23Aです。200V・2000Wなら10Aになります。</p><p>逆算では15A×100V＝1,500Wです。日本の家庭のコンセントは100Vが一般的で、一部のエアコンなどには200Vも使われます。機器に合う電圧を確認してください。</p><p class="note">交流で力率が1でない機器の電流は、単純なW÷Vと異なります。モーターや電子レンジなどは表示のワット数より多く流れることがあります。実際の定格電流や消費電力は機器の表示・取扱説明書を確認してください。</p></section>
+<section class="card"><h2>コンセントと回路の容量</h2><p>家電メーカーの案内では、一般的なコンセントに流せる電流は15Aまでで、1つのコンセントで合計1,500Wまで使えるとされています(100V×15A＝1,500W)。複数のコンセントがつながる回路のブレーカーは20A(2,000W)が一般的とされています。実際の上限はコンセント、電源タップ、機器の表示や取扱説明書で確認してください。差込口が複数あっても、それぞれで上限まで使えるとは限りません。</p><p>分電盤では、契約に対応するブレーカーなどが家全体の使用を制限し、回路ごとの安全ブレーカーはその回路に過大な電流が流れると電気を切ります。同じ回路につながる別のコンセントも合算されるため、契約30Aに23Aが収まっていても、特定の回路やコンセントの容量を超えることがあります。漏電を検知するブレーカーもあり、役割は異なります。</p><p class="note">契約や配線方式によって制限の仕組みは異なります。この換算は力率1の目安で、設備の安全やブレーカーが落ちないことを保証するものではありません。</p><p class="note">出典: パナソニックのサポートページ「家電の基本」(コンセントの15A・1,500W、回路の20A・2,000W)</p></section>
+<section class="card"><h2>よくある質問</h2><h3>200Vなら同じワット数で電流が半分になりますか?</h3><p>この式では半分です。ただし100V用の機器を200Vに接続してはいけません。機器の対応電圧に合わせます。</p><h3>200Vの機器は契約アンペアにどう数えますか?</h3><p>アンペア契約の容量は、契約アンペア×100Vで表されます(30Aなら3kVA)。このツールは合計ワットを100Vで割った100V換算の電流で比べるので、200V・4,000Wの機器は電流20Aでも、契約との比較では40Aとして扱い、30Aを超えると表示します。</p><h3>契約アンペアとの比較は丸めた値ですか?</h3><p>丸める前の電流で比較します。表示は小数第1位まで四捨五入し、正の電流が丸めて0.0Aになる場合は「0.1A未満」と表示します。</p><h3>家電を複数入力できますか?</h3><p>行を追加して同時に使う家電を入力できます。100V・1500Wと800Wなら23Aで、比較欄が30Aなら収まる、20Aなら超えると表示します。</p><h3>ワット数から電気代も分かりますか?</h3><p>使う時間と料金単価が必要です。<a href="../tools/denki/">電気代の計算</a>で確認できます。</p></section>
+<p><a href="../tools/ampere/">ワットとアンペアを換算する</a></p>
+<!-- related:start -->
+<section class="related" aria-labelledby="related">
+<h2 id="related">関連するツール</h2>
+<ul class="tools">
+<li><a href="../tools/denki/">電気代の計算</a> — 消費電力と使う時間から、1時間・1日・1か月・1年の電気代</li>
+<li><a href="../tools/energy/">カロリーとジュールの換算</a> — kcal・kJ・J・Wh・kWhを相互に換算</li>
+<li><a href="../tools/fukai-shisu/">不快指数</a> — 30℃・70%なら81.4。気温と湿度から8段階の体感の目安</li>
+</ul>
+</section>
+<!-- related:end -->
+</main><footer><p><a href="../">トップ</a> ・ <a href="../privacy.html">プライバシーポリシー</a></p></footer></body></html>
